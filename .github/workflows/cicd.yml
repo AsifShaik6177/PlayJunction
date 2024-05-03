@@ -1,44 +1,120 @@
-name: Deploy to Azure App Service - Play Junction
+name: Build and deploy Node.js app to Azure Web App - DevOpsExampleProject
 
 on:
   push:
-    branches: 
+    branches:
       - master
   workflow_dispatch:
+    inputs:
+      deploy-to-production:
+        description: 'Deploy to production'
+        required: true
+        default: 'false'
+      deploy-to-test:
+        description: 'Deploy to test'
+        required: true
+        default: 'false'
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v4
-        with: 
-          node-version: '18.x'
-        
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
       - name: npm install, build, and test  
         run: |  
           npm install && npm i -g nx && nx run-many --target=build --projects=play-junction-be,play-junction-fe
            
-
-      - name: Upload artifact for deployment job  
-        uses: actions/upload-artifact@v3  
-        with:  
-            name: node-app  
-            path: dist
-           
-      - name: Download artifact from build job  
-        uses: actions/download-artifact@v3  
-        with:  
+      
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
           name: node-app
+          path: dist
+
+  deploy-develop:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Develop'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: node-app
+      
+      - name: 'Deploy to Azure Web App (Develop)'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Pla-Junction-Development'
+          slot-name: 'Production'
+          package: .
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEVELOPMENT }}
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    needs: deploy-develop
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy-to-test == 'true'
+    environment:
+      name: 'Test'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
+    steps:
+    - name: Manual approval
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "Approve deployment to test"
+        echo "To approve, set 'deploy-to-test' input to 'true' in the workflow dispatch event."
+        echo "Input value for deploy-to-test: ${{ github.event.inputs.deploy-to-test }}"
           
-      - name: 'Deploy to Azure Web App'  
-        id: deploy-to-webapp  
-        uses: azure/webapps-deploy@v2  
-        with:  
-          app-name: 'Pla-Junction'  
-          slot-name: 'Production'  
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  
-          package: .  
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: node-app
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy-to-test == 'true'
+      
+    - name: 'Deploy to Azure Web App (Test)'
+      uses: azure/webapps-deploy@v2
+      id: deploy-to-webapp
+      with:
+        app-name: 'Pla-Junction-Test'
+        slot-name: 'Production'
+        package: .
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_TEST }}  
+          
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: deploy-test
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy-to-production == 'true'
+    environment:
+      name: 'Production'
+    
+    steps:
+      - name: Manual approval
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "Approve deployment to production"
+          echo "To approve, set 'deploy-to-production' input to 'true' in the workflow dispatch event."
+          echo "Input value for deploy-to-production: ${{ github.event.inputs.deploy-to-production }}"
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: node-app
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy-to-production == 'true'
+      
+      - name: 'Deploy to Azure Web App (Production)'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Pla-Junction'
+          slot-name: 'Production'
+          package: .
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
