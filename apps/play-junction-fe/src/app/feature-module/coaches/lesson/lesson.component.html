@@ -1,0 +1,38 @@
+<router-outlet>
+<!-- Breadcrumb -->
+<div class="breadcrumb mb-0">
+  <span class="primary-right-round"></span>
+  <div class="container">
+      <h1 class="text-white">Book A Coach</h1>
+      <ul>
+          <li><a [routerLink] = "routes.home">Home</a></li>
+          <li>Book A Coach</li>
+      </ul>
+  </div>
+</div>
+<!-- /Breadcrumb -->
+<section class="booking-steps py-30">
+  <div class="container">
+      <ul class="d-lg-flex justify-content-center align-items-center">
+          <li routerLinkActive="active" >
+              <h5><a [routerLink] = "routes.coachDetails"><span>1</span>Type of Booking</a></h5>
+          </li>
+          <li routerLinkActive="active">
+              <h5><a [routerLink] = "routes.lessonTypes"><span>2</span>Lesson Type</a></h5>
+          </li>
+          <li routerLinkActive="active">
+              <h5><a [routerLink] = "routes.lessonTimedate"><span>3</span>Time & Date</a></h5>
+          </li>
+          <li routerLinkActive="active">
+              <h5><a [routerLink] = "routes.lessonPersonalInfo"><span>4</span>Personal Information</a></h5>
+          </li>
+          <li routerLinkActive="active">
+              <h5><a [routerLink] = "routes.lessonOrderConfirm"><span>5</span>Order Confirmation</a></h5>
+          </li>
+          <li routerLinkActive="active">
+              <h5><a [routerLink] = "routes.lessonPayment"><span>6</span>Payment</a></h5>
+          </li>
+      </ul>
+  </div>
+</section>
+</router-outlet>

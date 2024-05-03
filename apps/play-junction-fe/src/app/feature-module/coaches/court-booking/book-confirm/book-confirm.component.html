@@ -1,0 +1,113 @@
+		<!-- Page Content -->
+		<div class="content book-cage">
+			<div class="container">
+				<section class="card mb-40">
+				<div class="text-center mb-40">
+					<h3 class="mb-1">Order Confirmation</h3>
+					<p class="sub-title mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</div>
+				<div class="master-academy dull-whitesmoke-bg card">
+					<div class="row d-flex align-items-center justify-content-center">
+					  <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+						<div class="d-sm-flex justify-content-start align-items-center">
+						  <a href="javascript:void(0);"
+							><img
+							  class="corner-radius-10"
+							  src="{{eventDetails.gallery[0]}}"
+							  alt=""
+						  /></a>
+						  <div class="info">
+							<div
+							  class="d-flex justify-content-start align-items-center mb-3"
+							>
+							  <span
+								class="text-white dark-yellow-bg color-white me-2 d-flex justify-content-center align-items-center"
+								>{{eventDetails.points}}</span
+							  >
+							  <span>{{eventDetails.reviews}} Reviews</span>
+							</div>
+							<h3 class="mb-2">{{eventDetails.eventName}}</h3>
+							<p>
+							  {{eventDetails.overview}}
+							</p>
+						  </div>
+						</div>
+					  </div>
+					  <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+						<ul class="d-sm-flex align-items-center justify-content-evenly">
+						  <li>
+							<h3 class="d-inline-block">${{eventDetails.venuePrice}}</h3>
+							<span>/hr</span>
+							<p>up to 1 guests</p>
+						  </li>
+						  <!-- <li>
+							<span><i class="feather icon-plus"></i></span>
+						  </li>
+						  <li>
+							<h3 class="d-inline-block">$5</h3>
+							<span>/hr</span>
+							<p>each  <br />up to 4 guests max</p>
+						  </li> -->
+						</ul>
+					  </div>
+					</div>
+				  </div>
+				</section>
+				<section class="card booking-order-confirmation">
+				<h5 class="mb-3">Booking Details</h5>
+				<ul class="booking-info d-lg-flex justify-content-between align-items-center">
+					<li>
+						<h6>Event Name</h6>
+						<p>SE League</p>
+					</li>
+					<li>
+						<h6>Appointment Date</h6>
+						<p>{{bookingDate | date: 'fullDate'}}</p>
+					</li>
+					<li>
+						<h6>Appointment Start time</h6>
+						<p>12:00</p>
+					</li>
+					<li>
+						<h6>Appointment End time</h6>
+						<p>13:00</p>
+					</li>
+				</ul>
+				<h5 class="mb-3">Contact  Information</h5>
+				<ul class="contact-info d-lg-flex justify-content-start align-items-center">
+					<li>
+						<h6>Name</h6>
+						<p>{{userData.name}}</p>
+					</li>
+					<li>
+						<h6>Contact Email Address</h6>
+						<p>{{userData.email}}</p>
+					</li>
+					<li>
+						<h6>Phone Number</h6>
+						<p>{{userData.phoneNumber}}</p>
+					</li>
+				</ul>
+				<h5 class="mb-3">Payment Information</h5>
+				<ul class="payment-info d-lg-flex justify-content-start align-items-center">
+					<li>
+						<h6>Court Price</h6>
+						<p class="primary-text">$10</p>
+					</li>
+					<li>
+						<h6>No of hours</h6>
+						<p class="primary-text">1</p>
+					</li>
+					<li>
+						<h6>Subtotal</h6>
+						<p class="primary-text">$10</p>
+					</li>
+				</ul>
+				</section>
+				<div class="text-center btn-row">
+				<a class="btn btn-secondary btn-icon" (click)="nextConfirmation()">Next <i class="feather icon-arrow-right-circle ms-1"></i></a>
+				</div>
+			</div>
+			<!-- /Container -->
+		</div>
+		<!-- /Page Content -->

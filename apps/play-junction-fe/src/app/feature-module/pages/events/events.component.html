@@ -1,0 +1,42 @@
+
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <section class="services">
+      <div class="row">
+        @for (data of events; track data) {
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="listing-item">
+              <div class="listing-img">
+                <a [routerLink]="routes.eventdetails">
+                  <img [src]="data.img" class="img-fluid" alt="event-01">
+                </a>
+                <div class="date-info text-center">
+                  <h2>{{data.date}}</h2>
+                  <h6>{{data.month}},{{data.year}}</h6>
+                </div>
+              </div>
+              <div class="listing-content">
+                <ul class="d-flex justify-content-start align-items-center">
+                  <li>
+                    <i class="feather icon-clock"></i>{{data.time}}
+                  </li>
+                  <li>
+                    <i class="feather icon-map-pin"></i>{{data.address}}
+                  </li>
+                </ul>
+                <h4 class="listing-title">
+                  <a [routerLink]="routes.eventdetails">{{data.event}}</a>
+                </h4>
+              </div>
+            </div>
+          </div>
+        }
+
+      </div>
+    </section>
+  </div>
+
+</div>
+<!-- /Page Content -->

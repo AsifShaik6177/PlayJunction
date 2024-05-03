@@ -1,0 +1,94 @@
+
+
+
+		<!-- Page Content -->
+		<div class="content court-bg">
+			<div class="container">
+
+				<div class="coach-court-list profile-court-list">
+					<ul class="nav">
+						<li><a  [routerLink]="routes.coach_profile_edit">Profile</a></li>
+						<li><a class="active" [routerLink]="routes.coach_setting_lesson">Lesson</a></li>
+						<li><a [routerLink]="routes.coach_setting_availability">Availability</a></li>
+						<li><a [routerLink]="routes.coach_setting_password">Change Password</a></li>
+						<li><a [routerLink]="routes.coach_other_setting">Other Settings</a></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="profile-detail-group">
+							<div class="card ">
+								<div class="preference-head">
+									<h4>Choose your Preferences</h4>
+								</div>
+								<div class="prefer-role">
+									<div class="prefer-list">
+										<div class="role-selection active">
+											<label>
+												<span class="role-name">Single Lesson</span>
+												<span class="role-check"><i class="fa-solid fa-circle-check"></i></span>
+											</label>
+										</div>
+										<div class="less-info">
+											<h6>3 Days * 1 hour  <span>&#64; $10.00</span></h6>
+										</div>
+									</div>
+									<div class="interset-btn">
+										<div class="status-toggle d-inline-flex align-items-center">
+											<input type="checkbox" id="status_1" class="check">
+											<label for="status_1" class="checktoggle">checkbox</label>
+										</div>
+									</div>
+								</div>
+								<div class="prefer-role">
+									<div class="prefer-list">
+										<div class="role-selection">
+											<label>
+												<span class="role-name">2 Player Lesson</span>
+												<span class="role-check"><i class="fa-solid fa-circle-check"></i></span>
+											</label>
+										</div>
+										<div class="less-info">
+											<h6>4 Days * 1 hour <span>$10.00</span></h6>
+											<p>*2 players of similar age and ability</p>
+										</div>
+									</div>
+									<div class="interset-btn">
+										<div class="status-toggle d-inline-flex align-items-center">
+											<input type="checkbox" id="status_2" class="check">
+											<label for="status_2" class="checktoggle">checkbox</label>
+										</div>
+									</div>
+								</div>
+								<div class=" prefer-role">
+									<div class="prefer-list">
+										<div class="role-selection">
+											<label>
+												<span class="role-name">Group Lesson</span>
+												<span class="role-check"><i class="fa-solid fa-circle-check"></i></span>
+											</label>
+										</div>
+										<div class="less-info">
+											<h6>2 Days * 1 hour &#64; <span>$10.00</span></h6>
+											<p> *4 players of similar age and ability</p>
+										</div>
+									</div>
+									<div class="interset-btn">
+										<div class="status-toggle d-inline-flex align-items-center">
+											<input type="checkbox" id="status_3" class="check" checked>
+											<label for="status_3" class="checktoggle">checkbox</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="save-changes text-end">
+								<a href="javascript:void(0);" class="btn btn-primary reset-profile">Reset</a>
+								<a href="javascript:void(0);" class="btn btn-secondary save-profile">Save Change</a>
+							</div>
+						</div>
+					</div>
+				</div>	
+
+			</div>
+		</div>
+		<!-- /Page Content -->

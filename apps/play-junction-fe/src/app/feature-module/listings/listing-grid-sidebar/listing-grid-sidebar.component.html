@@ -1,0 +1,773 @@
+<!-- Breadcrumb -->
+<section class="breadcrumb breadcrumb-list mb-0">
+  <span class="primary-right-round"></span>
+  <div class="container">
+    <h1 class="text-white">Venue Grid With Sidebar</h1>
+    <ul>
+      <li><a [routerLink]="routes.home">Home</a></li>
+      <li>Venue Grid With Sidebar</li>
+    </ul>
+  </div>
+</section>
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content listing-page">
+  <div class="container">
+    <!-- Sort By -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sortby-section">
+          <div class="sorting-info">
+            <div class="row d-flex align-items-center">
+              <div class="col-xl-4 col-lg-3 col-sm-12 col-12">
+                <div class="count-search">
+                  <p> <span>400</span> venues are listed </p>
+                </div>
+              </div>
+              <div class="col-xl-8 col-lg-9 col-sm-12 col-12">
+                <div class="sortby-filter-group">
+                  <div class="grid-listview">
+                    <ul class="nav">
+                      <li>
+                        <span>View as</span>
+                      </li>
+                      <li>
+                        <a
+                          [routerLink]="routes.listinggridsidebar"
+                          class="active"
+                          >
+                          <img src="assets/img/icons/sort-01.svg" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a [routerLink]="routes.listinglistsidebar">
+                          <img src="assets/img/icons/sort-02.svg" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a [routerLink]="routes.listingmapsidebar">
+                          <img src="assets/img/icons/sort-03.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sortbyset">
+                    <span class="sortbytitle">Sort By</span>
+                    <div class="sorting-select">
+                      <mat-select
+                        
+                        
+                        [(ngModel)]="selectedValue1"
+                        [ngModelOptions]="{ standalone: true }"
+                        class="select"
+                        placeholder="Relevance"
+                        >
+                        @for (data of selectedList1; track data) {
+                          <mat-option
+                            [value]="data.value"
+                            >
+                            {{ data.value }}
+                          </mat-option>
+                        }
+                      </mat-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sort By -->
+
+    <!-- Listing Content Group-->
+    <div class="listing-list-sidebar">
+      <div class="row">
+        <div class="col-lg-4 theiaStickySidebar">
+          <div class="stickybar">
+            <div class="listing-filter-group listing-item">
+              <form action="#" autocomplete="off" class="listing-content">
+                <!-- Customer -->
+                <div class="sidebar-heading">
+                  <h3>Advanced <span>Search</span></h3>
+                  <p><a href="javascript:void(0);">Clear All</a></p>
+                </div>
+                <div class="listing-search">
+                  <div class="form-custom">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="member_search1"
+                      placeholder="What are you looking for"
+                      />
+                      <button class="btn">
+                        <span><i class="feather-search"></i></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="accordion" id="accordionMain1">
+                    <div class="card-header-new" id="headingOne">
+                      <h5 class="filter-title">
+                        <a
+                          href="javascript:void(0);"
+                          class="w-100"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                          >
+                          Lesson type
+                          <span class="accordion-arrow"
+                            ><i class="fa-solid fa-chevron-down"></i
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      class="collapse show"
+                      aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample1"
+                      >
+                      <div class="card-body-chat">
+                        <div class="sorting-select">
+                          <span><i class="feather-list"></i></span>
+                          <mat-select
+                            
+                            
+                            [(ngModel)]="selectedValue2"
+                            [ngModelOptions]="{ standalone: true }"
+                            class="select"
+                            placeholder="Lesson 1"
+                            >
+                            @for (data of selectedList2; track data) {
+                              <mat-option
+                                [value]="data.value"
+                                >
+                                {{ data.value }}
+                              </mat-option>
+                            }
+                          </mat-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Customer -->
+
+                  <div class="accordion" id="accordionMain2">
+                    <div class="card-header-new" id="headingTwo">
+                      <h5 class="filter-title">
+                        <a
+                          href="javascript:void(0);"
+                          class="w-100 collapsed"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwo"
+                          aria-expanded="true"
+                          aria-controls="collapseTwo"
+                          >
+                          Location
+                          <span class="accordion-arrow"
+                            ><i class="fa-solid fa-chevron-down"></i
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      class="collapse"
+                      aria-labelledby="headingTwo"
+                      data-bs-parent="#accordionExample2"
+                      >
+                      <div class="card-body-chat">
+                        <div class="sorting-select">
+                          <span><i class="feather-map-pin"></i></span>
+                          <mat-select
+                            
+                            
+                            [(ngModel)]="selectedValue3"
+                            [ngModelOptions]="{ standalone: true }"
+                            class="select"
+                            placeholder="Select Location"
+                            >
+                            @for (data of selectedList3; track data) {
+                              <mat-option
+                                [value]="data.value"
+                                >
+                                {{ data.value }}
+                              </mat-option>
+                            }
+                          </mat-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- By Status -->
+                  <div class="accordion" id="accordionMain3">
+                    <div class="card-header-new" id="headingThree">
+                      <h5 class="filter-title">
+                        <a
+                          href="javascript:void(0);"
+                          class="w-100 collapsed"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseThree"
+                          aria-expanded="true"
+                          aria-controls="collapseThree"
+                          >
+                          Radius
+                          <span class="accordion-arrow"
+                            ><i class="fa-solid fa-chevron-down"></i
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="collapseThree"
+                      class="collapse"
+                      aria-labelledby="headingThree"
+                      data-bs-parent="#accordionExample3"
+                      >
+                      <div class="card-body-chat">
+                        <div class="filter-range">
+                          <mat-slider min="0" max="100"  discrete [displayWith]="formatLabel">
+                            <input value="50" matSliderThumb>
+                          </mat-slider>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /By Status -->
+
+                  <!-- Category -->
+                  <div class="accordion" id="accordionMain4">
+                    <div class="card-header-new" id="headingFour">
+                      <h5 class="filter-title">
+                        <a
+                          href="javascript:void(0);"
+                          class="w-100 collapsed"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseFour"
+                          aria-expanded="true"
+                          aria-controls="collapseFour"
+                          >
+                          Price Range
+                          <span class="accordion-arrow"
+                            ><i class="fa-solid fa-chevron-down"></i
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="collapseFour"
+                      class="collapse"
+                      aria-labelledby="headingFour"
+                      data-bs-parent="#accordionExample4"
+                      >
+                      <div class="card-body-chat range-price">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="form-custom">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter Min Price"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-custom">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Enter Max Price"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Category -->
+
+                      <!-- Guests -->
+                      <div class="accordion" id="accordionMain5">
+                        <div class="card-header-new" id="headingFive">
+                          <h5 class="filter-title">
+                            <a
+                              href="javascript:void(0);"
+                              class="w-100 collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseFive"
+                              aria-expanded="true"
+                              aria-controls="collapseFive"
+                              >
+                              Guests
+                              <span class="accordion-arrow"
+                                ><i class="fa-solid fa-chevron-down"></i
+                              ></span>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseFive"
+                          class="collapse"
+                          aria-labelledby="headingFive"
+                          data-bs-parent="#accordionExample5"
+                          >
+                          <div class="card-body-chat">
+                            <div id="checkBoxes5">
+                              <div class="selectBox-cont">
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>0-2
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span> 2-4
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span> 4-5
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span> More than 5+
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Guests -->
+
+                      <!-- Reviews -->
+                      <div class="accordion" id="accordionMain6">
+                        <div class="card-header-new" id="headingSix">
+                          <h5 class="filter-title">
+                            <a
+                              href="javascript:void(0);"
+                              class="w-100 collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseSix"
+                              aria-expanded="true"
+                              aria-controls="collapseSix"
+                              >
+                              Reviews
+                              <span class="accordion-arrow"
+                                ><i class="fa-solid fa-chevron-down"></i
+                              ></span>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseSix"
+                          class="collapse"
+                          aria-labelledby="headingSix"
+                          data-bs-parent="#accordionExample6"
+                          >
+                          <div class="card-body-chat">
+                            <div id="checkBoxes4">
+                              <div class="selectBox-cont">
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled"></i>
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled"></i>
+                                  <i class="fas fa-star filled"></i>
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled text-warning"></i>
+                                  <i class="fas fa-star filled"></i>
+                                  <i class="fas fa-star filled"></i>
+                                </label>
+                                <div class="view-content">
+                                  <div class="viewall-Two">
+                                    <label class="custom_check w-100">
+                                      <input type="checkbox" name="username" />
+                                      <span class="checkmark"></span>
+                                      <i class="fas fa-star filled text-warning"></i>
+                                      <i class="fas fa-star filled"></i>
+                                      <i class="fas fa-star filled"></i>
+                                      <i class="fas fa-star filled"></i>
+                                      <i class="fas fa-star filled"></i>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Reviews -->
+
+                      <!-- Amenities -->
+                      <div class="accordion" id="accordionMain7">
+                        <div class="card-header-new" id="headingSeven">
+                          <h5 class="filter-title">
+                            <a
+                              href="javascript:void(0);"
+                              class="w-100 collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseSeven"
+                              aria-expanded="true"
+                              aria-controls="collapseSeven"
+                              >
+                              Availability
+                              <span class="accordion-arrow"
+                                ><i class="fa-solid fa-chevron-down"></i
+                              ></span>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseSeven"
+                          class="collapse"
+                          aria-labelledby="headingSeven"
+                          data-bs-parent="#accordionExample7"
+                          >
+                          <div class="card-body-chat datepicker-calendar">
+                            <div id="checkBoxes7">
+                              <div class="selectBox-cont">
+                                <div class="card-body">
+                                  <div
+                                    id="calendar-doctor"
+                                    class="calendar-container"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Amenities -->
+
+                      <!-- Amenities -->
+                      <div class="accordion" id="accordionMain8">
+                        <div class="card-header-new" id="headingEight">
+                          <h5 class="filter-title">
+                            <a
+                              href="javascript:void(0);"
+                              class="w-100 collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseEight"
+                              aria-expanded="true"
+                              aria-controls="collapseEight"
+                              >
+                              Amenities
+                              <span class="accordion-arrow"
+                                ><i class="fa-solid fa-chevron-down"></i
+                              ></span>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseEight"
+                          class="collapse"
+                          aria-labelledby="headingEight"
+                          data-bs-parent="#accordionExample8"
+                          >
+                          <div class="card-body-chat">
+                            <div id="checkBoxes8">
+                              <div class="selectBox-cont">
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>Waiting Area
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>Waiting Area
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>Clothes
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>Wi-fi
+                                </label>
+                                <label class="custom_check w-100">
+                                  <input type="checkbox" name="category" />
+                                  <span class="checkmark"></span>Parking
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Amenities -->
+
+                      <button type="submit" class="search-btn btn w-100 btn-primary">
+                        <span><i class="feather-search me-2"></i></span>Search Now
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Listing Content -->
+                <div class="row justify-content-center">
+                  <!-- Featured Item -->
+                  <div class="col-lg-6 col-md-6">
+                    <div class="featured-venues-item">
+                      <div class="listing-item listing-item-grid">
+                        <div class="listing-img">
+                          <a [routerLink]="routes.venueDetails">
+                            <img src="assets/img/venues/venues-01.jpg" alt="">
+                          </a>
+                          <div class="fav-item-venues">
+                            <span class="tag tag-blue">Featured</span>
+                            <h5 class="tag tag-primary">$300<span>/hr</span></h5>
+                          </div>
+                        </div>
+                        <div class="listing-content">
+                          <div class="list-reviews">
+                            <div class="d-flex align-items-center">
+                              <span class="rating-bg">4.2</span><span>300 Reviews</span>
+                            </div>
+                            <a href="javascript:void(0)" class="fav-icon"  (click)="toggleClass(0)" [ngClass]="{'selected': isClassAdded[0]}">
+                              <i class="feather icon-heart"></i>
+                            </a>
+                          </div>
+                          <h3 class="listing-title">
+                            <a [routerLink]="routes.venueDetails">Sarah Sports Academy</a>
+                          </h3>
+                          <div class="listing-details-group">
+                            <p>Elevate your athletic journey at Sarah Sports Academy, where excellence meets opportunity.</p>
+                            <ul>
+                              <li>
+                                <span>
+                                  <i class="feather icon-map-pin"></i>Port Alsworth, AK
+                                </span>
+                              </li>
+                              <li>
+                                <span>
+                                  <i class="feather icon-calendar"></i>Next availablity : <span class="primary-text">21 May 2023</span>
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="listing-button">
+                            <div class="listing-venue-owner">
+                              <a class="navigation">
+                                <img src="assets/img/profiles/avatar-01.jpg" alt="">Mart Sublin
+                              </a>
+                            </div>
+                            <a [routerLink]="routes.venueDetails" class="user-book-now"><span><i class="feather icon-calendar me-2"></i></span>Book Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Featured Item -->
+
+                  <!-- Featured Item -->
+                  <div class="col-lg-6 col-md-6">
+                    <div class="featured-venues-item">
+                      <div class="listing-item listing-item-grid">
+                        <div class="listing-img">
+                          <a [routerLink]="routes.venueDetails">
+                            <img src="assets/img/venues/venues-02.jpg" class="img-fluid" alt="venues">
+                          </a>
+                          <div class="fav-item-venues">
+                            <span class="tag tag-blue">Top Rated</span>
+                            <h5 class="tag tag-primary">$200<span>/hr</span></h5>
+                          </div>
+                        </div>
+                        <div class="listing-content">
+                          <div class="list-reviews">
+                            <div class="d-flex align-items-center">
+                              <span class="rating-bg">5.0</span><span>150 Reviews</span>
+                            </div>
+                            <a href="javascript:void(0)" class="fav-icon"  (click)="toggleClass(1)" [ngClass]="{'selected': isClassAdded[1]}">
+                              <i class="feather icon-heart"></i>
+                            </a>
+                          </div>
+                          <h3 class="listing-title">
+                            <a [routerLink]="routes.venueDetails">Badminton Academy</a>
+                          </h3>
+                          <div class="listing-details-group">
+                            <p>Unleash your badminton potential at our premier Badminton Academy, where champions are made</p>
+                            <ul>
+                              <li>
+                                <span>
+                                  <i class="feather-map-pin"></i>Sacramento, CA
+                                </span>
+                              </li>
+                              <li>
+                                <span>
+                                  <i class="feather icon-calendar"></i>Next availablity : <span class="primary-text">15 May 2023</span>
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="listing-button">
+                            <div class="listing-venue-owner">
+                              <a class="navigation">
+                                <img src="assets/img/profiles/avatar-02.jpg" alt="">Rebecca
+                              </a>
+                            </div>
+                            <a [routerLink]="routes.venueDetails" class="user-book-now"><span><i class="feather icon-calendar me-2"></i></span>Book Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Featured Item -->
+                  <!-- Featured Item -->
+                  @for (slide of listinggridsidebar; track slide) {
+                    <div
+                      class="col-lg-6 col-md-6"
+                      >
+                      <div class="featured-venues-item">
+                        <div class="listing-item listing-item-grid">
+                          <div class="listing-img">
+                            <a [routerLink]="routes.venueDetails">
+                              <img [src]="slide.img1" alt="" />
+                            </a>
+                            <div class="fav-item-venues">
+                              <h5 class="tag tag-primary">
+                                {{ slide.fees }}<span>{{ slide.time }}</span>
+                              </h5>
+                            </div>
+                          </div>
+                          <div class="listing-content">
+                            <div class="list-reviews">
+                              <div class="d-flex align-items-center">
+                                <span class="rating-bg">{{ slide.points }}</span
+                                  ><span>{{ slide.reviews }}</span>
+                                </div>
+                                <a
+                                  href="javascript:void(0)"
+                                  class="fav-icon"
+                                  (click)="fav(slide)"
+                                  [ngClass]="{ selected: slide.favourite }"
+                                  >
+                                  <i class="feather icon-heart"></i>
+                                </a>
+                              </div>
+                              <h3 class="listing-title">
+                                <a [routerLink]="routes.venueDetails">{{ slide.title }}</a>
+                              </h3>
+                              <div class="listing-details-group">
+                                <p>
+                                  {{ slide.para }}
+                                </p>
+                                <ul>
+                                  <li>
+                                    <span>
+                                      <i class="feather icon-map-pin"></i
+                                        >{{ slide.address }}
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span>
+                                        <i class="feather icon-calendar"></i
+                                          >{{ slide.open }}
+                                          <span class="primary-text">{{ slide.date }}</span>
+                                        </span>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="listing-button">
+                                    <div class="listing-venue-owner">
+                                      <a class="navigation">
+                                        <img [src]="slide.img2" alt="" />{{ slide.name }}
+                                      </a>
+                                    </div>
+                                    <a [routerLink]="routes.venueDetails" class="user-book-now"
+                                      ><span><i class="feather icon-calendar me-2"></i></span
+                                      >{{ slide.select }}
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+                        <!-- /Featured Item -->
+
+                        <!--Pagination-->
+                        <div class="pagination-group">
+                          <nav>
+                            <ul class="pagination page-item justify-content-center">
+                              <li class="previtem">
+                                <a class="page-link" href="javascript:void(0)"
+                                  ><span><i class="feather icon-chevrons-left"></i></span
+                                ></a>
+                              </li>
+                              <li class="justify-content-center pagination-center">
+                                <div class="page-group">
+                                  <ul>
+                                    <li class="page-item">
+                                      <a class="page-link" href="javascript:void(0);"
+                                        ><span><i class="feather icon-chevron-left"></i></span
+                                      ></a>
+                                    </li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="javascript:void(0);">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                      <a class="active page-link" href="javascript:void(0);"
+                                        >2 <span class="visually-hidden">(current)</span></a
+                                        >
+                                      </li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0);">3</a>
+                                      </li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0);">4</a>
+                                      </li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0);"
+                                          ><span><i class="feather icon-chevron-right"></i></span
+                                        ></a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li class="nextlink">
+                                  <a class="page-link" href="javascript:void(0)"
+                                    ><span><i class="feather icon-chevrons-right"></i></span
+                                  ></a>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!--/Pagination-->
+                        </div>
+                        <!-- /Listing Content -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Listing Content Group-->
+                </div>
+              </div>
+              <!-- /Page Content -->

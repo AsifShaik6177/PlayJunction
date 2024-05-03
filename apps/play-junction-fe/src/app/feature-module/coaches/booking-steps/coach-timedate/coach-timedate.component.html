@@ -1,0 +1,195 @@
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <section class="card mb-40">
+      <div class="text-center mb-40">
+        <h3 class="mb-1">Book A Coach</h3>
+        <p class="sub-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="master-academy dull-whitesmoke-bg card">
+        <div class="d-sm-flex justify-content-between align-items-center">
+          <div class="d-sm-flex justify-content-start align-items-center">
+            <a href="javascript:void(0);"><img class="corner-radius-10"
+            src="assets/img/profiles/avatar-02.png" alt=""></a>
+            <div class="info">
+              <div class="d-flex justify-content-start align-items-center mb-3">
+                <span
+                class="text-white dark-yellow-bg color-white me-2 d-flex justify-content-center align-items-center">4.5</span>
+                <span>300 Reviews</span>
+              </div>
+              <h3 class="mb-2">Kevin Anderson</h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+          <div class="white-bg">
+            <p class="mb-1">Starts From</p>
+            <h3 class="d-inline-block primary-text mb-0">$10</h3><span>/hr</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="row text-center">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <div class="card">
+          <section class="booking-date">
+            <div class="list-unstyled date-slider owl-theme mb-40">
+              <owl-carousel-o [options]="coachTimeDateOptions">
+                @for (data of coachTimeDate; track data) {
+                  <ng-template carouselSlide>
+                    <div class="booking-date-item">
+                      <h6>{{data.date}}</h6>
+                      <p>{{data.day}}</p>
+                    </div>
+                  </ng-template>
+                }
+              </owl-carousel-o>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>2:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>2:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>2:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>2:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>3:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>3:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>3:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>3:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>4:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>4:00pm<i class="fa-regular fa-check-circle"></i></span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>4:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>4:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>5:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>5:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active checked">
+                  <span>5:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot">
+                  <span>5:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>6:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>6:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active checked">
+                  <span>6:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>6:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>7:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>7:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active checked">
+                  <span>7:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-4 col-md-3">
+                <div class="time-slot active">
+                  <span>7:00pm</span><i class="fa-regular fa-check-circle"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <aside class="card booking-details">
+          <h3 class="border-bottom">Booking Details</h3>
+          <ul>
+            <li><i class="feather icon-calendar me-2"></i>27, April 2023</li>
+            <li><i class="feather icon-clock me-2"></i>05:00 PM to 07:00 PM</li>
+            <li><i class="feather icon-clock me-2"></i>Total Hour : 3 Hrs</li>
+          </ul>
+          <div class="d-grid btn-block">
+            <button type="button" class="btn btn-primary">Subtotal : $200</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="text-center btn-row">
+      <a class="btn btn-primary me-3 btn-icon" [routerLink]="routes.coachDetails"><i
+      class="feather icon-arrow-left-circle me-1"></i> Back</a>
+      <a class="btn btn-secondary btn-icon" [routerLink]="routes.coachPersonalInfo">Next <i
+      class="feather icon-arrow-right-circle ms-1"></i></a>
+    </div>
+  </div>
+  <!-- /Container -->
+</div>
+<!-- /Page Content -->

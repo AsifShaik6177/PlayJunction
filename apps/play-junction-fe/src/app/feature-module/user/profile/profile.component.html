@@ -1,0 +1,153 @@
+<div class="coach-court-list profile-court-list">
+  <ul class="nav">
+    <li><a class="active" [routerLink]="routes.userProfile">Profile</a></li>
+    <li><a [routerLink]="routes.userChangepassword">Change Password</a></li>
+    <li><a [routerLink]="routes.userOthersettings">Other Settings</a></li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="profile-detail-group">
+      <div class="card ">
+        <form [formGroup]="profileSettingsForm" (ngSubmit)="updateData()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="file-upload-text">
+                <div class="file-upload">
+                  <img src="{{imageUrl}}" class="img-fluid profile-image">
+                  <p *ngIf="imageUrl.length===0">Upload Photo</p>
+                  <span>
+                    <i class="feather icon-edit"></i>
+                    <input type="file" id="file-input" (change)="onFileSelected($event)">
+                  </span>
+                </div>
+                <h5>Upload a logo with a minimum size of 150 * 150 pixels (JPG, PNG, SVG).</h5>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter Email Address" formControlName="email">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number"
+                  [class.invalid]="profileSettingsForm.get('phoneNumber')?.invalid && profileSettingsForm.get('phoneNumber')?.touched"
+                  formControlName="phoneNumber">
+                @if (profileSettingsForm.get('phoneNumber')?.invalid && profileSettingsForm.get('phoneNumber')?.touched)
+                {
+                <div>
+                  @if (profileSettingsForm.get('phoneNumber')?.invalid &&
+                  profileSettingsForm.get('phoneNumber')?.touched) {
+                  <small class="text-danger"> *Phone Number is required</small>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="info-about">
+                <label for="comments" class="form-label">Information about You</label>
+                <textarea class="form-control" id="comments" rows="3" placeholder="About" formControlName="about"></textarea>
+              </div>
+            </div>
+            <div class="address-form-head">
+              <h4>Favourite Sports, Interests</h4>
+            </div>
+            <div class="col-lg-12 col-md-12 skill-summary-block">
+              @for (data of skillSummary; track data) {
+              <div class="col-lg-3 col-md-3">
+                {{data.sportName}} : {{data.skillLevel}}
+              </div>
+              }
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="input-space">
+                <mat-select [(ngModel)]="selectedExpertiseLevel" [ngModelOptions]="{standalone: true}" class="search-box select"
+                  placeholder="Skill Level">
+                  @for (data of expertiseLevels; track data) {
+                  <mat-option [value]="data.value">
+                    {{data.value}}
+                  </mat-option>
+                  }
+                </mat-select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <button [disabled]="selectedSportLevel==='' || selectedExpertiseLevel===''" (click)="addSport()" class="btn btn-secondary register-btn d-inline-flex justify-content-center align-items-center btn-block"
+                type="submit">
+                Add<i class="feather icon-plus ms-2"></i>
+              </button>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="info-about">
+                <label for="comments" class="form-label">Interests</label>
+                <textarea class="form-control" id="comments" rows="3" formControlName="interests"></textarea>
+              </div>
+            </div>
+            <div class="address-form-head">
+              <h4>Address</h4>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="input-space">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter Address" formControlName="address">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space">
+                <label class="form-label">State</label>
+                <input type="text" class="form-control" id="state" placeholder="Enter State" formControlName="state">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter City" formControlName="city">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="input-space">
+                <label class="form-label">Country</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter City" formControlName="country">
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="input-space mb-0">
+                <label class="form-label">Zipcode</label>
+                <input type="text" class="form-control" id="zipcode" placeholder="Enter Zipcode" formControlName="zipcode">
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="save-changes text-end">
+        <a href="javascript:void(0);" class="btn btn-primary reset-profile">Reset</a>
+        <a type="submit" class="btn btn-secondary save-profile">Save Change</a>
+      </div>
+    </div>
+  </div>
+</div>

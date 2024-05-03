@@ -1,0 +1,650 @@
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+
+    <!-- Sort By -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sortby-section">
+          <div class="sorting-info">
+            <div class="row d-flex align-items-center">
+              <div class="col-xl-4 col-lg-3 col-sm-12 col-12">
+                <div class="count-search">
+                  <p> <span>150</span> coaches are listed </p>
+                </div>
+              </div>
+              <div class="col-xl-8 col-lg-9 col-sm-12 col-12">
+                <div class="sortby-filter-group">
+                  <div class="grid-listview">
+                    <ul class="nav">
+                      <li>
+                        <span>View as</span>
+                      </li>
+                      <li>
+                        <a [routerLink] = "routes.coachesGrid" >
+                          <img src="assets/img/icons/sort-01.svg" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a [routerLink] = "routes.coachesList" class="active">
+                          <img src="assets/img/icons/sort-02.svg" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a [routerLink] = "routes.coachesMap">
+                          <img src="assets/img/icons/sort-03.svg" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sortbyset">
+                    <span class="sortbytitle">Sort By</span>
+                    <div class="sorting-select">
+                      <mat-select   [(ngModel)]="selectedValue1" [ngModelOptions]="{standalone: true}" class="select"  placeholder="Relevance">
+                        @for (data of selectedList1; track data) {
+                          <mat-option [value]="data.value">
+                            {{data.value}}
+                          </mat-option>
+                        }
+                      </mat-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sort By -->
+
+    <div class="row">
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-05.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Professional</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(0)" [ngClass]="{'selected': isClassAdded[0]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>300 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $10 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Kevin Anderson</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Port Alsworth, AK
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Certified Badminton Coach with a deep understanding of the sport's techniques and strategies.</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>20 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-06.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Rookie</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(1)" [ngClass]="{'selected': isClassAdded[1]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $120 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Angela Roudrigez</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Guysville, OH
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Experienced coach dedicated to enhancing your badminton skills and unlocking your full potential.</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>21 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-07.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Professional</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(2)" [ngClass]="{'selected': isClassAdded[2]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $750 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Evon Raddick</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Little Rock, AR
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Passionate Badminton Coach unlocking players' potential through strategic gameplay</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>22 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-08.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Intermediate</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(3)" [ngClass]="{'selected': isClassAdded[3]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $550 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Harry Richardson</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Roanoke, VA
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Experienced Coach passionate about elevating players' skills and fostering a love for the game.</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>23 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-09.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Professional</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(4)" [ngClass]="{'selected': isClassAdded[4]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $550 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Pete Hill</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Huntsville, AL
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Dedicated Badminton Coach refining players skills and techniques to ignite the game</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>24 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-10.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Intermediate</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(5)" [ngClass]="{'selected': isClassAdded[5]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $350 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Victor Newman</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Sacramento, CA
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Badminton coach with a passion for improving players' abilities and tactics.</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>24 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a href="javascript:void(0);" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-11.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Herman</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(6)" [ngClass]="{'selected': isClassAdded[6]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $350 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Washington, MD</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Port Alsworth, AK
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Dedicated badminton expert meticulously perfecting techniques for best results</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>24 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-12.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Professional</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(7)" [ngClass]="{'selected': isClassAdded[7]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $180 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Joshua Rogers</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Port Alsworth, AK
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Detail-oriented badminton enthusiast with a patient coaching approach</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>24 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <!-- Featured Item -->
+      <div class="col-lg-12">
+        <div class="featured-venues-item">
+          <div class="listing-item listing-item-grid coach-listview">
+            <div class="listing-img">
+              <a [routerLink] = "routes.coachDetail">
+                <img src="assets/img/featured/featured-13.jpg" alt="">
+              </a>
+              <div class="fav-item-venues">
+                <span class="tag tag-blue">Professional</span>
+                <div class="list-reviews coche-star">
+                  <a href="javascript:void(0)" class="fav-icon" (click)="toggleClass(8)" [ngClass]="{'selected': isClassAdded[8]}">
+                    <i class="feather icon-heart"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="listing-content">
+              <div class="list-reviews near-review near-review-list">
+                <div class="d-flex align-items-center">
+                  <span class="rating-bg">4.2</span><span>80 Reviews</span>
+                </div>
+                <span class="mile-away"><span>From</span> $10 <span>/hr</span></span>
+              </div>
+              <h3 class="listing-title">
+                <a [routerLink] = "routes.coachDetail">Jamal Dean</a>
+              </h3>
+              <ul class="mb-2">
+                <li>
+                  <span>
+                    <i class="feather icon-map-pin me-2"></i>Roseau, MN
+                  </span>
+                </li>
+              </ul>
+              <div class="listing-details-group">
+                <p>Meticulous badminton enthusiast with a gentle coaching style</p>
+              </div>
+              <div class="avalbity-review avalbity-review-list">
+                <ul>
+                  <li>
+                    <div class="avalibity-date">
+                      <span><i class="feather icon-calendar"></i></span>
+                      <div class="avalibity-datecontent">
+                        <h6>Next Availabilty</h6>
+                        <h5>24 May 2023</h5>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="profile-coache-list">
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-primary w-100"><i class="feather icon-eye me-2"></i> View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink] = "routes.coachDetail" class="btn btn-secondary w-100"><i class="feather icon-calendar me-2"></i> Book Now</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Featured Item -->
+
+      <div class="col-12 text-center mt-3">
+        <a href="javascript:void(0);" class="btn btn-load"> <img src="assets/img/icons/u_plus-square.svg" class="ms-2" alt="img"></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /Page Content -->

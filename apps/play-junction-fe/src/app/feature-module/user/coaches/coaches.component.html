@@ -1,0 +1,171 @@
+<!-- Sort By -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="sortby-section court-sortby-section">
+      <div class="sorting-info">
+        <div class="row d-flex align-items-center">
+          <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+            <div class="coach-court-list">
+              <ul class="nav">
+                <li><a [routerLink]="routes.userInvoice">Courts</a></li>
+                <li><a class="active" [routerLink]="routes.userCoaches">Coaches</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+            <div class="sortby-filter-group court-sortby">
+              <div class="sortbyset week-bg">
+                <div class="sorting-select coach-booking-mat">
+                  <mat-select [(ngModel)]="selectedValue2" [ngModelOptions]="{standalone: true}" class="select"
+                    placeholder="This Week">
+                    @for (data of selectedList2; track data) {
+                    <mat-option [value]="data.value">
+                      {{data.value}}
+                    </mat-option>
+                    }
+                  </mat-select>
+                </div>
+              </div>
+              <div class="sortbyset">
+                <span class="sortbytitle">Sort By</span>
+                <div class="sorting-select">
+                  <mat-select [(ngModel)]="selectedValue1" [ngModelOptions]="{standalone: true}" class="select"
+                    placeholder="Relevance">
+                    @for (data of selectedList1; track data) {
+                    <mat-option [value]="data.value">
+                      {{data.value}}
+                    </mat-option>
+                    }
+                  </mat-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sort By -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="court-tab-content">
+      <div class="card card-tableset">
+        <div class="card-body">
+          <div class="coache-head-blk">
+            <div class="row align-items-center">
+              <div class="col-md-5">
+                <div class="court-table-head">
+                  <h4>Invoices</h4>
+                  <p>Easy Access to Your Billing History</p>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="table-search-top invoice-search-top">
+                  <div id="tablefilter">
+                    <div class="dataTables_filter">
+                      <label>
+                        <input [(ngModel)]="searchDataValue" (ngModelChange)="searchData(searchDataValue)"
+                          class="form-control" placeholder="Search..." />
+                      </label>
+                    </div>
+                  </div>
+                  <div class="request-coach-list select-filter">
+                    <div class="sortby-filter-group court-sortby">
+                      <div class="sortbyset m-0">
+                        <div class="sorting-select">
+                          <mat-select [(ngModel)]="selectedValue3" [ngModelOptions]="{standalone: true}" class="select"
+                            placeholder="All Invoices">
+                            @for (data of selectedList3; track data) {
+                            <mat-option [value]="data.value">
+                              {{data.value}}
+                            </mat-option>
+                            }
+                          </mat-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive table-datatble">
+            <table class="table datatable" (matSortChange)="sortData($event)" matSort matSortActive="Sno"
+              matSortDirection="asc" matSortDisableClear>
+              <thead class="thead-light">
+                <tr>
+                  <th mat-sort-header="coachId">ID</th>
+                  <th mat-sort-header="content">Coach Name</th>
+                  <th mat-sort-header="category">Invoice</th>
+                  <th mat-sort-header="date">Date & Time </th>
+                  <th mat-sort-header="payment">Payment</th>
+                  <th mat-sort-header="paidOn">Paid On</th>
+                  <th mat-sort-header="status">Status</th>
+                  <th>Download</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (coaches of tableData; track coaches; let i = $index) {
+                <tr>
+                  <td><a [routerLink]="routes.coachesInvoice" class="text-primary">{{coaches.coachId}}</a></td>
+                  <td>
+                    <h2 class="table-avatar">
+                      <a href="javascript:void(0);" class="avatar avatar-sm flex-shrink-0"><img class="avatar-img"
+                          [src]="coaches.image2" alt="User Image"></a>
+                      <span class="table-head-name flex-grow-1">
+                        <a href="javascript:void(0);">{{coaches.name}}</a>
+                        <span class="book-active">Booked on : {{coaches.booked}}</span>
+                      </span>
+                    </h2>
+                  </td>
+                  <td>{{coaches.category}}</td>
+                  <td class="table-date-time">
+                    <h4>{{coaches.date}}<span>{{coaches.time}}</span></h4>
+                  </td>
+                  <td><span class="pay-dark fs-16">${{coaches.payment}}</span></td>
+                  <td>{{coaches.paidOn}}</td>
+                  @if (coaches.availability === 'Paid') {
+                  <td><span class="badge bg-success"><i
+                        class="feather icon-check-square me-1"></i>{{coaches.availability}}</span></td>
+                  }
+                  @if (coaches.availability === 'Pending') {
+                  <td><span class="badge bg-info"><i
+                        class="feather icon-check-square me-1"></i>{{coaches.availability}}</span></td>
+                  }
+                  @if (coaches.availability === 'Failed') {
+                  <td><span class="badge bg-danger"><i
+                        class="feather icon-check-square me-1"></i>{{coaches.availability}}</span></td>
+                  }
+                  <td class="text-pink view-detail-pink"><a href="javascript:void(0);"><i
+                        class="feather icon-download"></i>Download</a></td>
+                  <td class="text-end">
+                    <div class="dropdown dropdown-action table-drop-action">
+                      <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="feather icon-trash"></i>Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                }
+                @if (tableData.length === 0) {
+                <tr>
+                  <td colspan="12">
+                    <h5 class="no-record">No matching records found</h5>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <app-custom-pagination></app-custom-pagination>
+    </div>
+  </div>
+</div>

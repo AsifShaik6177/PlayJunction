@@ -1,0 +1,677 @@
+<!-- Appointment -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card dashboard-card">
+      <div class="card-header">
+        <h4>Todays Appointment</h4>
+        <p>Your Personal Badminton Schedule</p>
+      </div>
+      <div class="appointment-info">
+        <ul>
+          <li>
+            <div class="appointment-item">
+              <div class="appointment-img">
+                <img src="assets/img/booking/booking-01.jpg" alt="">
+              </div>
+              <div class="appointment-content">
+                <h6>Court Name</h6>
+                <p>Standard Synthetic Court 1</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <h6>Appointment Date</h6>
+            <p>Mon, Jul 11</p>
+          </li>
+          <li>
+            <h6>Start time</h6>
+            <p>05:25 AM</p>
+          </li>
+          <li>
+            <h6>Appointment End time</h6>
+            <p>06:25 AM</p>
+          </li>
+          <li>
+            <h6>Additional Guests</h6>
+            <p>4</p>
+          </li>
+          <li>
+            <h6>Location</h6>
+            <p>Sant Marco</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Appointment -->
+
+<!-- Dashboard Table -->
+<div class="row">
+  <div class="col-xl-7 col-lg-12 d-flex">
+    <div class="card dashboard-card flex-fill">
+      <div class="card-header card-header-info">
+        <div class="card-header-inner">
+          <h4>My Bookings</h4>
+          <p>Court Reservations Made Easy</p>
+        </div>
+        <div class="card-header-btns">
+          <nav>
+            <div class="nav nav-tabs" role="tablist">
+              <button class="nav-link active" id="nav-Court-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-Court" type="button" role="tab" aria-controls="nav-Court"
+              aria-selected="true">Court</button>
+              <button class="nav-link" id="nav-Coaching-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-Coaching" type="button" role="tab" aria-controls="nav-Coaching"
+              aria-selected="false">Coaching</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="nav-Court" role="tabpanel" aria-labelledby="nav-Court-tab"
+          tabindex="0">
+          <div class="table-responsive dashboard-table-responsive">
+            <table class="table dashboard-card-table">
+              <tbody>
+                @for (dashboard of userDashboard; track dashboard) {
+                  <tr [hidden]="userDashboard.length === 0">
+                    <td>
+                      <div class="academy-info">
+                        <a [routerLink]="routes.userBookings" class="academy-img">
+                          <img [src]="dashboard.img" alt="Booking Image">
+                        </a>
+                        <div class="academy-content">
+                          <h6><a href="javascript:void(0);" data-bs-toggle="modal"
+                          data-bs-target="#upcoming-court">{{dashboard.court}}</a></h6>
+                          <span>Court {{dashboard.courtcount}}</span>
+                          <ul>
+                            <li>Guests : {{dashboard.guests}}</li>
+                            <li>{{dashboard.hours}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <h6>Date & Time</h6>
+                      <p>{{dashboard.date}}</p>
+                      <p>{{dashboard.time}}</p>
+                    </td>
+                    <td>
+                      <h4>${{dashboard.amount}}</h4>
+                    </td>
+                    <td>
+                      <div class="dropdown dropdown-action">
+                        <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                          aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="javascript:void(0);">
+                              <i class="feather icon-x-circle"></i> Cancel
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-Coaching" role="tabpanel" aria-labelledby="nav-Coaching-tab"
+            tabindex="0">
+            <div class="table-responsive dashboard-table-responsive">
+              <table class="table dashboard-card-table">
+                <tbody>
+                  @for (dashboard of userDashboard; track dashboard) {
+                    <tr [hidden]="userDashboard.length === 0">
+                      <td>
+                        <div class="academy-info">
+                          <a [routerLink]="routes.userBookings" class="academy-img">
+                            <img [src]="dashboard.image2" alt="Booking Image">
+                          </a>
+                          <div class="academy-content">
+                            <h6 class="mb-1"><a data-bs-toggle="modal"
+                            data-bs-target="#upcoming-coach">{{dashboard.name}}</a></h6>
+                            <span class="mb-0">{{dashboard.category}}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <h6>Date & Time</h6>
+                        <p>{{dashboard.date}}</p>
+                        <p>{{dashboard.time}}</p>
+                      </td>
+                      <td>
+                        <h4>${{dashboard.amount}}</h4>
+                      </td>
+                      <td>
+                        <div class="dropdown dropdown-action">
+                          <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a class="dropdown-item" href="javascript:void(0);">
+                                <i class="feather icon-x-circle"></i> Cancel
+                              </a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="card dashboard-card upcoming-card">
+          <div class="card-header card-header-info">
+            <div class="card-header-inner">
+              <h4>Upcoming Appointment</h4>
+              <p>Manage all your upcoming court bookings.</p>
+            </div>
+            <div class="card-header-btns">
+              <nav>
+                <div class="nav nav-tabs" role="tablist">
+                  <button class="nav-link active" id="nav-Appointment-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-Appointment" type="button" role="tab"
+                  aria-controls="nav-Appointment" aria-selected="true">Court</button>
+                  <button class="nav-link" id="nav-AppointmentCoaching-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-AppointmentCoaching" type="button" role="tab"
+                  aria-controls="nav-AppointmentCoaching" aria-selected="false">Coaching</button>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="nav-Appointment" role="tabpanel"
+              aria-labelledby="nav-Appointment-tab" tabindex="0">
+              <div class="table-responsive dashboard-table-responsive">
+                <table class="table dashboard-card-table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="academy-info academy-info">
+                          <a [routerLink]="routes.userBookings" class="academy-img">
+                            <img src="assets/img/booking/booking-02.jpg" alt="Booking Image">
+                          </a>
+                          <div class="academy-content">
+                            <h6><a data-bs-toggle="modal" data-bs-target="#upcoming-court">Leap
+                            Sports Academy</a></h6>
+                            <ul>
+                              <li>Court 1</li>
+                              <li><i class="feather icon-clock"></i> 06:00 PM to 08:00 PM</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="dropdown dropdown-action">
+                          <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a class="dropdown-item" href="javascript:void(0);">
+                                <i class="feather icon-x-circle"></i> Cancel
+                              </a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-AppointmentCoaching" role="tabpanel"
+                aria-labelledby="nav-AppointmentCoaching-tab" tabindex="0">
+                <div class="table-responsive dashboard-table-responsive">
+                  <table class="table dashboard-card-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="academy-info academy-info">
+                            <a [routerLink]="routes.userBookings" class="academy-img">
+                              <img src="assets/img/featured/featured-05.jpg" alt="Booking Image">
+                            </a>
+                            <div class="academy-content">
+                              <h6><a data-bs-toggle="modal" data-bs-target="#upcoming-coach">Kevin
+                              Anderson</a></h6>
+                              <ul>
+                                <li>Single Lesson</li>
+                                <li><i class="feather icon-clock"></i> 06:00 PM to 08:00 PM</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="dropdown dropdown-action">
+                            <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                              aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="javascript:void(0);">
+                                  <i class="feather icon-x-circle"></i> Cancel
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="card dashboard-card academy-card">
+              <div class="card-header card-header-info">
+                <div class="card-header-inner">
+                  <h4>My Favourites</h4>
+                  <p>Manage all your upcoming court bookings. </p>
+                </div>
+                <div class="card-header-btns">
+                  <nav>
+                    <div class="nav nav-tabs" role="tablist">
+                      <button class="nav-link active" id="nav-Favourites-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-Favourites" type="button" role="tab" aria-controls="nav-Favourites"
+                      aria-selected="true">Court</button>
+                      <button class="nav-link" id="nav-FavouritesCoaching-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-FavouritesCoaching" type="button" role="tab"
+                      aria-controls="nav-FavouritesCoaching" aria-selected="false">Coaching</button>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="nav-Favourites" role="tabpanel"
+                  aria-labelledby="nav-Favourites-tab" tabindex="0">
+                  <div class="table-responsive dashboard-table-responsive">
+                    <table class="table dashboard-card-table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/booking/booking-03.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Wing Sports Academy</a></h6>
+                                <p>10 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/booking/booking-04.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Feather Badminton</a></h6>
+                                <p>20 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/booking/booking-05.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Bwing Sports Academy</a></h6>
+                                <p>30 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-FavouritesCoaching" role="tabpanel"
+                  aria-labelledby="nav-FavouritesCoaching-tab" tabindex="0">
+                  <div class="table-responsive dashboard-table-responsive">
+                    <table class="table dashboard-card-table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/featured/featured-05.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Kevin Anderson</a></h6>
+                                <p>10 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/featured/featured-06.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Angela Roudrigez</a></h6>
+                                <p>20 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="academy-info academy-info">
+                              <a [routerLink]="routes.userBookings" class="academy-img">
+                                <img src="assets/img/featured/featured-07.jpg" alt="Booking Image">
+                              </a>
+                              <div class="academy-content">
+                                <h6><a [routerLink]="routes.userBookings">Evon Raddick</a></h6>
+                                <p>30 Bookings</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="academy-icon">
+                              <a [routerLink]="routes.userBookings">
+                                <i class="feather icon-chevron-right"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card dashboard-card mb-0">
+              <div class="card-header card-header-info border-0">
+                <div class="card-header-inner">
+                  <h4>Recent Invoices</h4>
+                  <p>Access recent invoices related to court bookings</p>
+                </div>
+                <div class="card-header-btns">
+                  <nav>
+                    <div class="nav nav-tabs" role="tablist">
+                      <button class="nav-link active" id="nav-Recent-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-Recent" type="button" role="tab" aria-controls="nav-Recent"
+                      aria-selected="true">Court</button>
+                      <button class="nav-link" id="nav-RecentCoaching-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-RecentCoaching" type="button" role="tab"
+                      aria-controls="nav-RecentCoaching" aria-selected="false">Coaching</button>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="nav-Recent" role="tabpanel" aria-labelledby="nav-Recent-tab"
+                  tabindex="0">
+                  <div class="table-responsive table-datatble">
+                    <table class="table table-borderless dashboard-card-table"
+                      matSort
+                      matSortActive="Sno"
+                      matSortDirection="asc"
+                      matSortDisableClear>
+                      <thead class="thead-light">
+                        <tr>
+                          <th mat-sort-header="courtName">Court Name</th>
+                          <th mat-sort-header="dateTime">Date & Time</th>
+                          <th mat-sort-header="payment">Payment</th>
+                          <th mat-sort-header="courtName">Paid On</th>
+                          <th mat-sort-header="status">Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (dashboard of  tableData; track dashboard; let i = $index) {
+                          <tr>
+                            <td>
+                              <h2 class="table-avatar">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#upcoming-court"
+                                  class="avatar avatar-sm flex-shrink-0">
+                                  <img class="avatar-img" [src]="dashboard.image" alt="">
+                                </a>
+                                <span class="table-head-name flex-grow-1">
+                                  <a data-bs-toggle="modal" data-bs-target="#upcoming-court">{{dashboard.content}}</a>
+                                  <span>Court {{dashboard.court}}</span>
+                                </span>
+                              </h2>
+                            </td>
+                            <td>
+                              <p>{{dashboard.date}}</p>
+                              <p>{{dashboard.time}}</p>
+                            </td>
+                            <td>
+                              <h6>${{dashboard.payment}}</h6>
+                            </td>
+                            <td>{{dashboard.paiddate}}</td>
+                            <td class="paid-edit">
+                              <span><i class="feather icon-edit"></i>{{dashboard.status}}</span>
+                            </td>
+                            <td>
+                              <div class="dropdown dropdown-action">
+                                <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                  aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-end">
+                                    <a class="dropdown-item" href="javascript:void(0);">
+                                      <i class="feather icon-download"></i> Download
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:void(0);">
+                                      <i class="feather icon-trash"></i> Delete
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="nav-RecentCoaching" role="tabpanel"
+                    aria-labelledby="nav-RecentCoaching-tab" tabindex="0">
+                    <div class="table-responsive table-datatble">
+                      <table class="table table-borderless dashboard-card-table"
+                        matSort
+                        matSortActive="Sno"
+                        matSortDirection="asc"
+                        matSortDisableClear>
+                        <thead class="thead-light">
+                          <tr>
+                            <th mat-sort-header="courtName">Court Name</th>
+                            <th mat-sort-header="invoice">Invoice</th>
+                            <th mat-sort-header="dateTime">Date & Time</th>
+                            <th mat-sort-header="payment">Payment</th>
+                            <th mat-sort-header="courtName">Paid On</th>
+                            <th mat-sort-header="status">Status</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @for (dashboard of  tableData; track dashboard; let i = $index) {
+                            <tr>
+                              <td>
+                                <h2 class="table-avatar">
+                                  <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#upcoming-coach"
+                                    class="avatar avatar-sm flex-shrink-0">
+                                    <img class="avatar-img" [src]="dashboard.image2"
+                                      alt="">
+                                    </a>
+                                    <span class="table-head-name flex-grow-1">
+                                      <a href="javascript:void(0);" data-bs-toggle="modal"
+                                      data-bs-target="#upcoming-coach">{{dashboard.name}}</a>
+                                      <span>Booked on : {{dashboard.booked}}</span>
+                                    </span>
+                                  </h2>
+                                </td>
+                                <td>{{dashboard.category}}</td>
+                                <td>
+                                  <p>{{dashboard.date}}</p>
+                                  <p>{{dashboard.time}}</p>
+                                </td>
+                                <td>
+                                  <h6>${{dashboard.payment}}</h6>
+                                </td>
+                                <td>{{dashboard.paiddate}}</td>
+                                <td class="paid-edit">
+                                  <span><i class="feather icon-edit"></i>{{dashboard.status}}</span>
+                                </td>
+                                <td>
+                                  <div class="dropdown dropdown-action">
+                                    <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                      aria-expanded="false"><i class="fas fa-ellipsis"></i></a>
+                                      <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="javascript:void(0);">
+                                          <i class="feather icon-download"></i> Download
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:void(0);">
+                                          <i class="feather icon-trash"></i> Delete
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              }
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /Dashboard Table -->
+              <!-- Request Modal -->
+	<div class="modal custom-modal fade payment-modal" id="add-payment" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="form-header modal-header-title">
+						<h4 class="mb-0">Add Payment to Wallet</h4>
+					</div>
+					<a  class="close" data-bs-dismiss="modal" aria-label="Close">
+						<span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+					</a>
+				</div>
+				<div class="modal-body">
+					<div class="wallet-wrap wallet-modal">
+						<div class="wallet-amt">
+							<h5>Your Wallet Balance</h5>
+							<h2>$300</h2>
+						</div>
+					</div>
+					<form>
+						<div class="input-space">
+							<label class="form-label">Amount</label>
+							<input type="text" class="form-control" placeholder="Enter Amount">
+						</div>
+						<div class="or-div">
+							<h6>OR</h6>
+						</div>
+						<div class="add-wallet-amount form-check">
+							<ul>
+								<li class="active">
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value" checked>
+										<label for="value">Add Value 1</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $80</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value1">
+										<label for="value1">Add Value 2</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $60</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value2">
+										<label for="value2">Add Value 3</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $120</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value3">
+										<label for="value3">Add Value 4</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $120</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="radio-setview">
+							<h6>Select Payment Gateway</h6>
+							<div class="radio">
+								<div class="form-check form-check-inline mb-3">
+								  	<input class="form-check-input default-check me-1" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Credit Card">
+								  	<label class="form-check-label" for="inlineRadio3">Credit Card</label>
+								</div>
+								<div class="form-check form-check-inline mb-0">
+								  	<input class="form-check-input default-check me-1" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Paypal" checked>
+								  	<label class="form-check-label" for="inlineRadio4">Paypal</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="table-accept-btn">
+						<a href="javascript:;" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Reset</a>
+						<a href="javascript:;" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Submit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Request Modal -->

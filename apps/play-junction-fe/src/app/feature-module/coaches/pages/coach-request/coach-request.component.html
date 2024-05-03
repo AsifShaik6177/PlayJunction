@@ -1,0 +1,738 @@
+<!-- Page Content -->
+<div class="content court-bg">
+  <div class="container">
+    <!-- Sort By -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sortby-section court-sortby-section">
+          <div class="sorting-info">
+            <div class="row d-flex align-items-center">
+              <div class="col-xl-12 col-sm-12 col-auto">
+                <div class="sortby-filter-group court-sortby">
+                  <div class="sortbyset week-bg">
+                    <div class="sorting-select coach-booking-mat">
+                      <mat-select
+                        [(ngModel)]="selectedValue1"
+                        [ngModelOptions]="{ standalone: true }"
+                        class="select"
+                        placeholder="This Week"
+                      >
+                        @for (data of selectedList1; track data) {
+                        <mat-option [value]="data.value">
+                          {{ data.value }}
+                        </mat-option>
+                        }
+                      </mat-select>
+                    </div>
+                  </div>
+                  <div class="sortbyset">
+                    <span class="sortbytitle">Sort By</span>
+                    <div class="sorting-select">
+                      <mat-select
+                        [(ngModel)]="selectedValue2"
+                        [ngModelOptions]="{ standalone: true }"
+                        class="select"
+                        placeholder="Relevance"
+                      >
+                        @for (data of selectedList2; track data) {
+                        <mat-option [value]="data.value">
+                          {{ data.value }}
+                        </mat-option>
+                        }
+                      </mat-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sort By -->
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="court-tab-content">
+          <div class="card card-tableset">
+            <div class="card-body">
+              <div class="coache-head-blk">
+                <div class="row align-items-center">
+                  <div class="col-lg-6">
+                    <div class="court-table-head">
+                      <h4>Requests</h4>
+                      <p>Efficiently manage and respond to booking requests</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="coach-active-blk">
+                      <div id="tablefilter">
+                        <div class="dataTables_filter">
+                          <label>
+                            <input
+                              [(ngModel)]="searchDataValue"
+                              (ngModelChange)="searchData(searchDataValue)"
+                              class="form-control"
+                              placeholder="Search..."
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="card-header-btns">
+                        <nav>
+                          <div class="nav nav-tabs" role="tablist">
+                            <button
+                              class="nav-link active"
+                              id="nav-Recent-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#nav-Recent"
+                              type="button"
+                              role="tab"
+                              aria-controls="nav-Recent"
+                              aria-selected="true"
+                            >
+                              Court
+                            </button>
+                            <button
+                              class="nav-link"
+                              id="nav-RecentCoaching-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#nav-RecentCoaching"
+                              type="button"
+                              role="tab"
+                              aria-controls="nav-RecentCoaching"
+                              aria-selected="false"
+                            >
+                              Coaching
+                            </button>
+                          </div>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content">
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-Recent"
+                  role="tabpanel"
+                  aria-labelledby="nav-Recent-tab"
+                  tabindex="0"
+                >
+                  <div class="table-responsive">
+                    <table
+                      class="table table-borderless datatable"
+                      matSort
+                      (matSortChange)="sortData($event)"
+                    >
+                      <thead class="thead-light">
+                        <tr>
+                          <th mat-sort-header="courtName">Court Name</th>
+                          <th mat-sort-header="playerName">Player name</th>
+                          <th mat-sort-header="date">Date & Time</th>
+                          <th mat-sort-header="additionalGuests">
+                            Additional Guests
+                          </th>
+                          <th mat-sort-header="payment">Payment</th>
+                          <th mat-sort-header="status">Status</th>
+                          <th mat-sort-header="action"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (data of tableData; track data) {
+                        <tr>
+                          <td>
+                            <h2 class="table-avatar">
+                              <a
+                                href="javascript:void(0);"
+                                class="avatar avatar-sm flex-shrink-0"
+                                ><img
+                                  class="avatar-img"
+                                  [src]="data.img1"
+                                  alt="User Image"
+                              /></a>
+                              <span class="table-head-name flex-grow-1">
+                                <a
+                                  href="javascript:void(0);"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#request-court"
+                                  >{{ data.courtName }}</a
+                                >
+                                <span>{{ data.courtNumber }}</span>
+                              </span>
+                            </h2>
+                          </td>
+                          <td>
+                            <h2 class="table-avatar">
+                              <a
+                                [routerLink]="routes.coach_profile"
+                                class="avatar avatar-sm flex-shrink-0"
+                                ><img
+                                  class="avatar-img"
+                                  [src]="data.img2"
+                                  alt="User Image"
+                              /></a>
+                              <span
+                                class="table-head-name table-name-user flex-grow-1"
+                              >
+                                <a [routerLink]="routes.coach_profile">{{
+                                  data.playerName
+                                }}</a>
+                              </span>
+                            </h2>
+                          </td>
+                          <td class="table-date-time">
+                            <h4>
+                              {{ data.date }}<span>{{ data.time }}</span>
+                            </h4>
+                          </td>
+                          <td>2</td>
+                          <td>
+                            <span class="pay-dark">{{ data.payment }}</span>
+                          </td>
+                          <td class="paid-edit">
+                            <span
+                              ><i class="feather icon-edit"></i
+                              >{{ data.status1 }}</span
+                            >
+                          </td>
+                          <td class="table-accept-btn text-end">
+                            <a
+                              (click)="showSuccessPopup()"
+                              class="btn accept-btn"
+                              ><i class="feather icon-check-circle"></i
+                              >{{ data.status2 }}</a
+                            >
+                            <a
+                                (click)="showRejectedDialog()"
+                              class="btn cancel-table-btn"
+                              data-bs-toggle="modal"
+                              data-bs-target="#request-reject"
+                              ><i class="feather icon-x-circle"></i
+                              >{{ data.status3 }}</a
+                            >
+                          </td>
+                        </tr>
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-RecentCoaching"
+                  role="tabpanel"
+                  aria-labelledby="nav-RecentCoaching-tab"
+                  tabindex="0"
+                >
+                  <div class="table-responsive">
+                    <table
+                      class="table table-borderless datatable"
+                      matSort
+                      (matSortChange)="sortData($event)"
+                    >
+                      <thead class="thead-light">
+                        <tr>
+                          <th mat-sort-header="courtName">Court Name</th>
+                          <th mat-sort-header="playerName">Player name</th>
+                          <th mat-sort-header="date">Date & Time</th>
+                          <th mat-sort-header="additionalGuests">
+                            Additional Guests
+                          </th>
+                          <th mat-sort-header="payment">Payment</th>
+                          <th mat-sort-header="status">Status</th>
+                          <th mat-sort-header="action"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (data of tableData; track data) {
+                        <tr>
+                          <td>
+                            <h2 class="table-avatar">
+                              <a
+                                href="javascript:void(0);"
+                                class="avatar avatar-sm flex-shrink-0"
+                                ><img
+                                  class="avatar-img"
+                                  [src]="data.img1"
+                                  alt="User Image"
+                              /></a>
+                              <span class="table-head-name flex-grow-1">
+                                <a
+                                  href="javascript:void(0);"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#request-court"
+                                  >{{ data.courtName }}</a
+                                >
+                                <span>{{ data.courtNumber }}</span>
+                              </span>
+                            </h2>
+                          </td>
+                          <td>
+                            <h2 class="table-avatar">
+                              <a
+                                [routerLink]="routes.coach_profile"
+                                class="avatar avatar-sm flex-shrink-0"
+                                ><img
+                                  class="avatar-img"
+                                  [src]="data.img2"
+                                  alt="User Image"
+                              /></a>
+                              <span
+                                class="table-head-name table-name-user flex-grow-1"
+                              >
+                                <a [routerLink]="routes.coach_profile">{{
+                                  data.playerName
+                                }}</a>
+                              </span>
+                            </h2>
+                          </td>
+                          <td class="table-date-time">
+                            <h4>
+                              {{ data.date }}<span>{{ data.time }}</span>
+                            </h4>
+                          </td>
+                          <td>2</td>
+                          <td>
+                            <span class="pay-dark">{{ data.payment }}</span>
+                          </td>
+                          <td class="paid-edit">
+                            <span
+                              ><i class="feather icon-edit"></i
+                              >{{ data.status1 }}</span
+                            >
+                          </td>
+                          <td class="table-accept-btn text-end">
+                            <a href="javascript:void(0);" class="btn accept-btn"
+                              ><i class="feather icon-check-circle"></i
+                              >{{ data.status2 }}</a
+                            >
+                            <a
+                              href="javascript:void(0);"
+                              class="btn cancel-table-btn"
+                              data-bs-toggle="modal"
+                              data-bs-target="#request-reject"
+                              ><i class="feather icon-x-circle"></i
+                              >{{ data.status3 }}</a
+                            >
+                          </td>
+                        </tr>
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-custom-pagination></app-custom-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->
+<!-- Request Modal -->
+<div
+  class="modal custom-modal fade request-modal"
+  id="request-court"
+  role="dialog"
+>
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-header modal-header-title">
+          <h4 class="mb-0">Court Request</h4>
+        </div>
+        <a class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="align-center" aria-hidden="true"
+            ><i class="feather icon-x"></i
+          ></span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <!-- Court Request -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Court Information</h4>
+              </div>
+              <div class="appointment-info">
+                <ul>
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/booking/booking-01.jpg" alt="" />
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Wing Sports Academy</h6>
+                        <p class="color-green">Court 1</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Booked On</h6>
+                    <p>$150 Upto 2 guests</p>
+                  </li>
+                  <li>
+                    <h6>Price Per Guest</h6>
+                    <p>$15</p>
+                  </li>
+                  <li>
+                    <h6>Maximum Number of Guests</h6>
+                    <p>2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Appointment Information</h4>
+              </div>
+              <div class="appointment-info appoin-border">
+                <ul>
+                  <li>
+                    <h6>Booked On</h6>
+                    <p>$150 Upto 2 guests</p>
+                  </li>
+                  <li>
+                    <h6>Price Per Guest</h6>
+                    <p>$15</p>
+                  </li>
+                  <li>
+                    <h6>Maximum Number of Guests</h6>
+                    <p>2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Payment Details</h4>
+              </div>
+              <div class="appointment-info appoin-border double-row">
+                <ul>
+                  <li>
+                    <h6>Court Booking Amount</h6>
+                    <p>$150</p>
+                  </li>
+                  <li>
+                    <h6>Additional Guests</h6>
+                    <p>2</p>
+                  </li>
+                  <li>
+                    <h6>Amount Additional Guests</h6>
+                    <p>$30</p>
+                  </li>
+                  <li>
+                    <h6>Service Charge</h6>
+                    <p>$20</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="appointment-info appoin-border">
+                <ul>
+                  <li>
+                    <h6>Total Amount Paid</h6>
+                    <p class="color-green">$180</p>
+                  </li>
+                  <li>
+                    <h6>Paid On</h6>
+                    <p>Mon, Jul 14</p>
+                  </li>
+                  <li>
+                    <h6>Transaction ID</h6>
+                    <p>#5464164445676781641</p>
+                  </li>
+                  <li>
+                    <h6>Payment type</h6>
+                    <p>Wallet</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Court Request -->
+      </div>
+      <div class="modal-footer">
+        <div class="table-accept-btn">
+          <a href="javascript:void(0);" class="btn accept-btn"
+            ><i class="feather icon-check-circle"></i>Accept</a
+          >
+          <a href="javascript:void(0);" class="btn cancel-table-btn"
+            ><i class="feather icon-x-circle"></i>Cancel</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Request Modal -->
+
+<!-- Request Reject -->
+<div
+  class="modal custom-modal fade request-modal"
+  id="request-reject"
+  role="dialog"
+>
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-header modal-header-title">
+          <h4 class="mb-0">Court Reject Reason</h4>
+        </div>
+        <a class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="align-center" aria-hidden="true"
+            ><i class="feather icon-x"></i
+          ></span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <!-- Court Request -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Court Information</h4>
+              </div>
+              <div class="appointment-info">
+                <ul>
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/booking/booking-01.jpg" alt="" />
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Wing Sports Academy</h6>
+                        <p class="color-green">Court 1</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Price Per Guest</h6>
+                    <p>$15</p>
+                  </li>
+                  <li>
+                    <h6>Maximum Number of Guests</h6>
+                    <p>2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Player Information</h4>
+              </div>
+              <div class="appointment-info appoin-border">
+                <ul>
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/booking/booking-02.jpg" alt="" />
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Martina</h6>
+                        <p>Since 05/05/2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Previosly Booked</h6>
+                    <p>22 Jan 2023</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Appointment Information</h4>
+              </div>
+              <div class="appointment-info appoin-border mb-0">
+                <ul>
+                  <li>
+                    <h6>Booked On</h6>
+                    <p>Mon, Jul 14</p>
+                  </li>
+                  <li>
+                    <h6>Booking Type</h6>
+                    <p>Onetime</p>
+                  </li>
+                  <li>
+                    <h6>Number Of Hours</h6>
+                    <p>2</p>
+                  </li>
+                  <li>
+                    <h6>Date & Time</h6>
+                    <p>Mon, Jul 14</p>
+                    <p>05:00 PM - 08:00 PM</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <form>
+              <div class="reason-court">
+                <label>Reason</label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  name="text"
+                  placeholder="Enter Reject Reson"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /Court Request -->
+      </div>
+      <div class="modal-footer">
+        <div class="table-accept-btn">
+          <a href="javascript:void(0);" class="btn accept-btn me-0">Submit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Request Reject -->
+
+<!-- Request Reject -->
+<div
+  class="modal custom-modal fade request-modal"
+  id="request-coche"
+  role="dialog"
+>
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-header modal-header-title">
+          <h4 class="mb-0">Coaching Reject Reason</h4>
+        </div>
+        <a class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="align-center" aria-hidden="true"
+            ><i class="feather icon-x"></i
+          ></span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <!-- Court Request -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Court Information</h4>
+              </div>
+              <div class="appointment-info">
+                <ul>
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/booking/booking-01.jpg" alt="" />
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Wing Sports Academy</h6>
+                        <p class="color-green">Court 1</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Price Per Guest</h6>
+                    <p>$15</p>
+                  </li>
+                  <li>
+                    <h6>Maximum Number of Guests</h6>
+                    <p>2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Player Information</h4>
+              </div>
+              <div class="appointment-info appoin-border">
+                <ul>
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/booking/booking-02.jpg" alt="" />
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Martina</h6>
+                        <p>Since 05/05/2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Previosly Booked</h6>
+                    <p>22 Jan 2023</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Appointment Information</h4>
+              </div>
+              <div class="appointment-info appoin-border mb-0">
+                <ul>
+                  <li>
+                    <h6>Booked On</h6>
+                    <p>Mon, Jul 14</p>
+                  </li>
+                  <li>
+                    <h6>Booking Type</h6>
+                    <p>Onetime</p>
+                  </li>
+                  <li>
+                    <h6>Number Of Hours</h6>
+                    <p>2</p>
+                  </li>
+                  <li>
+                    <h6>Date & Time</h6>
+                    <p>Mon, Jul 14</p>
+                    <p>05:00 PM - 08:00 PM</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <form>
+              <div class="reason-court">
+                <label>Reason</label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  name="text"
+                  placeholder="Enter Reject Reson"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /Court Request -->
+      </div>
+      <div class="modal-footer">
+        <div class="table-accept-btn">
+          <a href="javascript:void(0);" class="btn accept-btn me-0">Submit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showpopup" class="popup" id="successPopup" style="display: block">
+  <p>Success!</p>
+  <p>Request accepted successfully!!!!!</p>
+  <a (click)="redirectHome()" class="btn accept-btn"
+  ><i class="feather icon-check-circle"></i>Ok</a
+>
+</div>
+<div *ngIf="showrejectedpopup" class="popup" id="rejectedPopup" style="display: block">
+  <p>Success!</p>
+  <p>Request accepted successfully!!!!!</p>
+  <a (click)="redirectHome()" class="btn accept-btn"
+  ><i class="feather icon-check-circle"></i>Ok</a
+>
+</div>
+<!-- /Request Reject -->

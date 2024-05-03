@@ -1,0 +1,117 @@
+
+
+<!-- Page Content -->
+<div class="content">
+
+  <div class="container">
+    <section class="services">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All Services</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-coaching-tab" data-bs-toggle="pill" data-bs-target="#pills-coaching" type="button" role="tab" aria-controls="pills-coaching" aria-selected="false">Coaching</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-lessons-tab" data-bs-toggle="pill" data-bs-target="#pills-lessons" type="button" role="tab" aria-controls="pills-lessons" aria-selected="false">Lessons</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-coaches-tab" data-bs-toggle="pill" data-bs-target="#pills-coaches" type="button" role="tab" aria-controls="pills-coaches" aria-selected="false">Coaches</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+          <div class="row">
+            @for (data of          allservices; track data) {
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.servicedetail">
+                      <img [src]="data.img" class="img-fluid" alt="service-05">
+                    </a>
+                  </div>
+                  <div class="listing-content text-center">
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.servicedetail">{{data.service}}</a>
+                    </h3>
+                    <p>{{data.para}}</p>
+                    <a [routerLink]="routes.servicedetail" class="btn btn-secondary">Read More</a>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-coaching" role="tabpanel" aria-labelledby="pills-coaching-tab">
+          <div class="row">
+            @for (data of coaching; track data) {
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.servicedetail">
+                      <img [src]="data.img" class="img-fluid" alt="service-05">
+                    </a>
+                  </div>
+                  <div class="listing-content text-center">
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.servicedetail">{{data.service}}</a>
+                    </h3>
+                    <p>{{data.para}}</p>
+                    <a [routerLink]="routes.servicedetail" class="btn btn-secondary">Read More</a>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-lessons" role="tabpanel" aria-labelledby="pills-lessons-tab">
+          <div class="row">
+            @for (data of lessons; track data) {
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.servicedetail">
+                      <img [src]="data.img" class="img-fluid" alt="service-08">
+                    </a>
+                  </div>
+                  <div class="listing-content text-center">
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.servicedetail">{{data.service}}</a>
+                    </h3>
+                    <p>{{data.para}}</p>
+                    <a [routerLink]="routes.servicedetail" class="btn btn-secondary">Read More</a>
+                  </div>
+                </div>
+              </div>
+            }
+
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-coaches" role="tabpanel" aria-labelledby="pills-coaches-tab">
+          <div class="row">
+            @for (data of Coaches; track data) {
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.servicedetail">
+                      <img [src]="data.img" class="img-fluid" alt="service-05">
+                    </a>
+                  </div>
+                  <div class="listing-content text-center">
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.servicedetail">{{data.service}}</a>
+                    </h3>
+                    <p>{{data.para}}</p>
+                    <a [routerLink]="routes.servicedetail" class="btn btn-secondary">Read More</a>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+<!-- /Page Content -->

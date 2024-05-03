@@ -1,0 +1,48 @@
+<div class="breadcrumb mb-0">
+  <span class="primary-right-round"></span>
+  <div class="container">
+    <h1 class="text-white">Book A Coach</h1>
+    <ul>
+      <li><a [routerLink]="routes.home">Home</a></li>
+      <li>Book A Coach</li>
+    </ul>
+  </div>
+</div>
+<section class="booking-steps py-30">
+  <div class="container">
+    <ul class="d-lg-flex justify-content-center align-items-center">
+      <li routerLinkActive="active">
+        <h5>
+          <a [routerLink]="routes.coachDetails"
+            ><span>1</span>Type of Booking</a
+          >
+        </h5>
+      </li>
+      <li routerLinkActive="active">
+        <h5>
+          <a [routerLink]="routes.coachTimeDate"><span>2</span>Time & Date</a>
+        </h5>
+      </li>
+      <li routerLinkActive="active">
+        <h5>
+          <a [routerLink]="routes.coachPersonalInfo"
+            ><span>3</span>Personal Information</a
+          >
+        </h5>
+      </li>
+      <li routerLinkActive="active">
+        <h5>
+          <a [routerLink]="routes.coachOrderConfirm"
+            ><span>4</span>Order Confirmation</a
+          >
+        </h5>
+      </li>
+      <li routerLinkActive="active">
+        <h5>
+          <a [routerLink]="routes.coachPayment"><span>5</span>Payment</a>
+        </h5>
+      </li>
+    </ul>
+  </div>
+</section>
+<router-outlet></router-outlet>

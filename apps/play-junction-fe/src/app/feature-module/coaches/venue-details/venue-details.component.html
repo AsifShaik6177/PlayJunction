@@ -1,0 +1,449 @@
+<!--Galler Slider Section-->
+<div class="bannergallery-section">
+  <owl-carousel-o class="main-gallery-slider owl-theme aos" data-aos="fade-up" data-aos-delay="500"
+    [options]="venuedetailsoneOwlOptions">
+    @for (slide of albumsOne; track slide; let i = $index) {
+    <ng-template class="item" carouselSlide>
+      <div class="gallery-widget-item">
+        <a href="javascript:void(0)" (click)="open1(i, albumsOne)" data-fancybox="gallery1">
+          <img class="img-fluid" alt="Image" [src]="slide.src">
+        </a>
+      </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+  <div class="showphotos corner-radius-10">
+    <a href="assets/img/gallery/gallery1/gallery-03.png" data-fancybox="gallery1"><i
+        class="fa-regular fa-images"></i>More Photos</a>
+  </div>
+</div>
+<div class="venue-info white-bg d-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <h1 class="d-flex align-items-center justify-content-start">{{eventDetails.eventName}}<span
+            class="d-flex justify-content-center align-items-center"><i class="fas fa-check-double"></i></span></h1>
+        <ul class="d-sm-flex justify-content-start align-items-center">
+          <li><i class="feather icon-map-pin"></i>{{eventDetails.address}}</li>
+          <li><i class="feather icon-phone-call"></i>+3 80992 31212</li>
+          <li><i class="feather icon-mail"></i><a href="mailto:yourmail@example.com"> yourmail&#64;example.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-right">
+        <ul class="social-options float-lg-end d-sm-flex justify-content-start align-items-center">
+          <!-- <li><a href="javascript:void(0);"><i class="feather icon-share-2"></i>Share</a></li>
+          <li><a href="javascript:void(0);"><i class="feather icon-heart"></i>Add to favourite</a></li> -->
+          <li class="venue-review-info d-flex justify-content-start align-items-center">
+            <span class="d-flex justify-content-center align-items-center">{{eventDetails.points}}</span>
+            <div class="review">
+              <div class="rating">
+                @for (slide of ratingArray; track slide; let i = $index) {
+                  <i class="fas fa-star filled"></i>
+                }
+              </div>
+              <p class="mb-0"><a href="javascript:void(0);">{{eventDetails.reviews}} Reviews</a></p>
+            </div>
+            <i class="fa-regular fa-comments"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row bottom-row d-flex align-items-center">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <ul class="d-sm-flex details">
+          <!-- <li>
+            <div class="profile-pic">
+              <a href="javascript:void(0);" class="venue-type"><img class="img-fluid" alt=""
+                  src="assets/img/icons/venue-type.svg"></a>
+            </div>
+            <div class="ms-2">
+              <p>Venue Type</p>
+              <h6 class="mb-0">Indoor</h6>
+            </div>
+          </li> -->
+          <li>
+            <div class="profile-pic">
+              <a href="javascript:void(0);"><img class="img-fluid" alt="" src="assets/img/profiles/avatar-01.jpg"></a>
+            </div>
+            <div class="ms-2">
+              <p>Added By: John Doe</p>
+              <h6 class="mb-0">{{eventDetails.postedBy?.name}}</h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="d-flex float-sm-end align-items-center">
+          <p class="d-inline-block me-2 mb-0"></p>
+          <h3 class="primary-text mb-0 d-inline-block"><span>r</span></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <!-- Row -->
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <div class="venue-options white-bg mb-4">
+          <ul class="clearfix">
+            <li class="active"><a (click)="scrollContent('overview')">Overview</a></li>
+            <li><a (click)="scrollContent('includes')">Includes</a></li>
+            <li><a (click)="scrollContent('rules')">Rules</a></li>
+            <li><a (click)="scrollContent('amenities')">Amenities</a></li>
+            <li><a (click)="scrollContent('gallery')">Gallery</a></li>
+         
+          </ul>
+        </div>
+
+        <!-- Accordian Contents -->
+        <div class="accordion" id="accordionPanel">
+          <div class="accordion-item mb-4" id="overview">
+            <h4 class="accordion-header" id="panelsStayOpen-overview">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                Overview
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    Test
+                </div>
+                <div (click)="toggleShowMore()" class="show-more d align-items-center primary-text"><i class="feather"
+                    [ngClass]="{'icon-plus-circle': isShowMore, 'icon-minus-circle': !isShowMore}"></i>
+                  {{ isShowMore ? 'Show More' : 'Show Less'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" id="includes">
+            <h4 class="accordion-header" id="panelsStayOpen-includes">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Includes
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                  Bats, Equipment Included
+                </div>
+               
+            </div>
+          </div>
+          <div class="accordion-item mb-4" id="rules">
+            <h4 class="accordion-header" id="panelsStayOpen-rules">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                Rules
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    Test
+                </div>
+                
+            </div>
+          </div>
+          <div class="accordion-item mb-4" id="amenities">
+            <h4 class="accordion-header" id="panelsStayOpen-amenities">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFour">
+                Amenities
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    Drinking Water, Parking, First Aid, Change Room, Shower
+                </div>  
+            </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" id="gallery">
+            <h4 class="accordion-header" id="panelsStayOpen-gallery">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFive">
+                Gallery
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-gallery">
+              <div class="accordion-body">
+                <owl-carousel-o class="gallery-slider owl-theme aos" data-aos="fade-up" data-aos-delay="500"
+                  [options]="venuedetailstwoOwlOptions">
+                  @for (slide of albumsOne; track slide; let i = $index) {
+                  <ng-template class="item" carouselSlide>
+                    <a class="corner-radius-10" href="javascript:void(0)" (click)="open1(i, albumsOne)"
+                      data-fancybox="gallery3">
+                      <img class="img-fluid img-galler-2 corner-radius-10" alt="Image" [src]="slide.src">
+                    </a>
+                  </ng-template>
+                  }
+                </owl-carousel-o>
+              </div>
+            </div>
+            <!-- <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-gallery">
+              <div class="accordion-body">
+                <owl-carousel-o class="gallery-slider owl-theme aos" data-aos="fade-up" data-aos-delay="500"
+                  [options]="venuedetailstwoOwlOptions">
+                  @for (slide of gallery; track slide; let i = $index) {
+                  <ng-template class="item" carouselSlide>
+                    <a class="corner-radius-10" href="javascript:void(0)" (click)="open1(i, albumsTwo)" data-fancybox="gallery3">
+                      <img class="img-fluid img-galler-2 corner-radius-10" alt="Image" [src]="slide.image">
+                    </a>
+                  </ng-template>
+                  }
+                </owl-carousel-o>
+              </div>
+            </div> -->
+          </div>
+          <div class="accordion-item mb-4" id="reviews">
+            <div class="accordion-header" id="panelsStayOpen-reviews">
+              
+            
+                <!-- /Review Box -->
+
+                <!-- Review Box -->
+                <!-- <div class="review-box d-md-flex">
+                  <div class="review-profile">
+                    <img src="assets/img/profiles/avatar-06.jpg" alt="">
+                  </div>
+                  <div class="review-info">
+                    <h6 class="mb-2 tittle">{{}} Booked on 06/04/2023</h6>
+                    <div class="rating">
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <span class="">5.0</span>
+                    </div>
+                    <span class="warning-text"><i class="feather icon-x"></i>No, I dont want to book
+                      again.</span>
+                    <h6>Awesome. Its very convenient to play.</h6>
+                    <p>If you are looking for a perfect place for friendly matches with your friends
+                      or a competitive match, It is the best place.</p>
+                  </div>
+                </div> -->
+                <!-- /Review Box -->
+               
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item" id="location">
+            <h4 class="accordion-header" id="panelsStayOpen-location">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseSeven">
+                Location
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    712 S Elm St
+                </div>
+                
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Accordian Contents -->
+      </div>
+      <aside class="col-12 col-sm-12 col-md-12 col-lg-4 theiaStickySidebar">
+        <div class="stickybar">
+          <div class="white-bg d-flex justify-content-start align-items-center availability">
+            <div>
+              <span class="icon-bg"><img class="img-fluid" alt="" src="assets/img/icons/head-calendar.svg"></span>
+            </div>
+            <div>
+              <h4>Availability</h4>
+              <p class="mb-0">Check availability on your convenient time</p>
+            </div>
+          </div>
+          <div class="white-bg book-court">
+            <h4 class="border-bottom">Book A Court</h4>
+            <h5 class="d-inline-block">{{eventDetails.eventName}}</h5>
+            <p class="d-inline-block"> &nbsp;- available Now</p>
+            <ul class="d-sm-flex align-items-center justify-content-evenly">
+              <li>
+                <h3 class="d-inline-block primary-text">$10</h3><span>/hr</span>
+                <p>per guest</p>
+              </li>
+            </ul>
+            <div class="d-grid btn-block mt-3">
+              <a (click)="bookeEvent()"
+                class="btn btn-secondary d-inline-flex justify-content-center align-items-center"><i
+                  class="feather icon-calendar"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="white-bg cage-owner-info">
+            <h4 class="border-bottom">Venue Rating</h4>
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="profile-pic">
+                <a href="javascript:void(0);"><img class="img-fluid" alt="" src="assets/img/profiles/avatar-05.jpg"></a>
+              </div>
+              <div class="">
+                <h5>{{eventDetails.postedBy?.name}}</h5>
+                <div class="rating">
+                  <i class="fas fa-star filled"></i>
+                  <i class="fas fa-star filled"></i>
+                  <i class="fas fa-star filled"></i>
+                  <i class="fas fa-star filled"></i>
+                  <i class="fas fa-star filled"></i>
+                  <span class="">5.0</span>
+                  <span>(20 Reviews)</span>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          <!-- <div class="white-bg listing-owner">
+            <h4 class="border-bottom">Listing By Owner</h4>
+            <ul>
+              <li class="d-flex justify-content-start align-items-center">
+                <div class="">
+                  <a [routerLink]="routes.blogdetails"><img class="img-fluid" alt=""
+                      src="assets/img/listing-by-owner-01.jpg"></a>
+                </div>
+                <div class="owner-info">
+                  <h5><a [routerLink]="routes.blogdetails">Manchester Academy</a></h5>
+                  <p><i class="feather icon-map-pin"></i><span>Sacramento, CA</span></p>
+                  <p class="mb-0"><i class="feather icon-calendar"></i><span>Next availablity :
+                    </span><span class="primary-text">15 May 2023</span></p>
+                </div>
+              </li>
+              <li class="d-flex justify-content-start align-items-center">
+                <div class="">
+                  <a [routerLink]="routes.blogdetails"><img class="img-fluid" alt=""
+                      src="assets/img/listing-by-owner-02.jpg"></a>
+                </div>
+                <div class="owner-info">
+                  <h5><a [routerLink]="routes.blogdetails">Sarah Sports Academy</a></h5>
+                  <p><i class="feather icon-map-pin"></i><span>Sacramento, CA</span></p>
+                  <p class="mb-0"><i class="feather icon-calendar"></i><span>Next availablity :
+                    </span><span class="primary-text">15 May 2023</span></p>
+                </div>
+              </li>
+            </ul>
+          </div> -->
+          <!-- <div class="white-bg">
+            <h4 class="border-bottom">Share Venue</h4>
+            <ul class="social-medias d-flex">
+              <li class="facebook"><a href="javascript:void(0);"><i class="fa-brands fa-facebook-f"></i></a>
+              </li>
+              <li class="instagram"><a href="javascript:void(0);"><i class="fa-brands fa-instagram"></i></a>
+              </li>
+              <li class="behance"><a href="javascript:void(0);"><i class="fa-brands fa-behance"></i></a></li>
+              <li class="twitter"><a href="javascript:void(0);"><i class="fa-brands fa-twitter"></i></a></li>
+              <li class="pinterest"><a href="javascript:void(0);"><i class="fa-brands fa-pinterest"></i></a>
+              </li>
+              <li class="linkedin"><a href="javascript:void(0);"><i class="fa-brands fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+      </aside>
+    </div>
+    <!-- /Row -->
+  </div>
+  <!-- /Container -->
+
+  <section class="section innerpagebg">
+    <div class="container">
+      <div class="featured-slider-group">
+        <h3 class="mb-40">Similar Venues</h3>
+        <owl-carousel-o class="featured-venues-slider owl-theme aos" data-aos="fade-up" data-aos-delay="500"
+          [options]="venuedetailsthreeOwlOptions">
+          @for (slide of similarVenues; track slide) {
+          <ng-template class="item" carouselSlide>
+            <!-- Featured Item -->
+            <div class="featured-venues-item">
+              <div class="listing-item mb-0">
+                <div class="listing-img">
+                  <a href="javascript:void(0);">
+                    <img [src]="slide.image" alt="">
+                  </a>
+                  <div class="fav-item-venues">
+                    <span
+                      [style.display]="slide.tags === 'Featured'&& slide.status === 'active'? 'inline-flex' : 'none'"
+                      class="tag tag-active">Featured</span>
+                    <span
+                      [style.display]="slide.tags === 'Featured'&& slide.status === 'inactive'? 'inline-flex' : 'none'"
+                      class="tag tag-primary">Featured</span>
+                    <span [style.display]="slide.tags === 'Top Rated'? 'inline-flex' : 'none'" class="tag tag-blue">Top
+                      Rated</span>
+                    <span [style.display]="slide.tags === ''? 'inline-flex' : 'none'" class="tag tag-blue">Top
+                      Rated</span>
+                    <h5 class="tag tag-primary">${{slide.hours}}<span>/hr</span></h5>
+                  </div>
+                </div>
+                <div class="listing-content">
+                  <div class="list-reviews">
+                    <div class="d-flex align-items-center">
+                      <span class="rating-bg">{{slide.rating}}</span><span>{{slide.reviews}}</span>
+                    </div>
+                    <a href="javascript:void(0)" class="fav-icon" (click)="fav(slide)"
+                      [ngClass]="{'selected': slide.favourite}">
+                      <i class="feather icon-heart"></i>
+                    </a>
+                  </div>
+                  <h3 class="listing-title">
+                    <a href="javascript:void(0);">{{slide.title}}</a>
+                  </h3>
+                  <div class="listing-details-group">
+                    <p>{{slide.content}}</p>
+                    <ul>
+                      <li>
+                        <span>
+                          <i class="feather icon-map-pin"></i>{{slide.country}}
+                        </span>
+                      </li>
+                      <li>
+                        <span>
+                          <i class="feather icon-calendar"></i>Next availablity : <span
+                            class="primary-text">{{slide.date}}</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="listing-button">
+                    <div class="listing-venue-owner">
+                      <a class="navigation">
+                        <img [src]="slide.image2" alt="">{{slide.name}}
+                      </a>
+                    </div>
+                    <a (click)="bookeEvent()" class="btn btn-secondary"><span><i
+                          class="feather icon-calendar me-2"></i></span>Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Featured Item -->
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- /Page Content -->

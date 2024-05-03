@@ -1,0 +1,44 @@
+
+
+<!-- Page Content -->
+<div class="content carousel-content">
+  <div class="container">
+    <div class="featured-slider-group p-0">
+      <owl-carousel-o class=" testimonials-slider " [options]="testimonialCarouselOwlOptions">
+        @for (slide of TestimonialCarousel; track slide) {
+          <ng-template class="item"  carouselSlide>
+            <!-- Testimonials Item -->
+            <div class="testimonial-group">
+              <div class="testimonial-review">
+                <div class="rating-point">
+                  <i class="fas fa-star filled me-1"></i>
+                  <i class="fas fa-star filled me-1"></i>
+                  <i class="fas fa-star filled me-1"></i>
+                  <i class="fas fa-star filled me-1"></i>
+                  <i class="fas fa-star filled me-1"></i>
+                  <span > 5.0</span>
+                </div>
+                <h5>Finibus mauris. Aliquam consectetur</h5>
+                <p>
+                  {{slide.para}}
+                </p>
+              </div>
+              <div class="listing-venue-owner">
+                <a class="navigation">
+                  <img [src]="slide.img" alt="avatar">
+                </a>
+                <div class="testimonial-content">
+                  <h5>{{slide.name}}</h5>
+                  <a href="javascript:void(0);" class="btn btn-primary ">
+                    {{slide.badge}}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        }
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->

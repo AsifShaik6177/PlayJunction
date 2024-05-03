@@ -1,0 +1,356 @@
+<div class="row">
+
+  <!-- Wallet Balance -->
+  <div class="col-md-12 col-lg-5 d-flex">
+    <div class="wallet-wrap flex-fill">
+      <div class="wallet-bal">
+        <div class="wallet-img">
+          <div class="wallet-amt">
+            <h5>Your Wallet Balance</h5>
+            <h2>$300</h2>
+          </div>
+        </div>
+        <div class="payment-btn">
+          <a href="javascript:void(0);" class="btn balance-add" data-bs-toggle="modal" data-bs-target="#add-payment">Add
+          Payment</a>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <h6>Total Credit</h6>
+          <h3>$350</h3>
+        </li>
+        <li>
+          <h6>Total Debit</h6>
+          <h3>$50</h3>
+        </li>
+        <li>
+          <h6>Total transaction</h6>
+          <h3>$400</h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /Wallet Balance -->
+
+  <!-- Wallet Card -->
+  <div class="col-md-12 col-lg-7 d-flex">
+    <div class="your-card">
+      
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="debit-card-blk">
+            <div class="debit-card-balence">
+              <span>Debit card</span>
+              <h5>Balance in card : 1,234</h5>
+              <div class="card-number">
+                <h4>123145546655</h4>
+              </div>
+            </div>
+            <div class="debit-card-img">
+              <img src="assets/img/icons/visa-icon.svg" alt="Icon">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="debit-card-blk">
+            <div class="debit-card-balence">
+              <span>Debit card</span>
+              <h5>Balance in card : 1,234</h5>
+              <div class="card-number">
+                <h4>314555884554</h4>
+              </div>
+            </div>
+            <div class="debit-card-img">
+              <img src="assets/img/icons/master-card.svg" alt="Icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Wallet Card -->
+
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="court-tab-content">
+      <div class="card card-tableset">
+        <div class="card-body">
+          <div class="coache-head-blk">
+            <div class="row align-items-center">
+              <div class="col-lg-5">
+                <div class="court-table-head">
+                  <h4>Transaction</h4>
+                  <p>Reserve courts, buy equipment, and pay coaching fees with just a few taps.</p>
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="table-search-top invoice-search-top">
+                  <div id="tablefilter">
+                    <div class="dataTables_filter">
+                      <label>
+                        <input
+                          [(ngModel)]="searchDataValue"
+                          (ngModelChange)="searchData(searchDataValue)"
+                          class="form-control"
+                          placeholder="Search..."
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="sortby-section invoice-sort">
+                      <div class="sorting-info">
+                        <div class="sortby-filter-group court-sortby">
+                          <div class="sortbyset week-bg me-0">
+                            <div class="sorting-select coach-booking-mat">
+                              <mat-select  [(ngModel)]="selectedValue2"  [ngModelOptions]="{standalone: true}" class="select"   placeholder="This Week">
+                                @for (data of selectedList2; track data) {
+                                  <mat-option [value]="data.value">
+                                    {{data.value}}
+                                  </mat-option>
+                                }
+                              </mat-select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="request-coach-list select-filter">
+                      <div class="sortby-filter-group court-sortby">
+                        <div class="sortbyset m-0">
+                          <div class="sorting-select">
+                            <mat-select  [(ngModel)]="selectedValue1"  [ngModelOptions]="{standalone: true}" class="select"   placeholder="All Transactions">
+                              @for (data of selectedList1; track data) {
+                                <mat-option [value]="data.value">
+                                  {{data.value}}
+                                </mat-option>
+                              }
+                            </mat-select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive table-datatble">
+              <table class="table datatable" (matSortChange)="sortData($event)" matSort
+                matSortActive="Sno" matSortDirection="asc" matSortDisableClear>
+                <thead class="thead-light">
+                  <tr>
+                    <th mat-sort-header="refId">Ref ID</th>
+                    <th mat-sort-header="name">Transaction for</th>
+                    <th mat-sort-header="date">Date & Time </th>
+                    <th mat-sort-header="payment">Payment</th>
+                    <th mat-sort-header="status">Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (wallet of tableData; track wallet; let i = $index) {
+                    <tr>
+                      <td><a [routerLink]="routes.coachesInvoice" class="text-primary">{{wallet.refId}}</a></td>
+                      <td>
+                        <h2 class="table-avatar">
+                          <a href="javascript:void(0);" class="avatar avatar-sm flex-shrink-0"><img class="avatar-img"
+                          [src]="wallet.image" alt="User Image"></a>
+                          <span class="table-head-name flex-grow-1">
+                            <a href="javascript:void(0);">{{wallet.name}}</a>
+                          </span>
+                        </h2>
+                      </td>
+                      <td class="table-date-time">
+                        <h4>{{wallet.date}}<span>{{wallet.time}}</span></h4>
+                      </td>
+                      <td><span class="pay-dark fs-16">$ {{wallet.payment}}</span></td>
+                      @if (wallet.availability === 'Paid') {
+                        <td ><span class="badge bg-success"><i
+                        class="feather icon-check-square me-1"></i>{{wallet.availability}}</span></td>
+                      }
+                      @if (wallet.availability === 'Pending') {
+                        <td ><span class="badge bg-info"><i
+                        class="feather icon-check-square me-1"></i>{{wallet.availability}}</span></td>
+                      }
+                      @if (wallet.availability === 'Failed') {
+                        <td ><span class="badge bg-danger"><i
+                        class="feather icon-check-square me-1"></i>{{wallet.availability}}</span></td>
+                      }
+                      <td class="text-end">
+                        <div class="dropdown dropdown-action table-drop-action">
+                          <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a class="dropdown-item" href="javascript:void(0);"><i
+                              class="feather icon-trash"></i>Delete</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    }
+                    @if (tableData.length === 0) {
+                      <tr>
+                        <td colspan="12">
+                          <h5 class="no-record">No matching records found</h5>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <app-custom-pagination></app-custom-pagination>
+        </div>
+      </div>
+    </div>
+    <!-- Request Modal -->
+	<div class="modal custom-modal fade payment-modal" id="add-payment" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="form-header modal-header-title">
+						<h4 class="mb-0">Add Payment to Wallet</h4>
+					</div>
+					<a  class="close" data-bs-dismiss="modal" aria-label="Close">
+						<span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+					</a>
+				</div>
+				<div class="modal-body">
+					<div class="wallet-wrap wallet-modal">
+						<div class="wallet-amt">
+							<h5>Your Wallet Balance</h5>
+							<h2>$4,544</h2>
+						</div>
+					</div>
+					<form>
+						<div class="input-space">
+							<label class="form-label">Amount</label>
+							<input type="text" class="form-control" placeholder="Enter Amount">
+						</div>
+						<div class="or-div">
+							<h6>OR</h6>
+						</div>
+						<div class="add-wallet-amount form-check">
+							<ul>
+								<li class="active">
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value" checked>
+										<label for="value">Add Value 1</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $80</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value1">
+										<label for="value1">Add Value 2</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $60</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value2">
+										<label for="value2">Add Value 3</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $120</span>
+									</div>
+								</li>
+								<li>
+									<div class="add-wallet-checkbox">
+										<input type="checkbox" class="form-check-input" id="value3">
+										<label for="value3">Add Value 4</label>
+									</div>
+									<div class="add-wallet-price">
+										<span>+ $120</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="radio-setview">
+							<h6>Select Payment Gateway</h6>
+							<div class="radio">
+								<div class="form-check form-check-inline mb-3">
+								  	<input class="form-check-input default-check me-1" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Credit Card">
+								  	<label class="form-check-label" for="inlineRadio3">Credit Card</label>
+								</div>
+								<div class="form-check form-check-inline mb-0">
+								  	<input class="form-check-input default-check me-1" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Paypal" checked>
+								  	<label class="form-check-label" for="inlineRadio4">Paypal</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="table-accept-btn">
+						<a href="javascript:;" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Reset</a>
+						<a href="javascript:;" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Submit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Request Modal -->
+<!-- Add new Modal -->
+<div class="modal custom-modal fade cancel-modal" id="add-new-card" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a  class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="input-space">
+                <label  class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="CardNumber" placeholder="43576777687998998">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="input-space">
+                <label  class="form-label">Name On Card Number</label>
+                <input type="text" class="form-control" placeholder="Sport">
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="input-space">
+                <label class="form-label">Expiry Date</label>
+                <input type="text" class="form-control" placeholder="06/2023">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="input-space">
+                <label  class="form-label">CVV </label>
+                <input type="text" class="form-control" placeholder="099">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-check policy d-flex align-items-center">
+                <div class="d-inline-block">
+                  <input class="form-check-input" type="checkbox" value="" id="policy">
+                </div>
+                <label class="form-check-label" for="policy">Save for Next Payment</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="table-accept-btn">
+          <a href="javascript:;" class="btn btn-secondary">Reset</a>
+          <a href="javascript:;" class="btn btn-primary">Submit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Add new Modal -->

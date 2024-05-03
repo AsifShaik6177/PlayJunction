@@ -1,0 +1,233 @@
+<!-- Header -->
+<header class="header header-trans" [ngClass]="{
+    'add-header-bg': white_bg === true && base === 'home',
+    'header-sticky': base !== 'home',
+    'fixed-top': white_bg === true
+  }">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg header-nav">
+      <div class="navbar-header">
+        <a id="mobile_btn" href="javascript:void(0);" (click)="toggleSidebar()">
+          <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+        <a [routerLink]="routes.home" class="navbar-brand logo">
+          @if (base === 'home') {
+          <img src="assets/img/logo.svg" class="img-fluid img-header" alt="Logo" />
+          }
+          @if (base !== 'home') {
+          <img src="assets/img/logo-black.svg" class="img-fluid imgg-header-logo" alt="Logo" />
+          }
+        </a>
+      </div>
+      <div class="main-menu-wrapper">
+        <div class="menu-header">
+          <a [routerLink]="routes.home" class="menu-logo">
+            <img src="assets/img/logo-black.svg" class="img-fluid imgg-header-logo" alt="Logo" />
+          </a>
+          <a id="menu_close" (click)="hideSidebar()" class="menu-close" href="javascript:void(0);">
+            <i class="fas fa-times"></i></a>
+        </div>
+        <ul class="main-nav">
+          @for (mainMenus of sidebar; track mainMenus) {
+          @if (mainMenus.separateRoute === true) {
+          <li [class.active]="base === mainMenus.base" routerLinkActive="active">
+            <a [routerLink]="mainMenus.route">{{ mainMenus.tittle }}</a>
+          </li>
+          }
+          @if (mainMenus.separateRoute === false) {
+          @if (page !== 'contact-us') {
+          <li class="has-submenu" [class.active]="base === mainMenus.base" routerLinkActive="active">
+            <a href="javascript:void(0);" (click)="mainMenus.showAsTab = !mainMenus.showAsTab">{{ mainMenus.tittle }} <i
+                class="fas fa-chevron-down"></i></a>
+            <ul class="submenu" [ngClass]="{
+                  'show-sub-menu': mainMenus.showAsTab === true
+                }">
+              @for (menu of mainMenus.menu; track menu) {
+              @if (menu.hasSubRoute === false) {
+              <li routerLinkActive="active">
+                <a [routerLink]="menu.route">{{ menu.menuValue }}</a>
+              </li>
+              }
+              @if (menu.hasSubRoute === true) {
+              <li routerLinkActive="active" class="has-submenu">
+                <a (click)="menu.showSubRoute = !menu.showSubRoute" [routerLink]="menu.route">{{ menu.menuValue }}</a>
+                <ul class="submenu" [ngClass]="{
+                          'show-sub-menu': menu.showSubRoute === true
+                        }">
+                  @for (subMenu of menu.subMenus; track subMenu) {
+                  <li routerLinkActive="active">
+                    <a [routerLink]="subMenu.route">{{
+                      subMenu.menuValue
+                      }}</a>
+                  </li>
+                  }
+                </ul>
+              </li>
+              }
+              }
+            </ul>
+          </li>
+          }
+          @if (page === 'contact-us') {
+          <li class="has-submenu">
+            <a href="javascript:void(0);" (click)="mainMenus.showAsTab = !mainMenus.showAsTab">{{ mainMenus.tittle }} <i
+                class="fas fa-chevron-down"></i></a>
+            <ul class="submenu" [ngClass]="{
+                    'show-sub-menu': mainMenus.showAsTab === true
+                  }">
+              @for (menu of mainMenus.menu; track menu) {
+              @if (menu.hasSubRoute === false) {
+              <li routerLinkActive="active">
+                <a [routerLink]="menu.route">{{ menu.menuValue }}</a>
+              </li>
+              }
+              @if (menu.hasSubRoute === true) {
+              <li routerLinkActive="active" class="has-submenu">
+                <a (click)="menu.showSubRoute = !menu.showSubRoute" [routerLink]="menu.route">{{ menu.menuValue }}</a>
+                <ul class="submenu" [ngClass]="{
+                            'show-sub-menu': menu.showSubRoute === true
+                          }">
+                  @for (subMenu of menu.subMenus; track subMenu) {
+                  <li routerLinkActive="active">
+                    <a [routerLink]="subMenu.route">{{
+                      subMenu.menuValue
+                      }}</a>
+                  </li>
+                  }
+                </ul>
+              </li>
+              }
+              }
+            </ul>
+          </li>
+          }
+          }
+          }
+          <li class="login-link">
+            <a [routerLink]="routes.login">Sign In</a>
+          </li>
+          <li class="login-link">
+            <a [routerLink]="routes.register">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+      <!-- @if (base === 'home' || base === 'pages'|| base === 'listings' || base === 'coaches' || base === 'contact-us' && page !== 'lesson') { -->
+      @if (isLoggedIn === false) {
+      <ul class="nav header-navbar-rht"
+      [ngStyle]="{'display': page === 'lesson' || last === 'profile-settings' || page ==='court-booking' || page === 'booking-steps' || page ==='pages' ? 'none' : 'block'}" >
+        <li class="nav-item"> 
+          <div class="nav-link btn  log-register"
+            [ngClass]="base === 'pages'|| base === 'listings' || base === 'coaches' || base === 'contact-us' ? 'btn-primary' : 'btn-white'">
+            <a [routerLink]="routes.login"><span><i class="feather icon-users"></i></span>Login</a>
+            / <a [routerLink]="routes.register">Register</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-secondary" [routerLink]="routes.listinglist"><span><i
+                class="feather icon-check-circle"></i></span>List Your
+            Court</a>
+        </li>
+      </ul>
+      }
+      <!-- @if (isLoggedIn === true || base === 'blog' ) { -->
+      @if (isLoggedIn === true) {
+      <ul class="nav header-navbar-rht logged-in">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="routes.coachesGrid"><i class="feather icon-search"></i></a>
+        </li>
+        <!-- Notifications -->
+        <li class="nav-item dropdown noti-nav">
+          <a [routerLink]="routes.listingsgrid" class="dropdown-toggle nav-link position-relative"
+            data-bs-toggle="dropdown">
+            <i class="feather icon-bell"></i> <span class="alert-bg"></span>
+          </a>
+          <div class="dropdown-menu notifications dropdown-menu-end">
+            <div class="topnav-dropdown-header">
+              <span class="notification-title">Notifications</span>
+            </div>
+            <div class="noti-content">
+              <ul class="notification-list">
+                <li class="notification-message">
+                  <a href="javascript:void(0);">
+                    <div class="media d-flex">
+                      <span class="avatar">
+                        <img class="avatar-img" alt="" src="assets/img/profiles/avatar-01.jpg" />
+                      </span>
+                      <div class="media-body">
+                        <h6>
+                          John Doe
+                          <span class="notification-time"></span>
+                        </h6>
+                        <p class="noti-details">
+                          hosted a new badminton event
+                          <span class="noti-title">SE league </span>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="notification-message">
+                  <a href="javascript:void(0);">
+                    <div class="media d-flex">
+                      <span class="avatar">
+                        <img class="avatar-img" alt="" src="assets/img/profiles/avatar-02.jpg" />
+                      </span>
+                      <div class="media-body">
+                        <h6>
+                          Asif SHaik
+                          <span class="notification-time">2 days Ago</span>
+                        </h6>
+                        <p class="noti-details">
+                          hosted a new cricket event
+                          <span class="noti-title"> Unt League</span>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                
+                
+              </ul>
+            </div>
+          </div>
+        </li>
+        <!-- /Notifications -->
+        <!-- User Menu -->
+        <li class="nav-item dropdown has-arrow logged-item">
+          <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+            <span class="user-img">
+              <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" width="31" alt="Darren Elder" />
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <div class="user-header">
+              <div class="avatar avatar-sm">
+                <img src="assets/img/profiles/avatar-05.jpg" alt="User Image" class="avatar-img rounded-circle" />
+              </div>
+              <div class="user-text">
+                <h6>{{firstName}}</h6>
+                <a [routerLink]="routes.userProfile" class="text-profile mb-0">Go to Profile</a>
+              </div>
+            </div>
+            <p>
+              <a class="dropdown-item" [routerLink]="routes.addCourt">Add An Event</a>
+            </p>
+            <p>
+              <a class="dropdown-item" [routerLink]="routes.coach_profile_edit">Settings</a>
+            </p>
+            <p><a class="dropdown-item" [routerLink]="routes.login">Logout</a></p>
+          </div>
+        </li>
+
+        <!-- /User Menu -->
+      </ul>
+      }
+     
+    </nav>
+  </div>
+</header>
+<!-- /Header -->

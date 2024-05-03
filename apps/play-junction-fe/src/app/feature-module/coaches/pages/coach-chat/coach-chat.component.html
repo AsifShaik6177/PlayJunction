@@ -1,0 +1,56 @@
+<!-- Page Content -->
+<div class="content court-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="chat-window">
+                    <div class="review-box d-md-flex">
+                        <div class="review-info">
+                            <div class="col-md-12">
+                                <h6 class="mb-2 title">Event Review</h6>
+                                <div class="rating">
+                                    <span *ngFor="let image of eventReview; let i = index"> <i [ngClass]="
+                                    image.review === true
+                                    ? 'fas fa-star filled'
+                                    : 'fas fa-star'" (click)="submitEventReview(i)"></i></span>
+                                    <span class="">5.0</span>
+                                </div>
+                                <div>
+                                    <label for="comments" class="form-label">Details</label>
+                                    <textarea class="form-control" id="comments" rows="3"
+                                        placeholder="Enter Comments"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box d-md-flex">
+                        <div class="review-info">
+                            <div class="col-md-12">
+                                <h6 class="mb-2 title">User Review</h6>
+                                <div class="rating">
+                                    <span *ngFor="let image of userReview; let i = index"> <i [ngClass]="
+                                    image.review === true
+                                    ? 'fas fa-star filled'
+                                    : 'fas fa-star'" (click)="submitUserReview(i)"></i></span>
+                                    <span class="">5.0</span>
+                                </div>
+                                <div>
+                                    <label for="comments" class="form-label">Details</label>
+                                    <textarea class="form-control" id="comments" rows="3"
+                                        placeholder="Enter Comments"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <h3 class="listing-title"> -->
+              <!-- </h3> -->
+        </div>
+    <a class="btn btn-primary" [routerLink] = "routes.home">Submit</a>
+
+    </div>
+
+</div>
+<!-- /Page Content -->

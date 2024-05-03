@@ -1,0 +1,160 @@
+<!-- Page Content -->
+<div class="content court-bg">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Wallet Balance -->
+      <div class="col-md-12 col-lg-5 d-flex">
+        <div class="wallet-wrap flex-fill">
+          <div class="wallet-bal">
+            <div class="wallet-img">
+              <div class="wallet-amt">
+                <h5>Your Wallet Balance</h5>
+                <h2>${{walletBalance}}</h2>
+              </div>
+            </div>
+            <div class="payment-btn">
+              <a href="javascript:void(0);" class="btn balance-add" data-bs-toggle="modal" data-bs-target="#add-payment">Add Payment</a>
+            </div>
+          </div>
+          <!-- <ul>
+            <li>
+              <h6>Total Credit</h6>
+              <h3>$350</h3>
+            </li>
+            <li>
+              <h6>Total Debit</h6>
+              <h3>$50</h3>
+            </li>
+            <li>
+              <h6>Total transaction</h6>
+              <h3>$400</h3>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+      <!-- /Wallet Balance -->
+
+  </div>
+  <!-- /Page Content -->
+  <!-- Request Modal -->
+  <div class="modal custom-modal fade payment-modal" id="add-payment" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="form-header modal-header-title">
+            <h4 class="mb-0">Add Payment to Wallet v </h4>
+          </div>
+          <a id="wallet-modal-close" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="align-center" aria-hidden="true"><i class="feather icon-x"></i></span>
+          </a>
+        </div>
+        <div class="modal-body">
+          <div class="wallet-wrap wallet-modal">
+            <div class="wallet-amt">
+              <h5>Your Wallet Balance</h5>
+              <h2>${{walletBalance}}</h2>
+            </div>
+          </div>
+          <form>
+            <div class="input-space">
+              <label class="form-label">Amount</label>
+              <input type="text" class="form-control" id="Amount" placeholder="Enter Amount">
+            </div>
+            <div class="radio-setview">
+              <h6>Select Payment Gateway</h6>
+              <div class="radio">
+                
+                <div class="form-check form-check-inline mb-0">
+                  <input class="form-check-input default-check me-1" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="Paypal" checked>
+                  <label class="form-check-label" for="inlineRadio5">Credit/Debit Card</label>
+                </div>
+              </div>
+            </div>
+            <div class="input-space">
+              <label class="form-label">Card No</label>
+              <input type="text" class="form-control" placeholder="Enter Card Number">
+            </div>
+            <div class="input-space">
+              <label class="form-label">Card No</label>
+              <input type="text" class="form-control" placeholder="Enter Card Number">
+            </div>
+            <div class="input-space">
+              <label class="form-label">Name on Card</label>
+              <input type="text" class="form-control" placeholder="Name on Card">
+            </div>
+            <div class="input-space">
+              <label class="form-label">CVV</label>
+              <input type="text" class="form-control" placeholder="Enter CVV">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="table-accept-btn">
+            <a href="javascript:void(0);" class="btn btn-secondary">Reset</a>
+            <a (click)="handleAddMoney()" class="btn btn-primary">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Request Modal -->
+
+  <!-- Add new Modal -->
+  <div class="modal custom-modal fade payment-modal" id="add-new-card" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a  class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="align-center" aria-hidden="true"><i class="feather icon-x"></i></span>
+          </a>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="input-space">
+                  <label  class="form-label">Card Number</label>
+                  <input type="text" class="form-control" id="CardNumber" placeholder="43576777687998998">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="input-space">
+                  <label  class="form-label">Name On Card Number</label>
+                  <input type="text" class="form-control" placeholder="Name on Card">
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-space">
+                  <label  class="form-label">Expiry Date</label>
+                  <input type="text" class="form-control" placeholder="06/2023">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="input-space">
+                  <label  class="form-label">CVV </label>
+                  <input type="text" class="form-control" placeholder="099">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-check policy d-flex align-items-center">
+                  <div class="d-inline-block">
+                    <input class="form-check-input" type="checkbox" value="" id="policy">
+                  </div>
+                  <label class="form-check-label" for="policy">Save for Next Payment</label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="table-accept-btn">
+            <a href="javascript:void(0);" class="btn btn-secondary">Reset</a>
+            <a href="javascript:void(0);" class="btn btn-primary">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add new Modal -->

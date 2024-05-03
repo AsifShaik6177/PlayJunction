@@ -1,0 +1,143 @@
+
+
+<!-- Page Content -->
+<div class="content blog-grid">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-8">
+        <div class="row">
+          @for (slide of bloggrid; track slide) {
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+              <!-- Blog -->
+              <div class="featured-venues-item" >
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.blogdetails">
+                      <img [src]="slide.img1" class="img-fluid" alt="">
+                    </a>
+                    <div class="fav-item-venues news-sports">
+                      <span class="tag tag-blue">{{slide.title}}</span>
+                      <div class="list-reviews coche-star">
+                        <a href="javascript:void(0)" class="fav-icon" (click)="fav(slide)" [ngClass]="{'selected': slide.favourite}">
+                          <i class="feather icon-heart"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="listing-content news-content">
+                    <div class="listing-venue-owner">
+                      <div class="navigation">
+                        <a href="javascript:void(0)"><img [src]="slide.img2" alt="">{{slide.name}}</a>
+                        <span ><i class="feather icon-calendar"></i>{{slide.year}}</span>
+                      </div>
+                    </div>
+                    <h3 class="listing-title blog-title">
+                      <a [routerLink]="routes.blogdetails">{{slide.para}} </a>
+                    </h3>
+                    <div class="listing-button read-new">
+                      <ul class="nav">
+                        <li><a href="javascript:void(0);"><i class="feather icon-heart"></i>{{slide.feedback}}</a></li>
+                        <li><a href="javascript:void(0);"><i class="feather icon-message-square"></i>{{slide.command}}</a></li>
+                      </ul>
+                      <span><img [src]="slide.img3" alt="">{{slide.time}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /Blog -->
+            </div>
+          }
+        </div>
+        <!--Pagination-->
+        <div class="blog-pagination">
+          <nav>
+            <ul class="pagination justify-content-center pagination-center">
+              <li class="page-item previtem">
+                <a class="page-link" href="javascript:void(0);"><i class="feather icon-chevrons-left"></i></a>
+              </li>
+              <li class="page-item previtem">
+                <a class="page-link" href="javascript:void(0);"><i class="feather icon-chevron-left"></i></a>
+              </li>
+              <li class="page-item">
+                <a class="page-link active" href="javascript:void(0);">1</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0);">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0);">3</a>
+              </li>
+              <li class="page-item nextlink">
+                <a class="page-link" href="javascript:void(0);"> <i class="feather icon-chevron-right"></i></a>
+              </li>
+              <li class="page-item nextlink">
+                <a class="page-link" href="javascript:void(0);"> <i class="feather icon-chevrons-right"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!--Pagination-->
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 blog-sidebar theiaStickySidebar">
+        <div class="card">
+          <h4>Search</h4>
+          <form class="">
+            <div class="blog-search">
+              <input type="text" class="form-control" id="search" placeholder="Enter Keyword">
+              <i class="feather icon-search"></i>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h4>Latest Posts</h4>
+          <ul class="latest-posts">
+            @for (data of latestpost; track data) {
+              <li>
+                <div class="post-thumb">
+                  <a [routerLink]="routes.blogdetails">
+                    <img
+                      class="img-fluid"
+                      [src]="data.img"
+                      alt=""
+                      />
+                    </a>
+                  </div>
+                  <div class="post-info">
+                    <p>{{data.name}}</p>
+                    <h6>
+                      <a [routerLink]="routes.blogdetails"
+                        >{{data.content}}</a
+                        >
+                      </h6>
+                    </div>
+                  </li>
+                }
+
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Categories</h4>
+              <ul class="categories">
+                <li><h6><a href="javascript:void(0);"> Rules in Game <span>(100)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> Badminton <span>(10)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> Bats <span>(20)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> New Game <span>(45)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> Event <span>(25)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> Rackets <span>(15)</span></a></h6></li>
+                <li><h6><a href="javascript:void(0);"> New Courts <span>(121)</span></a></h6></li>
+
+              </ul>
+            </div>
+            <div class="card tags-card">
+              <h4>Tags</h4>
+              <ul class="tags clearfix">
+                <li><a href="javascript:void(0);" class="tag">Rackets</a></li>
+                <li><a href="javascript:void(0);" class="tag">New Game</a></li>
+                <li><a href="javascript:void(0);" class="tag">Dresses</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Content -->

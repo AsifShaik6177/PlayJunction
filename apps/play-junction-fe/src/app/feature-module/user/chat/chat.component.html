@@ -1,0 +1,293 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="chat-window" [ngClass]="{'chat-slide': openChat === true}">
+
+            <!-- Chat Left -->
+            <div class="chat-cont-left">
+                <form class="chat-search">
+                    <div class="form-custom">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <div class="chat-users-list">
+                    <h3>Contacts</h3>
+                    <div class="chat-scroll">
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-01.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Issac Hendry</div>
+                                    <div class="user-last-chat"><i class="feather icon-check"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">2 min</div>
+                                    <div class="badge badge-success badge-pill">15</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media read-chat active" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-02.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach John Portone</div>
+                                    <div class="user-last-chat"><i class="fa-solid fa-check-double"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">8:01 PM</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-03.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Louie Noguera </div>
+                                    <div class="user-last-chat"><i class="fa-solid fa-check-double"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">7:30 PM</div>
+                                    <div class="badge badge-success badge-pill">3</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-04.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Michael Chambliss</div>
+                                    <div class="user-last-chat"><i class="feather icon-check"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">6:59 PM</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-05.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Nick Minot</div>
+                                    <div class="user-last-chat"><i class="feather icon-check"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">11:21 AM</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-online">
+                                    <img src="assets/img/profiles/avatar-06.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Peanut</div>
+                                    <div class="user-last-chat"><i class="feather icon-check"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">10:05 AM</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="media" (click)="chatOpen()">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-offline">
+                                    <img src="assets/img/profiles/avatar-08.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Coach Hess</div>
+                                    <div class="user-last-chat"><i class="feather icon-check"></i> Hi!!!</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">Yesterday</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Chat Left -->
+
+            <!-- Chat Right -->
+            <div class="chat-cont-right">
+                <div class="chat-header">
+                    <a id="back_user_list" href="javascript:void(0)" class="back-user-list" (click)="chatOpen()">
+                        <i class="feather icon-chevrons-left"></i>
+                    </a>
+                    <div class="media">
+                        <div class="media-img-wrap">
+                            <div class="avatar avatar-online">
+                                <img src="assets/img/profiles/avatar-02.jpg" alt="User Image"
+                                    class="avatar-img rounded-circle">
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <div class="user-name">Coach Issac Hendry</div>
+                        </div>
+                    </div>
+                    <div class="chat-options">
+                        <div class="dropdown dropdown-action table-drop-action">
+                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="javascript:void(0);"><i class="feather icon-archive"></i>Archive</a>
+                                <a class="dropdown-item" href="javascript:void(0);"><i class="feather icon-mic-off"></i>Muted</a>
+                                <a class="dropdown-item" href="javascript:void(0);"><i class="feather icon-trash"></i>Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-scroll">
+                        <ul class="list-unstyled">
+                            <li class="media sent read-chat">
+                                <div class="media-body">
+                                    <div class="msg-box">
+                                        <div>
+                                            <p>I Just Booked you for a single lesson </p>
+                                            <ul class="chat-msg-info">
+                                                <li>
+                                                    <div class="chat-time">
+                                                        <span>8:30 AM</span>
+                                                        <span class="msg-seen"><i
+                                                                class="fa-solid fa-check-double"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="avatar">
+                                    <img src="assets/img/profiles/avatar-02.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </li>
+                            <li class="media received">
+                                <div class="avatar">
+                                    <img src="assets/img/profiles/avatar-03.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                                <div class="media-body">
+                                    <div class="msg-box">
+                                        <div>
+                                            <p>I Just Booked you for a single lesson ?</p>
+                                            <p>Ok?</p>
+                                            <ul class="chat-msg-info">
+                                                <li>
+                                                    <div class="chat-time">
+                                                        <span>8:30 AM</span>
+                                                        <span class="msg-seen"><i
+                                                                class="fa-solid fa-check-double"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="chat-date">Today</li>
+                            <li class="media received">
+                                <div class="avatar">
+                                    <img src="assets/img/profiles/avatar-03.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                                <div class="media-body">
+                                    <div class="msg-box">
+                                        <div>
+                                            <p>Can you please Come with Players on same day??</p>
+                                            <ul class="chat-msg-info">
+                                                <li>
+                                                    <div class="chat-time">
+                                                        <span>8:30 AM</span>
+                                                        <span class="msg-seen"><i
+                                                                class="fa-solid fa-check-double"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media sent">
+                                <div class="media-body">
+                                    <div class="msg-box">
+                                        <div>
+                                            <p>Okay Thanks you!! Appreciated</p>
+                                            <div class="chat-msg-actions dropdown">
+                                                <a href="javascript:void(0);" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fe fe-elipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                                </div>
+                                            </div>
+                                            <ul class="chat-msg-info">
+                                                <li>
+                                                    <div class="chat-time">
+                                                        <span>8:30 AM</span>
+                                                        <span class="msg-seen"><i
+                                                                class="fa-solid fa-check-double"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="avatar">
+                                    <img src="assets/img/profiles/avatar-02.jpg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <div class="form-custom">
+                        <div class="input-group-prepend">
+                            <i class="feather icon-paperclip"></i>
+                        </div>
+                        <div class="send-blk">
+                            <input type="text" class="input-msg-send form-control" placeholder="Type something">
+                            <div class="input-group-append">
+                                <button type="button" class="btn msg-send-btn"><i
+                                        class="feather icon-send"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Chat Right -->
+
+        </div>
+    </div>
+</div>

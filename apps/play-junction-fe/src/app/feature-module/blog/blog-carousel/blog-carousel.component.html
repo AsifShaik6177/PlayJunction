@@ -1,0 +1,72 @@
+
+
+<!-- Page Content -->
+<div class="content blog-grid carousal-blog">
+  <div class="container">
+    <div class="featured-slider-group p-0">
+      <div>
+        <owl-carousel-o [options]="badmintonOwlOptions" class="blog-slider">
+          @for (slide of badmintonList; track slide) {
+            <ng-template carouselSlide>
+              <!-- Blog -->
+              <div class="featured-venues-item">
+                <div class="listing-item">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.blogdetails">
+                      <img [src]="slide.img1" alt="" />
+                    </a>
+                    <div class="fav-item-venues news-sports">
+                      <span class="tag tag-blue">{{ slide.title }}</span>
+                      <div class="list-reviews coche-star">
+                        <a href="javascript:void(0)" class="fav-icon" (click)="fav(slide)" [ngClass]="{'selected': slide.favourite}">
+                          <i class="feather icon-heart"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="listing-content news-content">
+                    <div class="listing-venue-owner">
+                      <div class="navigation">
+                        <a href="javascript:void(0)"
+                          ><img [src]="slide.img2" alt="" />{{ slide.name }}</a
+                          >
+                          <span class="d-flex"
+                            ><i class="feather icon-calendar"></i
+                            >{{ slide.year }}</span
+                            >
+                          </div>
+                        </div>
+                        <h3 class="listing-title">
+                          <a [routerLink]="routes.blogdetails">{{ slide.para }} </a>
+                        </h3>
+                        <div class="listing-button read-new">
+                          <ul class="nav">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="feather icon-heart me-1"></i>
+                                {{ slide.feedback }}</a
+                                >
+                              </li>
+                              <li>
+                                <a href="javascript:void(0);"
+                                  ><i class="feather icon-message-square me-1" ></i
+                                  >{{ slide.command }}</a
+                                  >
+                                </li>
+                              </ul>
+                              <span
+                                ><img [src]="slide.img3" alt="" />{{ slide.time }}</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Blog -->
+                      </ng-template>
+                    }
+                  </owl-carousel-o>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Page Content -->

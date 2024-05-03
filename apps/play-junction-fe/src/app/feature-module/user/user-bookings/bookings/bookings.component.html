@@ -1,0 +1,421 @@
+<!-- Sort By -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="sortby-section court-sortby-section">
+      <div class="sorting-info">
+        <div class="row d-flex align-items-center">
+          <div class="col-xl-7 col-lg-7 col-sm-12 col-12">
+            <div class="coach-court-list">
+              <ul class="nav">
+                <li><a class="active" [routerLink]="routes.userBookings">Upcoming</a></li>
+                <li><a [routerLink]="routes.userCompleted">Completed</a></li>
+                <li><a [routerLink]="routes.userOngoing">On Going</a></li>
+                <li><a [routerLink]="routes.userCancelled">Cancelled</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-5 col-sm-12 col-12">
+            <div class="sortby-filter-group court-sortby">
+              <div class="sortbyset week-bg">
+                <div class="sorting-select coach-booking-mat">
+                  <mat-select  [(ngModel)]="selectedValue2"  [ngModelOptions]="{standalone: true}" class="select"   placeholder="This Week">
+                    @for (data of selectedList2; track data) {
+                      <mat-option [value]="data.value">
+                        {{data.value}}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </div>
+              </div>
+              <div class="sortbyset">
+                <span class="sortbytitle">Sort By</span>
+                <div class="sorting-select">
+                  <mat-select  [(ngModel)]="selectedValue1"  [ngModelOptions]="{standalone: true}" class="select"   placeholder="Relevance">
+                    @for (data of selectedList1; track data) {
+                      <mat-option [value]="data.value">
+                        {{data.value}}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sort By -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="court-tab-content">
+      <div class="card card-tableset">
+        <div class="card-body">
+          <div class="coache-head-blk">
+            <div class="row align-items-center">
+              <div class="col-md-5">
+                <div class="court-table-head">
+                  <h4>My Bookings</h4>
+                  <p>Manage and track all your upcoming court bookings.</p>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="table-search-top">
+                  <div id="tablefilter">
+                    <div class="dataTables_filter">
+                      <label>
+                        <input
+                          [(ngModel)]="searchDataValue"
+                          (ngModelChange)="searchData(searchDataValue)"
+                          class="form-control"
+                          placeholder="Search..."
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="request-coach-list">
+                      <div class="card-header-btns">
+                        <nav>
+                          <div class="nav nav-tabs" role="tablist">
+                            <button class="nav-link active" id="nav-Recent-tab"
+                              data-bs-toggle="tab" data-bs-target="#nav-Recent" type="button"
+                              role="tab" aria-controls="nav-Recent"
+                            aria-selected="true">Courts</button>
+                            <button class="nav-link" id="nav-RecentCoaching-tab"
+                              data-bs-toggle="tab" data-bs-target="#nav-RecentCoaching"
+                              type="button" role="tab" aria-controls="nav-RecentCoaching"
+                            aria-selected="false">Coaches</button>
+                          </div>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="nav-Recent" role="tabpanel"
+                aria-labelledby="nav-Recent-tab" tabindex="0">
+                <div class="table-responsive table-datatble">
+                  <table class="table  datatable" (matSortChange)="sortData($event)" matSort
+                    matSortActive="Sno" matSortDirection="asc" matSortDisableClear>
+                    <thead class="thead-light">
+                      <tr>
+                        <th mat-sort-header="content">Court Name</th>
+                        <th mat-sort-header="date">Date & Time </th>
+                        <th mat-sort-header="payment">Payment</th>
+                        <th mat-sort-header="availability">Status</th>
+                        <th >Details</th>
+                        <th mat-sort-header="chat">Chat</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (bookings of tableData; track bookings; let i = $index) {
+                        <tr>
+                          <td>
+                            <h2 class="table-avatar">
+                              <a href="javascript:void(0);" class="avatar avatar-sm flex-shrink-0"><img
+                                class="avatar-img" [src]="bookings.image"
+                              alt="User Image"></a>
+                              <span class="table-head-name flex-grow-1">
+                                <a href="javascript:void(0);" data-bs-toggle="modal"
+                                data-bs-target="#profile-court">{{bookings.content}}</a>
+                                <span>Court {{bookings.court}}</span>
+                              </span>
+                            </h2>
+                          </td>
+                          <td class="table-date-time">
+                            <h4>{{bookings.date}}<span>{{bookings.time}}</span></h4>
+                          </td>
+                          <td><span class="pay-dark fs-16">$ {{bookings.payment}}</span></td>
+                          @if (bookings.availability === 'Accepted') {
+                            <td><span
+                              class="badge bg-success"><i
+                            class="feather icon-check-square me-1"></i>{{bookings.availability}}</span>
+                          </td>
+                        }
+                        @if (bookings.availability === 'Awaiting') {
+                          <td><span
+                            class="badge bg-info"><i
+                          class="feather icon-clock me-1"></i>{{bookings.availability}}</span>
+                        </td>
+                      }
+                      <td class="text-pink view-detail-pink"><a href="javascript:void(0);"
+                        data-bs-toggle="modal" data-bs-target="#upcoming-court"><i
+                      class="feather icon-eye"></i>View Details</a></td>
+                      <td><a [routerLink]="routes.userChat"><img src="assets/img/icons/chat-icon-01.svg"
+                      alt="img" class="me-2">Chat</a></td>
+                      <td class="text-end">
+                        <div class="dropdown dropdown-action table-drop-action">
+                          <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="javascript:void(0);"  data-bs-toggle="modal" data-bs-target="#cancel-court"><i class="feather-corner-down-left"></i>Cancel Booking</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="feather-edit"></i>Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="feather-trash"></i>Delete</a>
+                          </div>
+                        </div>
+                      </td>
+                  </tr>
+                }
+                @if (tableData.length === 0) {
+                  <tr>
+                    <td colspan="12">
+                      <h5 class="no-record">No matching records found</h5>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-RecentCoaching" role="tabpanel"
+          aria-labelledby="nav-RecentCoaching-tab" tabindex="0">
+          <div class="table-responsive table-datatble">
+            <table class="table  datatable" (matSortChange)="sortData($event)" matSort
+              matSortActive="Sno" matSortDirection="asc" matSortDisableClear>
+              <thead class="thead-light">
+                <tr>
+                  <th mat-sort-header="name">Coach Name</th>
+                  <th mat-sort-header="booked">Booking Type</th>
+                  <th mat-sort-header="time">Date & Time </th>
+                  <th mat-sort-header="payment">Payment</th>
+                  <th mat-sort-header="status">Status</th>
+                  <th mat-sort-header="details">Details</th>
+                  <th mat-sort-header="reviews">Reviews</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (bookings of tableData; track bookings; let i = $index) {
+                  <tr>
+                    <td>
+                      <h2 class="table-avatar">
+                        <a href="javascript:void(0);" class="avatar avatar-sm flex-shrink-0"><img
+                          class="avatar-img" [src]="bookings.image2"
+                        alt="User Image"></a>
+                        <span class="table-head-name flex-grow-1">
+                          <a href="javascript:void(0);" data-bs-toggle="modal"
+                          data-bs-target="#profile-coach">{{bookings.name}}</a>
+                          <span class="book-active">Booked on : {{bookings.booked}}</span>
+                        </span>
+                      </h2>
+                    </td>
+                    <td>{{bookings.category}}</td>
+                    <td class="table-date-time">
+                      <h4>{{bookings.date}}<span>{{bookings.time}}</span></h4>
+                    </td>
+                    <td><span class="pay-dark fs-16">$ {{bookings.payment}}</span></td>
+                    <td><span class="badge bg-success"><i
+                    class="feather icon-check-square me-1"></i>Accepted</span></td>
+                    <td class="text-pink view-detail-pink"><a href="javascript:void(0);"
+                      data-bs-toggle="modal" data-bs-target="#upcoming-coach"><i
+                    class="feather icon-eye"></i>View Details</a></td>
+                    <td class="table-rating" *ngIf="bookings.star === true">
+                      <div class="rating-point">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                      </div>
+                    </td>
+                    <td class="table-rating" *ngIf="bookings.star === false">
+                      <div class="rating-point">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </td>
+                    <td class="text-end">
+                      <div class="dropdown dropdown-action table-drop-action">
+                        <a href="javascript:void(0);" class="action-icon dropdown-toggle"
+                          data-bs-toggle="dropdown" aria-expanded="false"><i
+                        class="fas fa-ellipsis-h"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="javascript:void(0);"><i
+                          class="feather icon-edit"></i>Edit</a>
+                          <a class="dropdown-item" href="javascript:void(0);"><i
+                          class="feather icon-trash"></i>Delete</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                }
+                @if (tableData.length === 0) {
+                  <tr>
+                    <td colspan="12">
+                      <h5 class="no-record">No matching records found</h5>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <app-custom-pagination></app-custom-pagination>
+</div>
+</div>
+</div>
+<!-- cancel Modal -->
+<div class="modal custom-modal fade request-modal" id="cancel-court" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-header modal-header-title">
+          <h4 class="mb-0">Coach Booking Details<span class="badge bg-danger ms-2">Cancelled</span></h4>
+        </div>
+        <a  class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+        </a>
+      </div>
+      <div class="modal-body">
+
+        <!-- Court Request -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Court Information</h4>
+              </div>
+              <div class="appointment-info">
+                <ul class="appointmentset">
+                  <li>
+                    <div class="appointment-item">
+                      <div class="appointment-img">
+                        <img src="assets/img/featured/featured-06.jpg" alt="Venue">
+                      </div>
+                      <div class="appointment-content">
+                        <h6>Angela Roudrigez</h6>
+                        <div class="table-rating">
+                          <div class="rating-point">
+                            <i class="fas fa-star filled me-1"></i>
+                            <i class="fas fa-star filled me-1"></i>
+                            <i class="fas fa-star filled me-1"></i>
+                            <i class="fas fa-star filled me-1"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>30 Reviews</span>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h6>Location</h6>
+                    <p>Santa Monica, CA</p>
+                  </li>
+                  <li>
+                    <h6>Price Per Hour</h6>
+                    <p>$200.00 / hr</p>
+                  </li>
+                  <li>
+                    <h6>Rank</h6>
+                    <p>Expert</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Appointment Information</h4>
+              </div>
+              <div class="appointment-info appoin-border">
+                <ul class="appointmentset">
+                  <li>
+                    <h6>Booked On</h6>
+                    <p>Mon, Jul 14</p>
+                  </li>
+                  <li>
+                    <h6>Booking Type</h6>
+                    <p>Onetime</p>
+                  </li>
+                  <li>
+                    <h6>Date & Time</h6>
+                    <p>Mon, Jul 14
+                    <span>05:00 PM - 08:00 PM</span></p>
+
+                  </li>
+                  <li>
+                    <h6>Total Number of Hours</h6>
+                    <p>2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information">
+              <div class="card-header">
+                <h4>Payment Details</h4>
+              </div>
+              <div class="appointment-info appoin-border double-row">
+                <ul class="appointmentset">
+                  <li>
+                    <h6>Coaching Booking Amount</h6>
+                    <p>$200</p>
+                  </li>
+                  <li>
+                    <h6>Number of Hours</h6>
+                    <p>2</p>
+                  </li>
+                  <li>
+                    <h6>Service Charge</h6>
+                    <p>$20</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="appointment-info appoin-border ">
+                <ul class="appointmentset">
+                  <li>
+                    <h6>Total Amount Paid</h6>
+                    <p class="color-green">$180</p>
+                  </li>
+                  <li>
+                    <h6>Paid On</h6>
+                    <p>Mon, Jul 14</p>
+                  </li>
+                  <li>
+                    <h6>Transaction ID</h6>
+                    <p>#5464164445676781641</p>
+                  </li>
+                  <li>
+                    <h6>Payment type</h6>
+                    <p>Wallet</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card dashboard-card court-information mb-0">
+              <div class="card-header">
+                <h4>Reason for Cancellation</h4>
+              </div>
+              <div class="user-review-details">
+                <div class="user-review-content">
+                  <h6 class="text-danger">Cancelled By Coach</h6>
+                  <p>If you are looking for a perfect place for friendly matches with your friends or a competitive match, It is the best place.</p>
+                  <h5>Sent on 11/03/2023</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Court Request -->
+
+      </div>
+      <div class="modal-footer">
+        <div class="table-accept-btn table-btn-split">
+          <a href="javascript:void(0);"  class="btn initiate-table-btn">Initiate Refund</a>
+          <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-secondary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /cancel Modal -->

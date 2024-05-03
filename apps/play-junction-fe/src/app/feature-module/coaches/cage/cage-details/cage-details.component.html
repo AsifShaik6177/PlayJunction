@@ -1,0 +1,266 @@
+<!-- Page Content -->
+<div class="content book-cage">
+  <div class="container">
+    <section class="card mb-40">
+      <div class="text-center mb-40">
+        <h3 class="mb-1">Book A Court</h3>
+        <p class="sub-title mb-0">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+      </div>
+      <div class="master-academy dull-whitesmoke-bg card">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="d-sm-flex justify-content-start align-items-center">
+              <a href="javascript:void(0);"
+                ><img
+                  class="corner-radius-10"
+                  src="assets/img/master-academy.png"
+                  alt=""
+              /></a>
+              <div class="info">
+                <div
+                  class="d-flex justify-content-start align-items-center mb-3"
+                >
+                  <span
+                    class="text-white dark-yellow-bg color-white me-2 d-flex justify-content-center align-items-center"
+                    >4.5</span
+                  >
+                  <span>300 Reviews</span>
+                </div>
+                <h3 class="mb-2">Manchester Academy</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <ul class="d-sm-flex align-items-center justify-content-evenly">
+              <li>
+                <h3 class="d-inline-block">$10</h3>
+                <span>/hr</span>
+                <p>up to 1 guests</p>
+              </li>
+              <li>
+                <span><i class="feather icon-plus"></i></span>
+              </li>
+              <li>
+                <h3 class="d-inline-block">$5</h3>
+                <span>/hr</span>
+                <p>each  <br />up to 4 guests max</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <section class="card booking-form">
+          <h3 class="border-bottom">Booking Form</h3>
+          <form>
+            <div class="mb-3">
+              <label for="date" class="form-label">From</label>
+              <div class="form-icon">
+                <input
+                  type="text"
+                  class="form-control datetimepicker"
+                  bsDatepicker
+                  placeholder="Select Date"
+                  id="date"
+                />
+
+                <span class="cus-icon">
+                  <i class="feather icon-calendar icon-date"></i>
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="start-time" class="form-label">Start Time</label>
+              <div class="form-icon">
+                <input
+                  type="text"
+                  (click)="toggleTimePcker('minStartTime')"
+                  [value]="formatTime(myTime)"
+                  class="form-control timepicker"
+                  id="start-time"
+                  placeholder="Select Start Time"
+                />
+
+                <span class="cus-icon"
+                  ><i class="feather icon-clock icon-time"></i
+                ></span>
+              </div>
+              <timepicker
+                [class.show-sub-menu]="showTimePicker[0] === 'minStartTime'"
+                class="custom-timepicker"
+                [ngModelOptions]="{ standalone: true }"
+                [(ngModel)]="myTime"
+              ></timepicker>
+            </div>
+            <div class="mb-3">
+              <label for="end-time" class="form-label">End Time</label>
+              <div class="form-icon">
+                <input
+                  type="text"
+                  class="form-control timepicker"
+                  (click)="toggleTimePcker('StartTime')"
+                  [value]="formatTime(zones)"
+                  id="end-time"
+                  placeholder="Select End Time"
+                />
+                <span class="cus-icon"
+                  ><i class="feather icon-clock icon-time"></i
+                ></span>
+              </div>
+              <timepicker
+                [class.show-sub-menu]="showTimePicker[0] === 'StartTime'"
+                class="custom-timepicker"
+                [ngModelOptions]="{ standalone: true }"
+                [(ngModel)]="zones"
+              ></timepicker>
+            </div>
+            <div class="mb-3">
+              <label for="court" class="form-label">Court</label>
+              <mat-select
+                [(ngModel)]="selectedValue1"
+                [ngModelOptions]="{ standalone: true }"
+                id="court"
+                class="select"
+                placeholder="Select City"
+              >
+                @for (data of selectedList1; track data) {
+                <mat-option [value]="data.value">
+                  {{ data.value }}
+                </mat-option>
+                }
+              </mat-select>
+            </div>
+            <div class="select-guest">
+              <h5>Select Guest</h5>
+              <span class="primary-text"> (2 guests maximum)</span>
+              <label class="w-100"
+                >The youngest age allowed at this court is 5
+                <span>*</span></label
+              >
+              <div class="d-md-flex justify-content-between align-items-center">
+                <div class="qty-item text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="dec d-flex justify-content-center align-items-center"
+                    (click)="decrement(1)"
+                    ><i class="feather icon-minus-circle"></i
+                  ></a>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    [(ngModel)]="adult"
+                    name="qty"
+                    id="adults"
+                  />
+                  <a
+                    href="javascript:void(0);"
+                    class="inc d-flex justify-content-center align-items-center"
+                    (click)="increment(1)"
+                    ><i class="feather icon-plus-circle"></i
+                  ></a>
+                  <label for="adults">
+                    <span class="dark-text">Adults</span>
+                    <span class="dull-text">Ages 13 and up</span>
+                  </label>
+                </div>
+
+                <div class="qty-item text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="dec d-flex justify-content-center align-items-center"
+                    (click)="decrement(2)"
+                    ><i class="feather icon-minus-circle"></i
+                  ></a>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    name="qty2"
+                    id="children"
+                    [(ngModel)]="children"
+                  />
+                  <a
+                    href="javascript:void(0);"
+                    class="inc d-flex justify-content-center align-items-center"
+                    (click)="increment(2)"
+                    ><i class="feather icon-plus-circle"></i
+                  ></a>
+                  <label for="children">
+                    <span class="dark-text">Children</span>
+                    <span class="dull-text">Ages 6-12</span>
+                  </label>
+                </div>
+
+                <div class="qty-item text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="dec d-flex justify-content-center align-items-center"
+                    (click)="decrement(3)"
+                    ><i class="feather icon-minus-circle"></i
+                  ></a>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    name="qty3"
+                    id="young-children"
+                    [(ngModel)]="young_children"
+                  />
+                  <a
+                    href="javascript:void(0);"
+                    class="inc d-flex justify-content-center align-items-center"
+                    (click)="increment(3)"
+                    ><i class="feather icon-plus-circle"></i
+                  ></a>
+                  <label for="young-children">
+                    <span class="dark-text">Young Children</span>
+                    <span class="dull-text">Under 6</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <aside class="card booking-details">
+          <h3 class="border-bottom">Booking Details</h3>
+          <ul>
+            <li>
+              <i class="fa-regular fa-building me-2"></i>Standard Synthetic
+              Court 1<span class="x-circle"></span>
+            </li>
+            <li><i class="feather icon-calendar me-2"></i>27, April 2023</li>
+            <li><i class="feather icon-clock me-2"></i>01:00 PM to 03:00 PM</li>
+            <li><i class="feather icon-users me-2"></i>2 Adults, 1 Children</li>
+          </ul>
+          <div class="d-grid btn-block">
+            <button type="button" class="btn btn-primary">
+              Subtotal : $200
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="text-center btn-row">
+      <a class="btn btn-primary me-3 btn-icon" href="javascript:void(0);"
+        ><i class="feather icon-arrow-left-circle me-1"></i> Back</a
+      >
+      <a
+        class="btn btn-secondary btn-icon"
+        [routerLink]="routes.bookCourtConfirm"
+        >Next <i class="feather icon-arrow-right-circle ms-1"></i
+      ></a>
+    </div>
+  </div>
+  <!-- /Container -->
+</div>
+<!-- /Page Content -->

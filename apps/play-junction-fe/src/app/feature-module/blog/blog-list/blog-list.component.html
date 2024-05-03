@@ -1,0 +1,105 @@
+<!-- Page Content -->
+<div class="content blog-grid">
+  <div class="container">
+    <div class="row">
+      @for (data of bloglist; track data) {
+        <div
+          class="col-sm-12 col-md-10 col-lg-8 mx-auto"
+          >
+          <!-- Blog -->
+          <div class="featured-venues-item">
+            <div class="listing-item">
+              <div class="listing-img">
+                <a [routerLink]="routes.blogdetails">
+                  <img [src]="data.img1" class="img-fluid" alt="" />
+                </a>
+                <div class="fav-item-venues news-sports">
+                  <span class="tag tag-blue">{{ data.title }}</span>
+                  <div class="list-reviews coche-star">
+                    <a href="javascript:void(0)" class="fav-icon" (click)="fav(data)" [ngClass]="{'selected': data.favourite}">
+                      <i class="feather icon-heart"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="listing-content news-content">
+                <div class="listing-venue-owner">
+                  <div class="navigation">
+                    <a href="javascript:void(0)"
+                      ><img [src]="data.img2" alt="" />{{ data.name }}</a
+                      >
+                      <span class="d-flex"
+                        ><i class="feather icon-calendar"></i
+                        >
+                        {{ data.year }}</span
+                        >
+                      </div>
+                    </div>
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.blogdetails">{{ data.para }} </a>
+                    </h3>
+                    <p>{{ data.head }}</p>
+                    <div class="listing-button read-new">
+                      <ul class="nav">
+                        <li>
+                          <a href="javascript:void(0);"
+                            ><i class="feather icon-heart me-1"></i
+                            >{{ data.feedback }}</a
+                            >
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);"
+                              ><i class="feather icon-message-square me-1"></i
+                              >{{ data.command }}</a
+                              >
+                            </li>
+                          </ul>
+                          <span><img [src]="data.img3" alt="" />{{ data.time }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Blog -->
+                </div>
+              }
+            </div>
+            <!--Pagination-->
+            <div class="blog-pagination">
+              <nav>
+                <ul class="pagination justify-content-center pagination-center">
+                  <li class="page-item previtem">
+                    <a class="page-link" href="javascript:void(0);"
+                      ><i class="feather icon-chevrons-left"></i
+                    ></a>
+                  </li>
+                  <li class="page-item previtem">
+                    <a class="page-link" href="javascript:void(0);"
+                      ><i class="feather icon-chevron-left"></i
+                    ></a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link active" href="javascript:void(0);">1</a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="javascript:void(0);">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="javascript:void(0);">3</a>
+                  </li>
+                  <li class="page-item nextlink">
+                    <a class="page-link" href="javascript:void(0);">
+                      <i class="feather icon-chevron-right"></i
+                      ></a>
+                    </li>
+                    <li class="page-item nextlink">
+                      <a class="page-link" href="javascript:void(0);">
+                        <i class="feather icon-chevrons-right"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <!--Pagination-->
+              </div>
+            </div>
+            <!-- /Page Content -->

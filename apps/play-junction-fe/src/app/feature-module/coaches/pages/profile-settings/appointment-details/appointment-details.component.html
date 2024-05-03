@@ -1,0 +1,159 @@
+
+
+<!-- Page Content -->
+<div class="content court-bg">
+  <div class="container">
+
+    <div class="coach-court-list profile-court-list">
+      <ul class="nav">
+        <li><a class="active" [routerLink]="routes.coach_profile_edit">Profile</a></li>
+        <li><a [routerLink]="routes.coach_setting_lesson">Lesson</a></li>
+        <li><a [routerLink]="routes.coach_setting_availability">Availability</a></li>
+        <li><a [routerLink]="routes.coach_setting_password">Change Password</a></li>
+        <li><a [routerLink]="routes.coach_other_setting">Other Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="profile-detail-blk">
+          <ul>
+            <li ><a [routerLink]="routes.coach_profile_edit">Profile Details </a></li>
+            <li class="active"><a [routerLink]="routes.coach_profile_appointment_details">Appointment Details</a></li>
+          </ul>
+        </div>
+        <div class="profile-detail-group">
+          <div class="card ">
+            <form >
+              <div class="row">
+                <div class="appoint-head">
+                  <h4>Amount</h4>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-space link-apoint">
+                    <label  class="form-label">Select Currency type</label>
+                    <mat-select  [(ngModel)]="selectedValue1" [ngModelOptions]="{standalone: true}" class=" select"  placeholder="USD">
+                      @for (data of selectedList1; track data) {
+                        <mat-option [value]="data.value">
+                          {{data.value}}
+                        </mat-option>
+                      }
+                    </mat-select>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-space link-apoint">
+                    <label  class="form-label">For Onetime Appointment (USD)</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter Amount">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="appoint-head coach-top">
+                    <h4>Your Coaching Images</h4>
+                  </div>
+                  <div class="file-upload-text appointment-upload">
+                    <div class="file-upload">
+                      <img src="assets/img/icons/img-icon.svg" class="img-fluid" alt="upload">
+                      <p>Upload Coaching Gallery </p>
+                    </div>
+                    <div class="upload-show-img">
+                      <div *ngFor="let image of images; let i = index" class="upload-images" [ngClass]="{'d-none': !image.isVisible}">
+                        <img [src]="'assets/img/booking/booking-0' + (i + 1) + '.jpg'" alt="Image" />
+                        <a (click)="toggleImage(i)" href="javascript:void(0);" class="btn btn-icon logo-hide-btn btn-sm">
+                          <i class="far fa-trash-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <h5>Logo Should be minimum 152 * 152 Supported File format JPG,PNG,SVG</h5>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="appoint-head">
+                    <h4>Video</h4>
+                  </div>
+                  <div class="input-space link-apoint">
+                    <label  class="form-label"> Link</label>
+                    <div class="input-box">
+                      <input type="text" class="form-control" id="name" placeholder="Enter Video Link">
+                      <p>Video Supported File format MP4 Format</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="appoint-head">
+                    <h4>Short Bio</h4>
+                  </div>
+                  <div class="info-about">
+                    <label  class="form-label">Enter Bio</label>
+                    <textarea class="form-control"  rows="3" placeholder="Enter Bio"></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="appoint-head">
+                    <h4>Lesson With Me</h4>
+                  </div>
+                  <div class="info-about">
+                    <label  class="form-label">Enter Content</label>
+                    <textarea class="form-control"  rows="3" placeholder="Enter Content"></textarea>
+                    <div class="check-single-lesson">
+                      <div class="similar-player">
+                        <div class="form-check d-flex align-items-center policy">
+                          <div class="d-inline-block">
+                            <input class="form-check-input" type="checkbox" value="" >
+                          </div>
+                          <label class="form-check-label" >Single Lesson</label>
+                        </div>
+                        <ul>
+                          <li>3 Days * 1 hour  &#64; <span>$10.00</span></li>
+                        </ul>
+                      </div>
+                      <div class="similar-player">
+                        <div class="form-check d-flex align-items-center policy">
+                          <div class="d-inline-block">
+                            <input class="form-check-input" type="checkbox" value="" >
+                          </div>
+                          <label class="form-check-label" >2 Player Lesson</label>
+                        </div>
+                        <ul>
+                          <li>3 Days * 1 hour  &#64; <span>$10.00</span></li>
+                          <li> *4 players of similar age and ability</li>
+                        </ul>
+                      </div>
+                      <div class="similar-player">
+                        <div class="form-check d-flex align-items-center policy">
+                          <div class="d-inline-block">
+                            <input class="form-check-input" type="checkbox" value="" >
+                          </div>
+                          <label class="form-check-label" >Small Group Lesson</label>
+                        </div>
+                        <ul>
+                          <li>2 Days * 1 hour  &#64;  <span>$200.00</span></li>
+                          <li> *4 players of similar age and ability</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="appoint-head">
+                    <h4>Coaching</h4>
+                  </div>
+                  <div class="info-about p-0 m-0 border-bottom-0">
+                    <label  class="form-label">Enter Bio</label>
+                    <textarea class="form-control"  rows="3" placeholder="Enter Bio"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="save-changes text-end">
+            <a href="javascript:void(0);" class="btn btn-primary reset-profile">Reset</a>
+            <a href="javascript:void(0);" class="btn btn-secondary save-profile">Save Change</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /Page Content -->

@@ -1,0 +1,2900 @@
+<!-- Page Content -->
+<div class="content court-bg">
+  <div class="container">
+    <div class="coach-court-list profile-court-list">
+      <ul class="nav">
+        <li><a [routerLink]="routes.coach_profile_edit">Profile</a></li>
+        <li><a [routerLink]="routes.coach_setting_lesson">Lesson</a></li>
+        <li>
+          <a class="active" [routerLink]="routes.coach_setting_availability"
+            >Availability</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="routes.coach_setting_password">Change Password</a>
+        </li>
+        <li><a [routerLink]="routes.coach_other_setting">Other Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Profile Availability -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-availability">
+          <div class="select-days">
+            <h4>Select days</h4>
+            <ul class="day-list">
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_1"
+                    name="day"
+                    checked
+                  />
+                  <label for="select_days_1"> Mon </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_2"
+                    [(ngModel)]="isChecked"
+                    name="day"
+                  />
+                  <label for="select_days_2"> Tues </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_3"
+                    [(ngModel)]="isChecked1"
+                    name="day"
+                  />
+                  <label for="select_days_3"> Wed </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_4"
+                    [(ngModel)]="isChecked2"
+                    name="day"
+                  />
+                  <label for="select_days_4"> Thur </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_5"
+                    [(ngModel)]="isChecked3"
+                    name="day"
+                  />
+                  <label for="select_days_5"> Fri </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_6"
+                    [(ngModel)]="isChecked4"
+                    name="day"
+                  />
+                  <label for="select_days_6"> Sat </label>
+                </div>
+              </li>
+              <li>
+                <div class="day-selection">
+                  <input
+                    type="checkbox"
+                    value="attach_link"
+                    id="select_days_7"
+                    [(ngModel)]="isChecked5"
+                    name="day"
+                  />
+                  <label for="select_days_7"> Sun </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="accordion setting-accordion">
+            <!-- Monday -->
+            <div class="accordion-item" id="day-monday">
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#monday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_1" class="check" />
+                      <label for="status_1" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Monday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="monday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue1"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList1; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            type="text"
+                            (click)="toggleTimePcker('startTime1')"
+                            [value]="formatTime(startTime1)"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime1'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime1"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('endTime1')"
+                            [value]="formatTime(endTime1)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime1'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime1"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Monday -->
+
+            <!-- Tuesday -->
+            <div
+              class="accordion-item"
+              id="day-tuesday"
+              [style.display]="isChecked === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#tuesday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input
+                        type="checkbox"
+                        id="status_2"
+                        class="check"
+                        checked
+                      />
+                      <label for="status_2" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Tuesday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="tuesday" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue2"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList2; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            type="text"
+                            (click)="toggleTimePcker('startTime2')"
+                            [value]="formatTime(startTime2)"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime2'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime2"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            type="text"
+                            (click)="toggleTimePcker('endTime2')"
+                            [value]="formatTime(endTime2)"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime2'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime2"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Tuesday -->
+
+            <!-- Wednessday -->
+            <div
+              class="accordion-item"
+              id="day-wednesday"
+              [style.display]="isChecked1 === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#wednesday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_3" class="check" />
+                      <label for="status_3" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Wednesday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="wednesday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue3"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList3; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('startTime3')"
+                            [value]="formatTime(startTime3)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime3'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime3"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('endTime3')"
+                            [value]="formatTime(endTime3)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime3'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime3"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Wednessday -->
+
+            <!-- Thursday -->
+            <div
+              class="accordion-item"
+              id="day-thursday"
+              [style.display]="isChecked2 === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#thursday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_4" class="check" />
+                      <label for="status_4" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Thursday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="thursday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue4"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList4; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('startTime4')"
+                            [value]="formatTime(startTime4)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime4'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime4"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('endTime4')"
+                            [value]="formatTime(endTime4)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime4'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime4"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Thursday -->
+
+            <!-- Friday -->
+            <div
+              class="accordion-item"
+              id="day-friday"
+              [style.display]="isChecked3 === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#friday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_5" class="check" />
+                      <label for="status_5" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Friday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="friday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue5"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList5; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('startTime5')"
+                            [value]="formatTime(startTime5)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime5'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime5"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            type="text"
+                            (click)="toggleTimePcker('endTime5')"
+                            [value]="formatTime(endTime5)"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime5'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime5"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Friday -->
+
+            <!-- Saturday -->
+            <div
+              class="accordion-item"
+              id="day-saturday"
+              [style.display]="isChecked4 === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#saturday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_6" class="check" />
+                      <label for="status_6" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Saturday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="saturday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue6"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList6; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('startTime6')"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime6'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime6"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('endTime6')"
+                            [value]="formatTime(endTime6)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime6'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime6"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Saturday -->
+
+            <!-- Sunday -->
+            <div
+              class="accordion-item"
+              id="day-sunday"
+              [style.display]="isChecked5 === true ? 'block' : 'none'"
+            >
+              <div class="accordion-header">
+                <div
+                  class="accordion-button collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#sunday"
+                >
+                  <div class="interset-btn empty-space">
+                    <div class="status-toggle d-inline-flex align-items-center">
+                      <input type="checkbox" id="status_7" class="check" />
+                      <label for="status_7" class="checktoggle">checkbox</label>
+                    </div>
+                  </div>
+                  <span class="accord-title">Sunday</span>
+                  <a href="javascript:void(0);">Edit</a>
+                </div>
+              </div>
+              <div id="sunday" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="row gx-2">
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Duration <span class="text-danger">*</span></label
+                        >
+                        <mat-select
+                          
+                          
+                          [(ngModel)]="selectedValue7"
+                          [ngModelOptions]="{ standalone: true }"
+                          class="select"
+                          placeholder="1 Hrs"
+                        >
+                          @for (data of selectedList7; track data) {
+                          <mat-option [value]="data.value">
+                            {{ data.value }}
+                          </mat-option>
+                          }
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >Start Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('startTime7')"
+                            [value]="formatTime(startTime7)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'startTime7'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="startTime7"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="duration-blk">
+                        <label class="form-control-label"
+                          >End Time <span class="text-danger">*</span></label
+                        >
+                        <div class="form-icon">
+                          <input
+                            (click)="toggleTimePcker('endTime7')"
+                            [value]="formatTime(endTime7)"
+                            type="text"
+                            class="form-control datetimepicker1"
+                            placeholder="Select time"
+                          />
+                          <timepicker
+                            [class.show-sub-menu]="
+                              showTimePicker[0] === 'endTime7'
+                            "
+                            class="custom-timepicker"
+                            [ngModelOptions]="{ standalone: true }"
+                            [(ngModel)]="endTime7"
+                          ></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Available timings</h4>
+                      <div class="token-slot mt-2">
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              value="18"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00am"
+                              >06:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:00:00"
+                              data-end-time="15:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="19"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00am"
+                              >07:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:20:00"
+                              data-end-time="15:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="20"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="08:00am"
+                              >08:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="15:40:00"
+                              data-end-time="16:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="21"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="09:00am"
+                              >09:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:00:00"
+                              data-end-time="16:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="22"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="10:00am"
+                              >10:00am</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:20:00"
+                              data-end-time="16:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="23"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="11:00pm"
+                              >11:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="16:40:00"
+                              data-end-time="17:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="24"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="12:00pm"
+                              >12:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:00:00"
+                              data-end-time="17:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="25"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="01:00pm"
+                              >01:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:20:00"
+                              data-end-time="17:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="26"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="02:00pm"
+                              >02:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="17:40:00"
+                              data-end-time="18:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="27"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="03:00pm"
+                              >03:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:00:00"
+                              data-end-time="18:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="28"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="04:00pm"
+                              >04:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:20:00"
+                              data-end-time="18:40:00"
+                              data-session="1"
+                              name="token[]"
+                              value="29"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="05:00pm"
+                              >05:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="18:40:00"
+                              data-end-time="19:00:00"
+                              data-session="1"
+                              name="token[]"
+                              value="30"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="06:00pm"
+                              >06:00pm</span
+                            >
+                          </label>
+                        </div>
+                        <div class="form-check-inline visits me-1">
+                          <label class="visit-btns">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              data-date="2021-05-21"
+                              data-timezone="Asia/Calcutta"
+                              data-start-time="19:00:00"
+                              data-end-time="19:20:00"
+                              data-session="1"
+                              name="token[]"
+                              value="31"
+                            />
+                            <span
+                              class="visit-rsn"
+                              data-bs-toggle="tooltip"
+                              title="07:00 PM"
+                              >07:00 PM</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="save-time">
+                        <a href="javascript:void(0);">Save timings</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Sunday -->
+          </div>
+          <div class="save-changes text-end">
+            <a href="javascript:void(0);" class="btn btn-primary reset-profile"
+              >Reset</a
+            >
+            <a href="javascript:void(0);" class="btn btn-secondary save-profile"
+              >Save Change</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Profile Availability -->
+  </div>
+</div>
+<!-- /Page Content -->

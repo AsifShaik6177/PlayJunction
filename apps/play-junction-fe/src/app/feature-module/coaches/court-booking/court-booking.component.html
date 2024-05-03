@@ -1,0 +1,42 @@
+		<!-- Breadcrumb -->
+		<div class="breadcrumb mb-0">
+			<span class="primary-right-round"></span>
+			<div class="container">
+				<h1 class="text-white">Book A Court</h1>
+				<ul>
+					<li><a [routerLink]="routes.home">Home</a></li>
+					<li>Book A Court</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /Breadcrumb -->
+		<section class="booking-steps py-30">
+			<div class="container">
+				<ul class="d-lg-flex justify-content-center align-items-center">
+					<li [class.active]="last.includes('book-court')"><h5><a ><span>1</span>Book a Court</a></h5></li>
+					<li [class.active]="last.includes('book-confirm')"><h5><a><span>2</span>Order Confirmation</a></h5></li>
+					<li [class.active]="last.includes('checkout')"><h5><a><span>3</span>Payment</a></h5></li>
+				</ul>
+			</div>
+		</section>
+<router-outlet></router-outlet>
+
+
+	<!-- Booking Confirmed Modal -->
+	<div class="modal fade" id="bookingconfirmModal" tabindex="-1" aria-labelledby="bookingconfirmModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+		    <div class="modal-content">
+		      	<div class="modal-header text-center d-inline-block">
+		        	<img src="assets/img/icons/booking-confirmed.svg" alt="">
+		      	</div>
+				<div class="modal-body text-center">
+				<h3 class="mb-3">Request has been sent</h3>
+				<p>Check your email on the booking confirmation</p>
+				</div>
+		      	<div class="modal-footer text-center d-inline-block">
+		        	<a [routerLink]="routes.userDashboard" data-bs-dismiss="modal" class="btn btn-primary btn-icon"><i class="feather icon-arrow-left-circle me-1"></i>Back to Dashboard</a>
+		      </div>
+		    </div>
+		</div>
+	</div>
+	<!-- /Booking Confirmed Modal -->

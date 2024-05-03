@@ -1,0 +1,52 @@
+<!-- Page Content -->
+<div class="content book-cage">
+    <div class="container">
+        <section class="card mb-40">
+            <div class="text-center mb-40">
+                <h3 class="mb-1">Book A Coach</h3>
+                <p class="sub-title">Unlock Your Potential with a Personal Coach</p>
+            </div>
+            <div class="master-academy dull-whitesmoke-bg card">
+                <div class="d-sm-flex justify-content-between align-items-center">
+                    <div class="d-sm-flex justify-content-start align-items-center">
+                        <a href="javascript:void(0);"><img class="corner-radius-10" src="assets/img/profiles/avatar-02.png" alt=""></a>
+                        <div class="info">
+                            <div class="d-flex justify-content-start align-items-center mb-3">
+                                <span class="text-white dark-yellow-bg color-white me-2 d-flex justify-content-center align-items-center">4.5</span>
+                                <span>300 Reviews</span>
+                            </div>
+                            <h3 class="mb-2">Kevin Anderson</h3>
+                            <p>Certified Badminton Coach with a deep understanding of the sport's strategies.</p>
+                        </div>
+                    </div>
+                    <div class="white-bg">
+                        <p class="mb-1">Starts From</p>
+                        <h3 class="d-inline-block primary-text mb-0">$10</h3><span>/hr</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-center coach-types">
+            <div class="border-block">
+                <h3 class="mb-2">How do you prefer to book your Coach?</h3>
+                <p>Please Select the Options below </p>
+                <ul  class="d-flex justify-content-center align-items-center" id="coaches">
+                    <li class="d-flex justify-content-between align-items-center me-4" [ngClass]="{ 'active': isTabActive(0) }" (click)="activateTab(0)">
+                        <p class="d-inline-block">Only Book a Coach for Session</p>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center coach-and-lessons" id="lesson" [ngClass]="{ 'active': isTabActive(1) }" (click)="activateTab(1)">
+                        <p class="d-inline-block">Commit To Training With Coach & Lessons</p>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center btn-row">
+                <a class="btn btn-primary me-3 btn-icon" href="javascript:void(0);"><i class="feather icon-arrow-left-circle me-1"></i> Back</a>
+                <a class="btn btn-secondary btn-icon change-url" (click)="reDirect()">Next <i class="feather icon-arrow-right-circle ms-1"></i></a>
+            </div>
+        </section>
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /Page Content -->

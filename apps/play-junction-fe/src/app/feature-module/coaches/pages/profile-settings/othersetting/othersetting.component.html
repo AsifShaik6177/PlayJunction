@@ -1,0 +1,127 @@
+
+
+
+		<!-- Page Content -->
+		<div class="content court-bg">
+			<div class="container">
+
+				<div class="coach-court-list profile-court-list">
+					<ul class="nav">
+						<li><a  [routerLink]="routes.coach_profile_edit">Profile</a></li>
+						<li><a  [routerLink]="routes.coach_setting_lesson">Lesson</a></li>
+						<li><a [routerLink]="routes.coach_setting_availability">Availability</a></li>
+						<li><a [routerLink]="routes.coach_setting_password">Change Password</a></li>
+						<li><a class="active" [routerLink]="routes.coach_other_setting">Other Settings</a></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="profile-detail-group">
+							<div class="card ">
+								<form >
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="appoint-head">
+												<h4>Change Email</h4>
+											</div>
+											<div class="input-space other-setting-form">
+												<label  class="form-label"> Enter New Email Address</label>
+												<input type="text" class="form-control" id="password" placeholder="Enter New Email Address">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<div class="appoint-head">
+												<h4>Change Phone Number</h4>
+											</div>
+											<div class="input-space other-setting-form">
+												<label  class="form-label">New Phone Number</label>
+												<input type="text" class="form-control" id="phone" placeholder="Enter New  Phone Number">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<div class="deactivate-account-blk">
+												<div class="deactivate-detail">
+													<h4>Deactivate Account</h4>
+													<p>Click delete button to deactivate the account</p>
+												</div>
+												<a href="javascript:void(0)" class="btn deactive-btn" data-bs-toggle="modal" data-bs-target="#deactive"><i class="me-1 feather icon-zap-off"></i>Deactive Account</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="save-changes text-end">
+								<a href="javascript:void(0);" class="btn btn-primary reset-profile">Reset</a>
+								<a href="javascript:void(0);"  class="btn btn-secondary save-profile" data-bs-toggle="modal" data-bs-target="#success-mail">Save Change</a>
+							</div>
+						</div>
+					</div>
+				</div>	
+
+			</div>
+		</div>
+		<!-- /Page Content -->
+
+
+        		<!-- Deactive Modal -->
+		<div class="modal custom-modal fade deactive-modal" id="deactive" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<a  class="close" data-bs-dismiss="modal" aria-label="Close">
+							<span class="align-center" aria-hidden="true"><i class="feather icon-x"></i></span>
+						</a>
+					</div>
+					<div class="modal-body">
+
+						<!-- Deactive Account -->
+						<div class="account-deactive">
+							<img src="assets/img/icons/deactive-profile.svg" alt="Icon">
+							<h3>Are You Sure You Want to Deactive Account</h3>
+							<p>If yes please click “Yes” button</p>
+							<div class="convenient-btns">
+								<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary d-inline-flex align-items-center">
+									Yes <span><i  class="feather icon-arrow-right-circle ms-2"></i></span>
+								</a>
+								<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-secondary d-inline-flex align-items-center">
+									No <span><i  class="feather icon-arrow-right-circle ms-2"></i></span>
+								</a>
+							</div>
+						</div>
+						<!-- /Deactive Account -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Deactive Modal -->
+
+		<!-- Email Success -->
+		<div class="modal custom-modal fade deactive-modal" id="success-mail" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<a  class="close" data-bs-dismiss="modal" aria-label="Close">
+							<span class="align-center" aria-hidden="true"><i class="feather icon-x"></i></span>
+						</a>
+					</div>
+					<div class="modal-body">
+
+						<!-- Deactive Account -->
+						<div class="account-deactive">
+							<img src="assets/img/icons/email-success.svg" alt="Icon">
+							<h3>Email Changed Successfully</h3>
+							<p>Check your email on the confirmation</p>
+							<div class="convenient-btns">
+								<a [routerLink] = "routes.coachDashboard" data-bs-dismiss="modal" class="btn btn-primary d-inline-flex align-items-center me-0">
+									<span><i class="me-2 feather icon-arrow-left-circle"></i></span>Back to Dashboard
+								</a>
+							</div>
+						</div>
+						<!-- /Deactive Account -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Deactive Modal -->

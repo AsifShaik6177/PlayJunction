@@ -1,0 +1,605 @@
+<!-- Banner -->
+<div class="banner">
+  <img src="assets/img/bg/coach-detail-bg.jpg" alt="" />
+</div>
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <!-- Row -->
+    <div class="row move-top">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <div class="dull-bg corner-radius-10 coach-info d-md-flex justify-content-start align-items-start">
+          <div class="profile-pic">
+            <a href="javascript:void(0);"><img alt="" class="corner-radius-10"
+                src="assets/img/profiles/avatar-coach-detail.jpg" /></a>
+          </div>
+          <div class="info w-100">
+            <div class="d-sm-flex justify-content-between align-items-start">
+              <h3 class="d-flex align-items-center justify-content-start mb-0">
+                Kevin Anderson<span class="d-flex justify-content-center align-items-center"><i
+                    class="fas fa-check-double"></i></span>
+              </h3>
+              <span class="favourite"><i class="feather icon-star"></i>Favourite</span>
+            </div>
+            <p>
+              Coach Kevin provides Badminton lessons in Santa Monica at Penmar
+              Park
+            </p>
+            <ul class="d-sm-flex align-items-center">
+              <li class="d-flex align-items-center">
+                <div class="white-bg d-flex align-items-center review">
+                  <span class="white-bg dark-yellow-bg d-flex align-items-center">4.5</span><span>300 Reviews</span>
+                </div>
+              </li>
+              <li>
+                <img src="assets/img/icons/flag-01.png" alt="" />Santamanica,
+                United States
+              </li>
+            </ul>
+            <hr />
+            <ul class="d-xl-flex">
+              <li class="d-flex align-items-center">
+                <img src="assets/img/icons/expert.svg" alt="" />Rank : Expert
+              </li>
+              <li class="d-flex align-items-center">
+                <img src="assets/img/icons/sessions.svg" alt="" />Sessions
+                Completed : 25
+              </li>
+              <li class="d-flex align-items-center">
+                <img src="assets/img/icons/since.svg" alt="" />With Dreamsports
+                Since Apr 5, 2023
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="venue-options white-bg mb-4">
+          <ul class="clearfix">
+            <li [ngClass]="{ active: activeTab === 'tab1' }">
+              <a (click)="inView(short_bio); activeTab = 'tab1'">Short Bio</a>
+            </li>
+            <li [ngClass]="{ active: activeTab === 'tab2' }">
+              <a (click)="inView(lesson_with_me); activeTab = 'tab2'">Lesson With Me</a>
+            </li>
+            <li [ngClass]="{ active: activeTab === 'tab3' }">
+              <a (click)="inView(coaching); activeTab = 'tab3'">Coaching</a>
+            </li>
+            <li [ngClass]="{ active: activeTab === 'tab4' }">
+              <a (click)="inView(gallery); activeTab = 'tab4'">Gallery</a>
+            </li>
+            <li [ngClass]="{ active: activeTab === 'tab5' }">
+              <a (click)="inView(reviews); activeTab = 'tab5'">Reviews</a>
+            </li>
+            <li [ngClass]="{ active: activeTab === 'tab6' }">
+              <a (click)="inView(location); activeTab = 'tab6'">Locations</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Accordian Contents -->
+        <div class="accordion" id="accordionPanel">
+          <div class="accordion-item mb-4" #short_bio id="short_bio">
+            <h4 class="accordion-header" id="panelsStayOpen-short-bio">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                Short Bio
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-short-bio">
+              <div class="accordion-body">
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                  <p class="mb-0">
+                    Name: Kevin Anderson
+                  </p>
+                  <p class="mb-4">Experience: 10 years of experience coaching badminton at various skill levels.</p>
+                  <p>
+                    Credentials: Certified Badminton Coach with a deep understanding of the sport's techniques and
+                    strategies.
+                    Coaching Style: Patient and detail-oriented approach, focusing on technique refinement and strategic
+                    gameplay.
+                    Achievements: Successfully guided players to notable achievements in regional and national
+                    competitions.
+                    Passion: An avid badminton enthusiast,Kevin is dedicated to nurturing talent and fostering a love
+                    for the sport.
+                    Join Kevin’s coaching sessions to enhance your badminton skills and unleash your full potential.
+
+                  </p>
+                </div>
+                <div (click)="toggleShowMore()" class="show-more d align-items-center primary-text"><i class="feather"
+                    [ngClass]="{'icon-plus-circle': isShowMore, 'icon-minus-circle': !isShowMore}"></i>
+                  {{ isShowMore ? 'Show More' : 'Show Less'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" id="lesson-with-me" #lesson_with_me>
+            <h4 class="accordion-header" id="panelsStayOpen-lesson-with-me">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Lesson With Me
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-lesson-with-me">
+              <div class="accordion-body">
+                <p>Join me for personalized lessons tailored to your needs. Choose from individual, 2-player, or group
+                  lessons for a customized badminton experience.Heighten your skills and relish the process of getting
+                  better.
+                </p>
+                <ul class="clearfix">
+                  <li><i class="feather-check-square"></i>Single Lesson</li>
+                  <li><i class="feather-check-square"></i>2 Player Lesson</li>
+                  <li><i class="feather-check-square"></i>Small Group Lesson</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" #coaching>
+            <h4 class="accordion-header" id="panelsStayOpen-coaching">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                Coaching
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-coaching">
+              <div class="accordion-body">
+                <p>
+                  Experience transformative coaching tailored to your needs. Whether individual, partner, or small group
+                  sessions, unlock your potential with personalized instruction for success.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" #gallery>
+            <h4 class="accordion-header" id="panelsStayOpen-gallery">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFive">
+                Gallery
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-gallery">
+              <div class="accordion-body">
+                <div class="gallery-slider">
+                  <owl-carousel-o [options]="coachDetailOptions">
+                    <ng-container>
+                      @for (data of albumsOne; track data; let i = $index) {
+                      <ng-template carouselSlide>
+                        <div class="gallery-widget-item">
+                          <a class="corner-radius-10" href="javascript:void(0)">
+                            <img class="img-fluid corner-radius-10" alt="Image" [src]="data.src"
+                              (click)="open1(i, albumsOne)" />
+                          </a>
+                        </div>
+                      </ng-template>
+                      }
+                    </ng-container>
+                  </owl-carousel-o>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-4" #reviews>
+            <div class="accordion-header" id="panelsStayOpen-reviews">
+              <div class="accordion-button d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseSix" aria-controls="panelsStayOpen-collapseSix">
+              
+             
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-reviews">
+              <div class="accordion-body">
+                <div class="row review-wrapper">
+                  <div class="col-lg-3">
+                    <div class="ratings-info corner-radius-10 text-center">
+                      <h3>4.8</h3>
+                      <span>out of 5.0</span>
+                      <div class="rating">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-9">
+                    <div class="recommended">
+                      <h5>Recommended by 97% of Players</h5>
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-3">
+                          <p class="mb-0">Quality of service</p>
+                          <ul>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><span>5.0</span></li>
+                          </ul>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-3">
+                          <p class="mb-0">Quality of service</p>
+                          <ul>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><span>5.0</span></li>
+                          </ul>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-3">
+                          <p class="mb-0">Quality of service</p>
+                          <ul>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><span>5.0</span></li>
+                          </ul>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                          <p class="mb-0">Quality of service</p>
+                          <ul>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><span>5.0</span></li>
+                          </ul>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                          <p class="mb-0">Quality of service</p>
+                          <ul>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                            <li><span>5.0</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Review Box -->
+                <div class="review-box d-md-flex">
+                  <div class="review-profile">
+                    <img src="assets/img/profiles/avatar-01.jpg" class="img-fluid" alt="User">
+                  </div>
+                  <div class="review-info">
+                    <h6 class="mb-2 tittle">Amanda Booked on 06/04/2023</h6>
+                    <div class="rating">
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <span class="">5.0</span>
+                    </div>
+                    <span class="success-text"><i class="feather-check"></i>Yes, I would book again.</span>
+                    <h6>Absolutely Perfect</h6>
+                    <p>If you are looking for a perfect place for friendly matches with your friends or a competitive
+                      match, It is the best place.</p>
+                      <ul class="d-flex">
+                        @for (data of coachDetail2; track data; let i = $index) {
+                        <li>
+                          <a data-fancybox="gallery" href="javascript:void(0)" (click)="open1(i, albumsTwo)">
+                            <img class="img-fluid" alt="Image" [src]="data.img" />
+                          </a>
+                        </li>
+                        }
+                      </ul>
+                    <span class="post-date">Sent on 11/03/2023</span>
+                  </div>
+                </div>
+                <!-- /Review Box -->
+
+                <!-- Review Box -->
+                <div class="review-box d-md-flex">
+                  <div class="review-profile">
+                    <img src="assets/img/profiles/avatar-06.jpg" class="img-fluid" alt="User">
+                  </div>
+                  <div class="review-info">
+                    <h6 class="mb-2 tittle">Amanda Booked on 06/04/2023</h6>
+                    <div class="rating">
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <i class="fas fa-star filled"></i>
+                      <span class="">5.0</span>
+                    </div>
+                    <span class="warning-text"><i class="feather-x"></i>No, I dont want to book again.</span>
+                    <h6>Awesome. Its very convenient to play.</h6>
+                    <p>If you are looking for a perfect place for friendly matches with your friends or a competitive
+                      match, It is the best place.</p>
+                    <div class="dull-bg">
+                      <p>Experience badminton excellence at Badminton Academy. Top-notch facilities, well-maintained
+                        courts, and a friendly atmosphere. Highly recommended for an exceptional playing experience</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Review Box -->
+                <div class="d-flex justify-content-center">
+                  <button type="button" class="btn btn-load-more d-flex justify-content-center align-items-center">Load
+                    More<i class="feather-plus-square"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mb-0" #location>
+            <h4 class="accordion-header" id="panelsStayOpen-location">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseSeven">
+                Location
+              </button>
+            </h4>
+            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-location">
+              <div class="accordion-body">
+                <div class="google-maps">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.8862835683544!2d-73.98256668525309!3d41.93829486962529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd0ee3286615b7%3A0x42bfa96cc2ce4381!2s132%20Kingston%20St%2C%20Kingston%2C%20NY%2012401%2C%20USA!5e0!3m2!1sen!2sin!4v1670922579281!5m2!1sen!2sin"
+                    width="100%" height="544" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="dull-bg d-flex justify-content-start align-items-center mb-0">
+                  <div class="white-bg me-2">
+                    <i class="fas fa-location-arrow"></i>
+                  </div>
+                  <div class="">
+                    <h6>Our Venue Location</h6>
+                    <p>70 Bright St New York, USA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Accordian Contents -->
+      </div>
+      <aside class="col-12 col-sm-12 col-md-12 col-lg-4 theiaStickySidebar">
+        <div class="stickybar">
+          <div class="white-bg book-coach">
+            <h4 class="border-bottom">Book A Coach</h4>
+            <p><strong>Kevin Anderson</strong> Available Now</p>
+            <div class="dull-bg text-center">
+              <p class="mb-1">Start’s From</p>
+              <h4 class="d-inline-block primary-text mb-0">$10</h4>
+              <span>/hr</span>
+            </div>
+            <div class="d-grid btn-block mt-3">
+              <a [routerLink]="routes.coachDetails"
+                class="btn btn-secondary d-inline-flex justify-content-center align-items-center"><i
+                  class="feather icon-calendar"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="white-bg next-availability">
+            <div class="d-flex justify-content-start align-items-center">
+              <span class="icon-bg-40 d-flex justify-content-center align-items-center"><img class="img-fluid" alt=""
+                  src="assets/img/icons/head-calendar.svg" /></span>
+              <h4 class="mb-0">Next Availability</h4>
+            </div>
+            <ul class="clearfix">
+              <li>Thurs, Sept 24 &#64; 3pm</li>
+              <li>Fri, Sept 25 &#64; 3pm</li>
+              <li>Sat, Sept 26 &#64; 3pm</li>
+              <li>Sun, Sept 27 &#64; 3pm</li>
+            </ul>
+          </div>
+          <div class="white-bg">
+            <h4 class="border-bottom">Request for Availability</h4>
+            <form>
+              <div class="mb-10">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" />
+              </div>
+              <div class="mb-10">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email Address" />
+              </div>
+              <div class="mb-10">
+                <label for="name" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phonenumber" placeholder="Enter Phone Number" />
+              </div>
+              <div class="mb-10 coach-detail-select">
+                <label for="court" class="form-label">Court</label>
+                <mat-select [(ngModel)]="selectedValue1" [ngModelOptions]="{ standalone: true }"
+                  class="select" placeholder="Select City">
+                  @for (data of selectedList1; track data) {
+                  <mat-option [value]="data.value">
+                    {{ data.value }}
+                  </mat-option>
+                  }
+                </mat-select>
+              </div>
+              <div class="mb-10">
+                <label for="comments" class="form-label">Details</label>
+                <textarea class="form-control" id="comments" rows="3" placeholder="Enter Comments"></textarea>
+              </div>
+              <div class="form-check d-flex justify-content-start align-items-center policy">
+                <div class="d-inline-block">
+                  <input class="form-check-input" type="checkbox" value="" id="policy" checked />
+                </div>
+                <label class="form-check-label" for="policy">By clicking 'Send Request', I agree to Dreamsport Privacy
+                  Policy and Terms of Use</label>
+              </div>
+              <div class="d-grid btn-block">
+                <a [routerLink]="routes.contactUs"
+                  class="btn btn-secondary d-inline-flex justify-content-center align-items-center">Send Request<i
+                    class="feather icon-arrow-right-circle ms-1"></i></a>
+              </div>
+            </form>
+          </div>
+          <div class="white-bg listing-owner">
+            <h4 class="border-bottom">Listing By Owner</h4>
+            <ul>
+              <li class="d-flex justify-content-start align-items-center">
+                <div class="">
+                  <a [routerLink]="routes.blogdetails"><img class="img-fluid" alt=""
+                      src="assets/img/listing-by-owner-01.jpg" /></a>
+                </div>
+                <div class="owner-info">
+                  <h5>
+                    <a [routerLink]="routes.blogdetails">Manchester Academy</a>
+                  </h5>
+                  <p>
+                    <i class="feather icon-map-pin"></i><span>Sacramento, CA</span>
+                  </p>
+                  <p class="mb-0">
+                    <i class="feather icon-calendar"></i><span>Next availablity : </span><span class="primary-text">15
+                      May 2023</span>
+                  </p>
+                </div>
+              </li>
+              <li class="d-flex justify-content-start align-items-center">
+                <div class="">
+                  <a [routerLink]="routes.blogdetails"><img class="img-fluid" alt=""
+                      src="assets/img/listing-by-owner-02.jpg" /></a>
+                </div>
+                <div class="owner-info">
+                  <h5>
+                    <a [routerLink]="routes.blogdetails">Sarah Sports Academy</a>
+                  </h5>
+                  <p>
+                    <i class="feather icon-map-pin"></i><span>Sacramento, CA</span>
+                  </p>
+                  <p class="mb-0">
+                    <i class="feather icon-calendar"></i><span>Next availablity : </span><span class="primary-text">15
+                      May 2023</span>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="white-bg">
+            <h4 class="border-bottom">Share Venue</h4>
+            <ul class="social-medias d-flex">
+              <li class="facebook">
+                <a href="javascript:void(0);"><i class="fa-brands fa-facebook-f"></i></a>
+              </li>
+              <li class="instagram">
+                <a href="javascript:void(0);"><i class="fa-brands fa-instagram"></i></a>
+              </li>
+              <li class="behance">
+                <a href="javascript:void(0);"><i class="fa-brands fa-behance"></i></a>
+              </li>
+              <li class="twitter">
+                <a href="javascript:void(0);"><i class="fa-brands fa-twitter"></i></a>
+              </li>
+              <li class="pinterest">
+                <a href="javascript:void(0);"><i class="fa-brands fa-pinterest"></i></a>
+              </li>
+              <li class="linkedin">
+                <a href="javascript:void(0);"><i class="fa-brands fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <!-- /Row -->
+  </div>
+  <!-- /container -->
+
+  <section class="section innerpagebg">
+    <div class="container">
+      <div class="featured-slider-group">
+        <h3 class="mb-40">Similar Coaches</h3>
+        <div class="featured-venues-slider">
+          <!-- Featured Item -->
+          <owl-carousel-o [options]="featuredVenuesSliderOptions">
+            @for (data of featuredVenuesSlider; track data) {
+            <ng-template carouselSlide>
+              <div class="featured-venues-item">
+                <div class="listing-item listing-item-grid">
+                  <div class="listing-img">
+                    <a [routerLink]="routes.coachDetail">
+                      <img [src]="data.img" alt="" />
+                    </a>
+                    <div class="fav-item-venues">
+                      <span class="tag tag-blue">{{ data.content }}</span>
+                      <div class="list-reviews coche-star">
+                        <a href="javascript:void(0)" class="fav-icon" (click)="data.like = !data.like"
+                          [ngClass]="{ selected: data.like === true }">
+                          <i class="feather icon-heart"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="hour-list">
+                      <h5 class="tag tag-primary">
+                        {{ data.price }} <span>{{ data.span }}</span>
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="listing-content">
+                    <h3 class="listing-title">
+                      <a [routerLink]="routes.coachDetail">{{ data.name }}</a>
+                    </h3>
+                    <ul class="mb-2">
+                      <li>
+                        <span>
+                          <i class="feather icon-map-pin me-2"></i>{{ data.place }}
+                        </span>
+                      </li>
+                    </ul>
+                    <div class="listing-details-group">
+                      <p>
+                        {{ data.para }}
+                      </p>
+                    </div>
+                    <div class="coach-btn">
+                      <ul>
+                        <li>
+                          <a [routerLink]="routes.coachDetail" class="btn btn-primary w-100"><i
+                              class="feather icon-eye me-2"></i>{{ data.profile }}</a>
+                        </li>
+                        <li>
+                          <a [routerLink]="routes.coachDetail" class="btn btn-secondary w-100"><i
+                              class="feather icon-calendar me-2"></i>{{ data.booking }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="avalbity-review">
+                      <ul>
+                        <li>
+                          <div class="avalibity-date">
+                            <span><i class="feather icon-calendar"></i></span>
+                            <div class="avalibity-datecontent">
+                              <h6>Next Availabilty</h6>
+                              <h5>20 May 2023</h5>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="list-reviews mb-0">
+                            <div class="d-flex align-items-center">
+                              <span class="rating-bg">4.5</span><span>{{ data.reviews }}</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            }
+          </owl-carousel-o>
+          <!-- /Featured Item -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /Page Content -->

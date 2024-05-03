@@ -1,0 +1,12 @@
+.listing-img img{
+    height: 230px;
+}
+
+.listing-details-group p{
+    height: 50px;
+    display: block;
+    /* overflow: revert; */
+    word-break: break-all;
+    clip-path: fill-box;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,110 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="banner-cock-one">
+    <img src="assets/img/icons/banner-cock1.svg" alt="banner-img">
+  </div>
+  <div class="banner-shapes">
+    <div class="banner-dot-one">
+      <span></span>
+    </div>
+    <div class="banner-cock-two">
+      <img src="assets/img/icons/banner-cock2.svg" alt="banner-img">
+      <span></span>
+    </div>
+    <div class="banner-dot-two">
+      <span></span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="home-banner">
+      <div class="row align-items-center w-100">
+        <div class="col-lg-7 col-md-10 mx-auto">
+          <div class="section-search aos" data-aos="fade-up">
+            <h4>Wide range of sports</h4>
+            <h1>Choose Your <span>Sport</span> and Start Playing...!</h1>
+            <p class="sub-info">Unleash Your Athletic Potential</p>
+            
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="banner-imgs text-center aos" data-aos="fade-up">
+            <img class="img-fluid" alt="banner-img" src="assets/img/bg/banner-right.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Hero Section -->
+
+<section class="section court-near">
+  <div class="container">
+    <div class="section-heading aos" data-aos="fade-up">
+      <h2>Find Courts <span>Near You</span></h2>
+      <p class="sub-title">Discover nearby badminton courts for convenient and accessible gameplay.</p>
+    </div>
+    <div class="row">
+      <div class="featured-slider-group aos" data-aos="fade-up">
+        <owl-carousel-o class=" featured-venues-slider aos" data-aos="fade-up" data-aos-delay="500"
+          [options]="topVenueOwlOptions">
+          @for (slide of courts; track slide) {
+          <ng-template class="item" carouselSlide>
+            <!-- Courts Item -->
+            <div class="featured-venues-item court-near-item">
+              <div class="listing-item mb-0">
+                <div class="listing-img home-img">
+                  <a [routerLink]="routes.venueDetails">
+                    <img [src]="slide.img" alt="venues-img">
+                  </a>
+                  <div class="fav-item-venues">
+                    <div class="list-reviews coche-star">
+                      <a href="javascript:void(0)" class="fav-icon" (click)="fav(slide)"
+                        [ngClass]="{'selected': slide.favourite}">
+                        <i class="feather icon-heart"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="listing-content ">
+                  <h3 class="listing-title">
+                    <a [routerLink]="routes.venueDetails">{{slide.title}}</a>
+                  </h3>
+                  <div class="listing-details-group">
+                    <ul>
+                      <li>
+                        <span>
+                          <i class="feather icon-map-pin me-1" ></i>{{slide.address}}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="list-reviews near-review">
+                    <div class="d-flex align-items-center">
+                      <span class="rating-bg">{{slide.rating}}</span><span>{{slide.review}} Reviews</span>
+                    </div>
+                    <span class="mile-away d-flex"><i class="feather icon-zap me-1" ></i>{{slide.distance}}
+                      Miles Away</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Courts Item -->
+          </ng-template>
+          }
+        </owl-carousel-o>
+
+      </div>
+    </div>
+
+    <!-- View More -->
+    <div class="view-all text-center aos" data-aos="fade-up">
+      <a [routerLink]="routes.listingsgrid" class="btn btn-secondary d-inline-flex align-items-center">View All Services
+        <span class="lh-1"><i class="feather icon-arrow-right-circle ms-2" ></i></span></a>
+    </div>
+    <!-- View More -->
+
+  </div>
+</section>
+<!-- /Courts Near -->
+
+<!-- /Newsletter -->

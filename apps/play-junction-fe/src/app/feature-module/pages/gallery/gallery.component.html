@@ -1,0 +1,39 @@
+
+
+
+
+<!-- Page Content -->
+
+<div class="content gallery-blk">
+  <div class="container">
+
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <div class="row">
+        @for (image of albumsOne; track image; let i = $index) {
+          @if (i < 15) {
+            <div class="grid-item gallery-widget-item"  >
+              
+              <a href="javascript:void(0)" data-fancybox="gallery4">
+                <img [src]="image.src" class="img-fluid" alt="img" (click)="open(i, albumsOne)">
+              </a>
+            </div>
+          }
+        }
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+<!-- /Page Content -->
+
+
+

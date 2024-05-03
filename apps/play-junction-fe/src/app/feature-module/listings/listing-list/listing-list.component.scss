@@ -1,0 +1,22 @@
+.listing-img img{
+    width: 315px;
+    height: 275px;
+}
+
+.listing-content {
+    height: 275px;
+}
+
+.listing-details-group{
+    max-height: 95px;
+}
+
+.listing-details-group p{
+    height: 50px;
+    display: block;
+    /* overflow: revert; */
+    word-break: break-all;
+    clip-path: fill-box;
+    text-overflow: ellipsis;
+}
+

@@ -1,0 +1,276 @@
+Sat Apr 06 2024 18:13:44 GMT+0530 (India Standard Time) - ReferenceError: url is not defined
+    at Object.connection.getUserCollection (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:90:5)
+    at Object.create.setupDB (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/models/dbSetup.js:64:23)
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/main.ts:27:10
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+Sat Apr 06 2024 18:14:56 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: gender: `female` is not a valid enum value for path `gender`.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:15:50 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: password: Password must contain at least one letter and one number, preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:22:02 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:23:10 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:23:12 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:23:13 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:23:14 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:23:15 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:24:42 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:24:49 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:24:50 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:24:51 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:24:53 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:25:00 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: Path `expertiseLevel` is required., preferences.1.expertiseLevel: Path `expertiseLevel` is required.
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sat Apr 06 2024 18:29:59 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: preferences.0.expertiseLevel: 2, preferences.1.expertiseLevel: 2
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3046:17
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+Sun Apr 07 2024 03:03:04 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+Sun Apr 07 2024 03:04:34 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+Sun Apr 07 2024 03:05:33 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:140:19
+Sun Apr 07 2024 03:05:43 GMT+0530 (India Standard Time) - MongooseError: Operation `users.deleteMany()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at processTimers (node:internal/timers:514:7)
+Sun Apr 07 2024 03:06:41 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:140:19
+Sun Apr 07 2024 03:09:06 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:140:19
+Sun Apr 07 2024 03:22:36 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:22:38 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:23:05 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:23:09 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:23:24 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:25:41 GMT+0530 (India Standard Time) - ReferenceError: url is not defined
+    at Object.connection.getCollection (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:133:5)
+    at Object.create.setupDB (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/models/dbSetup.js:38:23)
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/main.ts:24:10
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+Sun Apr 07 2024 03:25:44 GMT+0530 (India Standard Time) - ReferenceError: url is not defined
+    at Object.connection.getCollection (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:133:5)
+    at Object.create.setupDB (/Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/models/dbSetup.js:38:23)
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/main.ts:24:10
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+Sun Apr 07 2024 03:25:57 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:142:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:25:59 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:142:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:28:31 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 03:28:59 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:141:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 08:59:39 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:142:19
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Sun Apr 07 2024 09:02:08 GMT+0530 (India Standard Time) - MongooseError: Operation `users.deleteMany()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at processTimers (node:internal/timers:514:7)
+Sun Apr 07 2024 09:02:09 GMT+0530 (India Standard Time) - Error: Could not connect to the database
+    at /Users/ddsvarma/Source/Source/play-junction/apps/play-junction-be/src/Utilities/connection.js:142:19
+Sun Apr 07 2024 09:02:16 GMT+0530 (India Standard Time) - ValidationError: Users validation failed: skillLevels.0.skillLevel: Cast to Number failed for value "Advanced" (type string) at path "skillLevel", skillLevels.1.skillLevel: Cast to Number failed for value "Intermediate" (type string) at path "skillLevel"
+    at model.Document.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:3285:32)
+    at EmbeddedDocument.Subdocument.invalidate (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at EmbeddedDocument.$set (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:1459:12)
+    at EmbeddedDocument.$set (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:1113:16)
+    at EmbeddedDocument.Document (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/document.js:166:12)
+    at EmbeddedDocument.Subdocument (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/subdocument.js:34:12)
+    at EmbeddedDocument.ArraySubdocument [as constructor] (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/types/arraySubdocument.js:44:15)
+    at new EmbeddedDocument (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schema/documentArray.js:127:17)
+    at SchemaDocumentArray.cast (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schema/documentArray.js:502:22)
+    at SchemaDocumentArray.SchemaType.applySetters (/Users/ddsvarma/Source/Source/play-junction/node_modules/mongoose/lib/schemaType.js:1236:12)
+Mon Apr 08 2024 00:48:23 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 00:49:08 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 00:49:19 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 00:55:21 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 00:57:14 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 01:00:29 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 01:02:15 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Mon Apr 08 2024 01:03:20 GMT+0530 (India Standard Time) - PayloadTooLargeError: request entity too large
+    at readStream (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/ddsvarma/Source/Source/play-junction/node_modules/raw-body/index.js:116:12)
+    at read (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:328:13)
+    at /Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/ddsvarma/Source/Source/play-junction/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/ddsvarma/Source/Source/play-junction/node_modules/body-parser/lib/types/urlencoded.js:100:7)
+Tue Apr 09 2024 11:30:58 GMT-0500 (Central Daylight Time) - TypeError: eventCol.drop is not a function
+    at C:\Users\asifs\Desktop\Spring 2024\Software Engineering\play-junction\play-junction\apps\play-junction-be\src\models\dbSetup.js:42:23
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Tue Apr 09 2024 11:34:05 GMT-0500 (Central Daylight Time) - TypeError: eventCol.drop is not a function
+    at C:\Users\asifs\Desktop\Spring 2024\Software Engineering\play-junction\play-junction\apps\play-junction-be\src\models\dbSetup.js:42:23
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)

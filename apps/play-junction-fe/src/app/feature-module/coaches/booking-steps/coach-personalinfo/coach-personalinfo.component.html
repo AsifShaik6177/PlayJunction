@@ -1,0 +1,42 @@
+<!-- Page Content -->
+<div class="content">
+    <div class="container">
+        <section class="mb-40">
+            <div class="text-center mb-40">
+                <h3 class="mb-1">Personal Information</h3>
+                <p class="sub-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="card">
+                <h3 class="border-bottom">Enter Details</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Phone Number</label>
+                          <input type="text" class="form-control" id="phonenumber" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Address</label>
+                          <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                    </div>
+                    <div>
+                        <label for="comments" class="form-label">Details</label>
+                        <textarea class="form-control" id="comments" rows="3" placeholder="Enter Comments"></textarea>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="text-center btn-row">
+            <a class="btn btn-primary me-3 btn-icon" [routerLink] = "routes.coachTimeDate"><i class="feather icon-arrow-left-circle me-1"></i> Back</a>
+            <a class="btn btn-secondary btn-icon" [routerLink] = "routes.coachOrderConfirm">Next <i class="feather icon-arrow-right-circle ms-1"></i></a>
+        </div>
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /Page Content -->
